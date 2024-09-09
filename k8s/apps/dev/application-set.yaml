@@ -4,7 +4,7 @@ metadata:
   name: dev
   namespace: argocd
   labels:
-    me.kundun: application
+    me.kundun: dev
 spec:
   generators:
     - git:
@@ -16,7 +16,7 @@ spec:
     metadata:
       name: '{{ path.basename }}'
       labels:
-        me.kundun: application
+        me.kundun: dev
       finalizers:
         - resources-finalizer.argocd.argoproj.io
     spec:

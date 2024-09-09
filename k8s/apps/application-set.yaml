@@ -11,7 +11,7 @@ spec:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
         revision: HEAD
         directories:
-          - path: k8s/apps/dev/whoami
+          - path: k8s/apps/*
   template:
     metadata:
       name: '{{ path.basename }}'

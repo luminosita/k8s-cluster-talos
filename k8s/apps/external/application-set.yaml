@@ -8,8 +8,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/luminosita/homelab
-        revision: HEAD
+        repoURL: https://github.com/luminosita/k8s-cluster-talos
         directories:
           - path: k8s/apps/external/*
   template:
@@ -22,7 +21,7 @@ spec:
     spec:
       project: external
       source:
-        repoURL: https://github.com/luminosita/homelab
+        repoURL: https://github.com/luminosita/k8s-cluster-talos
         targetRevision: HEAD
         path: '{{ path }}'
       destination:

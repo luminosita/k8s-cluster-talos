@@ -14,6 +14,7 @@ $ brew install argocd
 
 ```bash
 $ argocd admin initial-password -n argocd
+XXX
 ```
 
 ```bash

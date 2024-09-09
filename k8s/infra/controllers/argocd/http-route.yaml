@@ -8,7 +8,7 @@ spec:
     - name: insecure
       namespace: gateway
   hostnames:
-    - "argocd.emisia.net"
+    - "k3s.emisia.net"
   rules:
     - matches:
         - path:

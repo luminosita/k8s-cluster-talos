@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: external
+  namespace: argocd
+spec:
+  sourceRepos:
+    - 'https://github.com/luminosita/homelab'
+  destinations:
+    - namespace: 'argocd'
+      server: '*'
+    - namespace: 'proxmox'
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'

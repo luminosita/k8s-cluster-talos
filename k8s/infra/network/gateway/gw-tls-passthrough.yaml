@@ -18,12 +18,3 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
-    - protocol: TLS
-      port: 443
-      name: truenas
-      hostname: "truenas.emisia.net"
-      tls:
-        mode: Passthrough
-      allowedRoutes:
-        namespaces:
-          from: All

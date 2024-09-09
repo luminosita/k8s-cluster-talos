@@ -1,19 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: applications
+  name: external
   namespace: argocd
   labels:
-    me.kundun: application
+    me.kundun: external
 spec:
   generators:
     - git:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
-        revision: HEAD
         directories:
-          - path: k8s/apps/*
-          - path: k8s/apps/external
-            exclude: true
+          - path: k8s/apps/external/*
   template:
     metadata:
       name: '{{ path.basename }}'
@@ -22,7 +19,7 @@ spec:
       finalizers:
         - resources-finalizer.argocd.argoproj.io
     spec:
-      project: applications
+      project: external
       source:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
         targetRevision: HEAD

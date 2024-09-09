@@ -1,15 +1,35 @@
 # k8s-cluster-talos
 
-cd tf
+```bash
+$ cd tf
+$ make talos
+```
+```bash
+$ make gateway
+```
 
-TF_WS=kubernetes make certificates
+```bash
+$ brew install argocd
+```
 
-TF_WS=kubernetes make init-tf
-TF_WS=kubernetes make plan
-TF_WS=kubernetes make apply
+```bash
+$ argocd admin initial-password -n argocd
+```
 
-TF_WS=kubernetes make kubeconfig
+```bash
+$ argocd login argocd.emisia.net:80
+```
+(yes)
+user: admin
+password: XXX
 
-TF_WS=gateway make init-tf
-TF_WS=gateway make plan
-TF_WS=gateway make apply
+```bash
+$ argocd account update-password
+```
+```bash
+$ kubectl config get-contexts -o name
+admin@talos
+```
+```bash
+$ argocd cluster add admin@talos
+```

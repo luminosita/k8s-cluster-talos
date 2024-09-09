@@ -1,0 +1,9 @@
+# gateway/cloudflare-api-token.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cloudflare-api-token
+  namespace: cert-manager
+type: Opaque
+stringData:
+  api-token: gxqpNkHwwhbPgZhU70QeseYBblQR48SZFAiCx1UD     #TODO Change to sealed secret

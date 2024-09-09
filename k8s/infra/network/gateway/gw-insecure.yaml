@@ -1,0 +1,25 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: insecure
+  namespace: gateway
+spec:
+  gatewayClassName: cilium
+  infrastructure:
+    annotations:
+      io.cilium/lb-ipam-ips: 192.168.50.223
+  listeners:
+    - protocol: HTTP
+      port: 80
+      name: http-gateway
+      hostname: "*.emisia.net"
+      allowedRoutes:
+        namespaces:
+          from: All
+    - protocol: HTTP
+      port: 80
+      name: http-domain-gateway
+      hostname: emisia.net
+      allowedRoutes:
+        namespaces:
+          from: All

@@ -9,6 +9,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
+        revision: HEAD
         directories:
           - path: k8s/apps/external/*
   template:

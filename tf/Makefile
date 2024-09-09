@@ -1,4 +1,4 @@
-CERT_FOLDER:=./kubernetes/bootstrap/sealed-secrets/certificate
+CERT_FOLDER:=./cluster/bootstrap/sealed-secrets/certificate
 
 include common.mk
 
@@ -6,7 +6,7 @@ talos:
 	$(info TERRAFORM: Creating Talos Cluster)
 	mkdir -p ${CERT_FOLDER} && \
 	openssl req -x509 -days 365 -nodes -newkey rsa:4096 -keyout ${CERT_FOLDER}/sealed-secrets.key -out ${CERT_FOLDER}/sealed-secrets.cert -subj "/CN=sealed-secret/O=sealed-secret" && \
-	cd kubernetes && \
+	cd cluster && \
 	terraform init && \
 	terraform plan -out talos.tfplan && \
 	terraform apply talos.tfplan && \
@@ -14,9 +14,9 @@ talos:
 
 destroy-talos:
 	$(info TERRAFORM: Destroying Talos Cluster)
-	cd kubernetes && \
-	terraform plan -destroy -out=destroy.tfplan
-	# terraform apply destroy.tfplan && \
+	cd cluster && \
+	terraform plan -destroy -out=destroy.tfplan && \
+	terraform apply destroy.tfplan
 
 gateway:
 	$(info TERRAFORM: Cilium Gateway, Cert-manager, ArgoCD)

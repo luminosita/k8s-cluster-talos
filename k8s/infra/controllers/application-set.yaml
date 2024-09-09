@@ -12,6 +12,8 @@ spec:
         revision: HEAD
         directories:
           - path: k8s/infra/controllers/*
+          - path: k8s/infra/controllers/cert-manager
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}'

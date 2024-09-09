@@ -107,57 +107,57 @@ module "volumes" {
 
   proxmox_api = var.proxmox
   volumes = {
-    pv-sonarr = {
-      node = "proxmox"
-      size = "4G"
-    }
-    pv-radarr = {
-      node = "proxmox"
-      size = "4G"
-    }
-    pv-lidarr = {
-      node = "proxmox"
-      size = "4G"
-    }
-    pv-prowlarr = {
-      node = "proxmox"
-      size = "1G"
-    }
-    pv-torrent = {
-      node = "proxmox"
-      size = "1G"
-    }
-    pv-remark42 = {
-      node = "proxmox"
-      size = "1G"
-    }
-    pv-keycloak = {
-      node = "proxmox"
-      size = "2G"
-    }
-    pv-jellyfin = {
-      node = "proxmox"
-      size = "12G"
-    }
-    pv-netbird-signal = {
-      node = "proxmox"
-      size = "1G"
-    }
-    pv-netbird-management = {
-      node = "proxmox"
-      size = "1G"
-    }
-    pv-plex = {
-      node = "proxmox"
-      size = "12G"
-    }
-    pv-prometheus = {
-      node = "proxmox"
-      size = "10G"
-    }
-    pv-single-database = {
-      node = "proxmox"
-      size = "4G"
-    }
+    # pv-sonarr = {
+    #   node = "proxmox"
+    #   size = "4G"
+    # }
+    # pv-radarr = {
+    #   node = "proxmox"
+    #   size = "4G"
+    # }
+    # pv-lidarr = {
+    #   node = "proxmox"
+    #   size = "4G"
+    # }
+    # pv-prowlarr = {
+    #   node = "proxmox"
+    #   size = "1G"
+    # }
+    # pv-torrent = {
+    #   node = "proxmox"
+    #   size = "1G"
+    # }
+    # pv-remark42 = {
+    #   node = "proxmox"
+    #   size = "1G"
+    # }
+    # pv-keycloak = {
+    #   node = "proxmox"
+    #   size = "2G"
+    # }
+    # pv-jellyfin = {
+    #   node = "proxmox"
+    #   size = "12G"
+    # }
+    # pv-netbird-signal = {
+    #   node = "proxmox"
+    #   size = "1G"
+    # }
+    # pv-netbird-management = {
+    #   node = "proxmox"
+    #   size = "1G"
+    # }
+    # pv-plex = {
+    #   node = "proxmox"
+    #   size = "12G"
+    # }
+    # pv-prometheus = {
+    #   node = "proxmox"
+    #   size = "10G"
+    # }
+    # pv-single-database = {
+    #   node = "proxmox"
+    #   size = "4G"
+    # }
   }
 }

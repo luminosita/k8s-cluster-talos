@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - cert-emisia.yaml
   - cert-emisia-wild.yaml
+  - cert-emisia-test.yaml
   - gateway-class.yaml
   - ns.yaml
   - gw-external.yaml

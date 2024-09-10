@@ -11,7 +11,7 @@ spec:
   dnsNames:
     - emisia.net
     - test.emisia.net
-  secretName: cert-emisia
+  secretName: cert-emisia-test
 
   privateKey:
     algorithm: RSA

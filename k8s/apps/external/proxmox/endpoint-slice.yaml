@@ -10,7 +10,7 @@ addressType: IPv4
 ports:
   - name: https
     protocol: TCP
-    port: 8006
+    port: 443
 endpoints:
   - addresses:
       - 192.168.50.12

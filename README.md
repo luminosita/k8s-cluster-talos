@@ -5,7 +5,7 @@ $ cd tf
 $ make talos
 ```
 ```bash
-$ make gateway
+$ make k8s
 ```
 
 ```bash

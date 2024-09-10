@@ -1,8 +1,10 @@
 ## 🏗️ Work in Progress
 
-- [ ] Finish README
+- [x] Finish README
 - [ ] Gollum with storage
 - [ ] VSCode with local drive mount
+- [ ] GLOBAL_REPO_URL variable for Kustomization or ArgoCD
+- [ ] GLOBAL_GATEWAY_DOMAIN variable for Kustomization or ArgoCD
 
 # K8s (Proxmox VMs and DigitalOcean for true HA)
 - [x] Terraform

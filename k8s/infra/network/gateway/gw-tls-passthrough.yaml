@@ -20,7 +20,7 @@ spec:
           from: All
     - protocol: TLS
       port: 443
-      name: proxmox
+      name: proxmox-local
       hostname: "proxmox.local"
       tls:
         mode: Passthrough

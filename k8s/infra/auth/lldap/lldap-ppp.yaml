@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: lldap-credentials
+  namespace: lldap
+type: Opaque
+stringData:
+  LLDAP_JWT_SECRET: eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcyNjAwMjg5MywiaWF0IjoxNzI2MDAyODkzfQ.MgWCgHfIt9NpCcJFUnte7SHjJP9e61v3xm_Fm1k-5dg
+  LLDAP_LDAP_USER_PASS: laptop01
+  LLDAP_BASE_DN: dc=emisia,dc=net

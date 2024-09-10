@@ -16,7 +16,7 @@
 # SSL
 - [x] LetsEnrypt
 - [x] Key rotation
-- [ ] Sealed secrets
+- [x] Sealed secrets
 
 # Identity Provider
 - [ ] Keycloak, Dex, Pomerium (LDAP, Google, GitHub)

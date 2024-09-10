@@ -18,3 +18,12 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
+    - protocol: TLS
+      port: 443
+      name: proxmox
+      hostname: "proxmox.local"
+      tls:
+        mode: Passthrough
+      allowedRoutes:
+        namespaces:
+          from: All

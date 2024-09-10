@@ -9,6 +9,7 @@ spec:
       namespace: gateway
   hostnames:
     - "proxmox.emisia.net"
+    - "proxmox.local"
   rules:
     - backendRefs:
         - name: proxmox

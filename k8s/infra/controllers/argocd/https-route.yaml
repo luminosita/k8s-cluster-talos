@@ -5,10 +5,10 @@ metadata:
   namespace: argocd
 spec:
   parentRefs:
-    - name: insecure
+    - name: internal
       namespace: gateway
   hostnames:
-    - "argocd.local"
+    - "argocd.emisia.net"
   rules:
     - matches:
         - path:

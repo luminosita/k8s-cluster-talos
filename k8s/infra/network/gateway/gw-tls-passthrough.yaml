@@ -9,7 +9,7 @@ spec:
     annotations:
       io.cilium/lb-ipam-ips: 192.168.50.221
   listeners:
-    - protocol: HTTPS
+    - protocol: TLS
       port: 443
       name: proxmox
       hostname: "proxmox.emisia.net"
@@ -18,7 +18,7 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
-    - protocol: HTTPS
+    - protocol: TLS
       port: 443
       name: proxmox-local
       hostname: "proxmox.local"

@@ -6,6 +6,6 @@ metadata:
 spec:
   ports:
     - name: https
-      protocol: TCP
+      protocol: TLS
       port: 443
       targetPort: 8006

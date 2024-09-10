@@ -1,3 +1,11 @@
+global:
+  domain: argocd.emisia.net
+  env: 
+    - name: "GLOBAL_REPO_URL"
+      value: "https://github.com/luminosita/k8s-cluster-talos"
+    - name: "GLOBAL_GATEWAY_DOMAIN"
+      value: "emisia.net"
+
 configs:
   cm:
     create: true

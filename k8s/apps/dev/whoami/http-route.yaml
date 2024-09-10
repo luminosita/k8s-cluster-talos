@@ -5,15 +5,15 @@ metadata:
   namespace: whoami
 spec:
   parentRefs:
-    - name: insecure
+    - name: internal
       namespace: gateway
   hostnames:
-    - "whoami.emisia.net"
+    - emisia.net
   rules:
     - matches:
         - path:
             type: PathPrefix
-            value: /
+            value: /whoami
       backendRefs:
         - name: whoami
           port: 80

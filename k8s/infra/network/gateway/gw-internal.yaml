@@ -18,7 +18,7 @@ spec:
       tls:  
         mode: Terminate
         certificateRefs:
-          - name: cert-emisia
+          - name: cert-emisia-wild
             kind: Secret
             group: core      
       allowedRoutes:
@@ -31,7 +31,7 @@ spec:
       tls:  
         mode: Terminate
         certificateRefs:
-          - name: cert-emisia
+          - name: cert-emisia-wild
             kind: Secret
             group: core      
       allowedRoutes:

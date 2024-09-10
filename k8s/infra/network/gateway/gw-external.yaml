@@ -16,7 +16,7 @@ spec:
       tls:
         certificateRefs:
           - kind: Secret
-            name: cert-emisia
+            name: cert-emisia-wild
       allowedRoutes:
         namespaces:
           from: All
@@ -27,7 +27,7 @@ spec:
       tls:
         certificateRefs:
           - kind: Secret
-            name: cert-emisia
+            name: cert-emisia-wild
       allowedRoutes:
         namespaces:
           from: All

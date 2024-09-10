@@ -9,6 +9,7 @@ spec:
       namespace: gateway
   hostnames:
     - "argocd.emisia.net"
+    - "argocd.local"
   rules:
     - matches:
         - path:

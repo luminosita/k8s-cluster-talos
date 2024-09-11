@@ -4,7 +4,7 @@ metadata:
   name: lldap
   namespace: lldap
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: lldap
   ports:

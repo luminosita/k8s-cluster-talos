@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: testapps
+  namespace: argocd
+  labels:
+    me.kundun: testlab
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/rancher/local-path-provisioner
+        revision: HEAD
+        directories:
+          - path: examples/*
+          - path: examples/distroless
+            exclude: true
+          - path: examples/quota
+            exclude: true
+          - path: examples/shared-fs
+            exclude: true
+  template:
+    metadata:
+      name: '{{ path.basename }}'
+      labels:
+        me.kundun: testlab
+      # finalizers:
+      #   - resources-finalizer.argocd.argoproj.io
+    spec:
+      project: testlab
+      source:
+        repoURL: https://github.com/rancher/local-path-provisioner
+        targetRevision: local-path-provisioner
+        path: '{{ path }}'
+      destination:
+        name: in-cluster
+        namespace: argocd
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true

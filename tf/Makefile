@@ -28,6 +28,8 @@ bootstrap-k8s:
 	kubectl kustomize --enable-helm ../k8s/infra/network/cilium | kubectl apply -f -
 #Sealed secrets for cert-manager and gateway certificates
 	kustomize build --enable-helm ../k8s/infra/controllers/sealed-secrets | kubectl apply -f -
+#Cert-manager	
+	kustomize build --enable-helm ../k8s/infra/controllers/cert-manager | kubectl apply -f -
 #Deploy Local Path Provisioner for ArgoCD applications
 	kustomize build ../k8s/infra/storage/local-path-provisioner | kubectl apply -f -
 	kubectl -n local-path-storage get pod

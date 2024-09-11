@@ -1,6 +1,6 @@
-# Configure LLDAP
+# Configure Light LDAP
 
-## Set Environment Variables
+### Setup Environment Variables
 
 ```bash
 NAMESPACE=lldap \
@@ -20,11 +20,11 @@ kubectl create secret generic lldap-credentials \
   --from-literal=LLDAP_BASE_DN=${LLDAP_BASE_DN} \
   -n ${NAMESPACE} --dry-run=client -o yaml | \
   kubeseal --controller-namespace=sealed-secrets \
-  --format=yaml - > lldap-credentials.yaml
+  --format=yaml - > ../k8s/infra/auth/lldap/lldap-credentials.yaml
 ```
-# Bootstrap LLDAP
+# Bootstrap Light LDAP
 
-## Create Users
+## Create Users/Groups Configurations
 
 #### Example single user (`users.json'):
 
@@ -105,7 +105,7 @@ kubectl create secret generic lldap-credentials \
 }
 ```
 
-### Create Sealed Secret for bootstrap user/group configuration
+### Create Sealed Secret for Light LDAP Bootstrap
 
 ```bash
 $ kubectl create secret generic lldap-config \
@@ -113,5 +113,7 @@ $ kubectl create secret generic lldap-config \
   --from-file=groups.json=groups.json \
   -n ${NAMESPACE} --dry-run=client -o yaml | \
   kubeseal --controller-namespace=sealed-secrets \
-  --format=yaml  - > lldap-config.yaml
+  --format=yaml  - > ../k8s/infra/auth/lldap/lldap-config.yaml
   ```
+
+  > **_NOTE_**: Files `users.json` and `groups.json` can be deleted

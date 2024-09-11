@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-  - sealed-cloudflare-api-token.yaml
+  - cloudflare-api-token.yaml
   - cluster-issuer.yaml
 
 helmCharts:

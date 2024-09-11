@@ -29,3 +29,5 @@ override.tf.json
 *.key
 
 tmp/
+tf/users.json
+tf/groups.json

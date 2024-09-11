@@ -15,6 +15,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 
 ## 🏗️ Work in Progress
 
+- [ ] Ansible instead of Makefile or Taskfile
 - [x] Finish README
 - [ ] Gollum with local-path provisioner 
 - [ ] Gollum with storage

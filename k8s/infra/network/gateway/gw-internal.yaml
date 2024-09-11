@@ -3,8 +3,6 @@ kind: Gateway
 metadata:
   name: internal
   namespace: gateway
-  annotations:
-    cert-manager.io/issuer: cloudflare-cluster-issuer
 spec:
   gatewayClassName: cilium
   infrastructure:
@@ -18,9 +16,9 @@ spec:
       tls:  
         mode: Terminate
         certificateRefs:
-          - name: cert-emisia-wild
-            kind: Secret
-            group: core      
+          - kind: Secret
+            name: cert-emisia-wild
+            namespace: cert-manager
       allowedRoutes:
         namespaces:
           from: All
@@ -31,9 +29,9 @@ spec:
       tls:  
         mode: Terminate
         certificateRefs:
-          - name: cert-emisia-wild
-            kind: Secret
-            group: core      
+          - kind: Secret
+            name: cert-emisia-wild
+            namespace: cert-manager
       allowedRoutes:
         namespaces:
           from: All

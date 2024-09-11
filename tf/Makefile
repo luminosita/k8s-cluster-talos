@@ -1,24 +1,35 @@
+CERT_PATH:=./cluster/bootstrap/sealed-secrets/certificate/sealed-secrets.cert
+CERT_KEY_PATH:=./cluster/bootstrap/sealed-secrets/certificate/sealed-secrets.key
 CERT_FOLDER:=./cluster/bootstrap/sealed-secrets/certificate
 
 include common.mk
 
 talos:
 	$(info TERRAFORM: Creating Talos Cluster)
-	mkdir -p ${CERT_FOLDER} && \
-		openssl req -x509 -days 365 -nodes -newkey rsa:4096 -keyout ${CERT_FOLDER}/sealed-secrets.key -out ${CERT_FOLDER}/sealed-secrets.cert -subj "/CN=sealed-secret/O=sealed-secret"
-
+#TODO: Check if exist and create only if the ceritificate is missing
+	# mkdir -p ${CERT_FOLDER} && \
+	# 	openssl req -x509 -days 365 -nodes -newkey rsa:4096 -keyout ${CERT_KEY_PATH} -out ${CERT_PATH} -subj "/CN=sealed-secret/O=sealed-secret"
 #Deploy Talos cluster and set local ~/.kube.config	
-	cd cluster && \
-		terraform init && \
-		terraform plan -out talos.tfplan && \
-		terraform apply talos.tfplan && \
-		terraform output -raw kube_config > ~/.kube/config
+	# cd cluster && \
+	# 	terraform init && \
+	# 	terraform plan -out talos.tfplan && \
+	# 	terraform apply talos.tfplan && \
+	# 	terraform output -raw kube_config > ~/.kube/config
 
 destroy-talos:
 	$(info TERRAFORM: Destroying Talos Cluster)
 	cd cluster && \
 		terraform plan -destroy -out=destroy.tfplan && \
 		terraform apply destroy.tfplan
+
+#TODO: Cert-manager depends on sealed cloudflare-api-token
+#TODO: Sealed cloudflare-api-token depends on sealed-secrets-controller
+#TODO: Gateway depends on emisia-wild certificate
+#TODO: Emisia-wild certificate depends on cert-manager
+#TODO: Sealed-secrets-controller depends on certificates created in the first step of make talos. These should be recreated only of non-existing
+#TODO: Sealed cloudflare-api-token needs to be pushed into repository once created
+
+
 
 bootstrap-k8s:
 	$(info TERRAFORM: Cilium Gateway, Cert-manager, ArgoCD)
@@ -28,6 +39,8 @@ bootstrap-k8s:
 	kubectl kustomize --enable-helm ../k8s/infra/network/cilium | kubectl apply -f -
 #Sealed secrets for cert-manager and gateway certificates
 	kustomize build --enable-helm ../k8s/infra/controllers/sealed-secrets | kubectl apply -f -
+#Cert-manager	
+	kustomize build --enable-helm ../k8s/infra/controllers/cert-manager | kubectl apply -f -
 #Deploy Local Path Provisioner for ArgoCD applications
 	kustomize build ../k8s/infra/storage/local-path-provisioner | kubectl apply -f -
 	kubectl -n local-path-storage get pod
@@ -36,6 +49,7 @@ bootstrap-k8s:
 	kubectl get csistoragecapacities -ocustom-columns=CLASS:.storageClassName,AVAIL:.capacity,ZONE:.nodeTopology.matchLabels -A
 
 argocd:
+	$(info Deploying ArgoCD)
 #Deploy Cilium gateways for argocd http routes
 	kubectl kustomize ../k8s/infra/network/gateway | kubectl apply -f -
 #Deploy ArgoCD to load the full set of applicatoins
@@ -43,7 +57,7 @@ argocd:
 #Loading of the cluster into ArgoCD
 	kubectl apply -k ../k8s/sets
 
-cert-secret:
+cert-manager-secret:
 	$(info Creating Cloudflare Cert-manager Sealed Secret)
 	kubectl create secret generic cloudflare-api-token \
   	  	--from-literal=api-token=${CF_TOKEN} \

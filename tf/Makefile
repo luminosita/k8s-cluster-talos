@@ -42,11 +42,19 @@ k8s:
 
 ######################### TEST PURPOSE #######################
 
+cert-secret:
+	$(info Creating Cloudflare Cert-manager Sealed Secret)
+	kubectl create secret generic cloudflare-api-token \
+  	  	--from-literal=api-token=${CF_TOKEN} \
+	  	-n cert-manager --dry-run=client -o yaml | \
+  		kubeseal --controller-namespace=sealed-secrets \
+		--format=yaml - > ../k8s/infra/controllers/cert-manager/cloudflare-api-token.yaml
+
 #Deploy testlab project and applications under k8s/testlab for a specific branch
 deploy-testlab:
 	BRANCH ?= $(shell bash -c 'read -s -p "Password: " pwd; echo $$pwd')
 	git checkout $(BRANCH) && \
-		kubectl apply -k ../k8s/test
+		kubectl apply -k ../k8s/testlab
 
 test-plan:
 	$(info TERRAFORM: Test Plan)

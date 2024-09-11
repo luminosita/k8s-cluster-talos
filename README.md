@@ -104,7 +104,24 @@ proxmox = {
 $ cd tf
 $ make talos
 ```
-#### Setup necessary components to start ArgoCD (Cilium, Gateway, cert-manager, Promox CSI plugin)
+
+### Create Sealed Secrets
+
+#### Cert-manager
+```bash
+$ make create-cert-secret
+```
+
+> **_IMPORTANT_**: New sealed secret `../k8s/infra/controllers/cert-manager/cloud-flare-api-token.yaml` needs to be pushed into git repository before proceeding further
+
+#### Light LDAP
+
+Follow the 
+[link](k8s/infra/auth/lldap/README.md)
+
+### Bootstrap Kubernetes
+
+#### Setup necessary components to start ArgoCD (Cilium, Gateway, cert-manager, CSI plugins)
 
 ```bash
 $ make k8s

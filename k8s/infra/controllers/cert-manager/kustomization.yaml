@@ -5,6 +5,7 @@ resources:
   - ns.yaml
   - cloudflare-api-token.yaml
   - cluster-issuer.yaml
+  - cert-emisia-wildcard.yaml
 
 helmCharts:
   - name: cert-manager

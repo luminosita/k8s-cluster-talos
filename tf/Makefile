@@ -28,8 +28,6 @@ bootstrap-k8s:
 	kubectl kustomize --enable-helm ../k8s/infra/network/cilium | kubectl apply -f -
 #Sealed secrets for cert-manager and gateway certificates
 	kustomize build --enable-helm ../k8s/infra/controllers/sealed-secrets | kubectl apply -f -
-#Cert-manager	
-	kustomize build --enable-helm ../k8s/infra/controllers/cert-manager | kubectl apply -f -
 #Deploy Local Path Provisioner for ArgoCD applications
 	kustomize build ../k8s/infra/storage/local-path-provisioner | kubectl apply -f -
 	kubectl -n local-path-storage get pod
@@ -38,6 +36,9 @@ bootstrap-k8s:
 	kubectl get csistoragecapacities -ocustom-columns=CLASS:.storageClassName,AVAIL:.capacity,ZONE:.nodeTopology.matchLabels -A
 
 argocd:
+	$(info Deploying ArgoCD)
+#Cert-manager	
+	kustomize build --enable-helm ../k8s/infra/controllers/cert-manager | kubectl apply -f -
 #Deploy Cilium gateways for argocd http routes
 	kubectl kustomize ../k8s/infra/network/gateway | kubectl apply -f -
 #Deploy ArgoCD to load the full set of applicatoins
@@ -45,7 +46,7 @@ argocd:
 #Loading of the cluster into ArgoCD
 	kubectl apply -k ../k8s/sets
 
-cert-secret:
+cert-manager-secret:
 	$(info Creating Cloudflare Cert-manager Sealed Secret)
 	kubectl create secret generic cloudflare-api-token \
   	  	--from-literal=api-token=${CF_TOKEN} \

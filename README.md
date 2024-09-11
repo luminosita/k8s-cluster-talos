@@ -115,14 +115,14 @@ $ make bootstrap-k8s
 
 ### Create Sealed Secrets
 
-#### Cert-manager
+#### Cert-manager Secret
 ```bash
-$ make create-cert-secret
+$ make cert-manager-secret
 ```
 
 > **_IMPORTANT_**: New sealed secret `../k8s/infra/controllers/cert-manager/cloudflare-api-token.yaml` needs to be pushed into git repository before proceeding further
 
-#### Light LDAP
+#### Light LDAP Secrets
 
 Follow the 
 [link](k8s/infra/auth/lldap/README.md)

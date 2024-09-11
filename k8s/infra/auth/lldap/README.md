@@ -5,8 +5,8 @@
 ```bash
 NAMESPACE=lldap \
 LLDAP_JWT_SECRET=`node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` \
-LLDAP_LDAP_USER_PASS=<admin password> \
-LLDAP_BASE_DN=dc=emisia,dc=net 
+LLDAP_BASE_DN=dc=emisia,dc=net \
+LLDAP_LDAP_USER_PASS=<admin password>
 ```
 
 > **_NOTE:_** Alternatively, use `https://jwtsecret.com/generate` to generate `LLDAP_JWT_SECRET`. Length 32 is good enough

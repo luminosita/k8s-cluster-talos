@@ -5,8 +5,7 @@ metadata:
   namespace: argocd
 spec:
   sourceRepos:
-    - '{{ env GLOBAL_REPO_URL }}'
-#    - 'https://github.com/luminosita/k8s-cluster-talos'
+    - 'https://github.com/luminosita/k8s-cluster-talos'
   destinations:
     - namespace: 'argocd'
       server: '*'

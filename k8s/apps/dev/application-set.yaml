@@ -8,7 +8,6 @@ metadata:
 spec:
   generators:
     - git:
- #       repoURL: {{ env GLOBAL_REPO_URL }}  ##FIXME
         repoURL: https://github.com/luminosita/k8s-cluster-talos
         revision: HEAD
         directories:
@@ -23,7 +22,6 @@ spec:
     spec:
       project: dev
       source:
- #       repoURL: {{ env GLOBAL_REPO_URL }}  ##FIXME
         repoURL: https://github.com/luminosita/k8s-cluster-talos
         targetRevision: HEAD
         path: '{{ path }}'

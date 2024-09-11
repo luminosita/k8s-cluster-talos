@@ -20,7 +20,7 @@ destroy-talos:
 		terraform plan -destroy -out=destroy.tfplan && \
 		terraform apply destroy.tfplan
 
-k8s:
+bootstrap-k8s:
 	$(info TERRAFORM: Cilium Gateway, Cert-manager, ArgoCD)
 #Gateway API CRDs for cilium-gateways
 	kubectl apply -k ../k8s/infra/crds
@@ -30,17 +30,18 @@ k8s:
 	kustomize build --enable-helm ../k8s/infra/controllers/sealed-secrets | kubectl apply -f -
 #Deploy Local Path Provisioner for ArgoCD applications
 	kustomize build ../k8s/infra/storage/local-path-provisioner | kubectl apply -f -
+	kubectl -n local-path-storage get pod
 #Deploy Proxmox CSI plugin for ArgoCD applications
 	kustomize build --enable-helm ../k8s/infra/storage/proxmox-csi | kubectl apply -f -
 	kubectl get csistoragecapacities -ocustom-columns=CLASS:.storageClassName,AVAIL:.capacity,ZONE:.nodeTopology.matchLabels -A
+
+argocd:
 #Deploy Cilium gateways for argocd http routes
 	kubectl kustomize ../k8s/infra/network/gateway | kubectl apply -f -
 #Deploy ArgoCD to load the full set of applicatoins
 	kustomize build --enable-helm ../k8s/infra/controllers/argocd | kubectl apply -f -
 #Loading of the cluster into ArgoCD
 	kubectl apply -k ../k8s/sets
-
-######################### TEST PURPOSE #######################
 
 cert-secret:
 	$(info Creating Cloudflare Cert-manager Sealed Secret)
@@ -49,6 +50,8 @@ cert-secret:
 	  	-n cert-manager --dry-run=client -o yaml | \
   		kubeseal --controller-namespace=sealed-secrets \
 		--format=yaml - > ../k8s/infra/controllers/cert-manager/cloudflare-api-token.yaml
+
+######################### TEST PURPOSE #######################
 
 #Deploy testlab project and applications under k8s/testlab for a specific branch
 deploy-testlab:

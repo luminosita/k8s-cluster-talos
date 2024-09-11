@@ -1,3 +1,18 @@
+## Bugs
+
+- [ ] BUG 1:
+Warning: would violate PodSecurity "baseline:latest": non-default capabilities (container "proxmox-csi-plugin-node" must not include "SYS_ADMIN" in securityContext.capabilities.add), hostPath volumes (volumes "socket", "registration", "kubelet", "dev", "sys"), privileged (container "proxmox-csi-plugin-node" must not set securityContext.privileged=true)
+daemonset.apps/proxmox-csi-plugin-node created
+
+
+- [ ] BUG 2:
+http://whoami.emisia.net prolazi
+https://emisia.net/whoami - samo kroz curl
+
+- [ ] BUG 3:
+ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
+
+
 ## 🏗️ Work in Progress
 
 - [x] Finish README

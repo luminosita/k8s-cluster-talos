@@ -18,11 +18,28 @@ destroy-talos:
 	terraform plan -destroy -out=destroy.tfplan && \
 	terraform apply destroy.tfplan
 
-gateway:
-	$(info TERRAFORM: Cilium Gateway, Cert-manager, ArgoCD)
-	kubectl apply -k ../k8s/infra/crds && \
-	kubectl kustomize --enable-helm ../k8s/infra/network/cilium | kubectl apply -f - && \
-	kubectl kustomize ../k8s/infra/network/gateway | kubectl apply -f - && \
-	kustomize build --enable-helm ../k8s/infra/controllers/argocd | kubectl apply -f - && \
-	kubectl apply -k ../k8s/infra && \
+bootstrap-k8s:
+	$(info BOOTSTRAP: Cilium Gateway, Cert-manager)
+#Gateway API CRDs for cilium-gateways
+	kubectl apply -k ../k8s/infra/crds
+#Reload Cilium with L2 announcement policy and ip pools
+	kubectl kustomize --enable-helm ../k8s/infra/network/cilium | kubectl apply -f -
+#Sealed secrets for cert-manager and gateway certificates
+	kustomize build --enable-helm ../k8s/infra/controllers/sealed-secrets | kubectl apply -f -
+#Deploy Local Path Provisioner for ArgoCD applications
+	kustomize build ../k8s/infra/storage/local-path-provisioner | kubectl apply -f -
+	$(info Verify: Local Path Provisioner CSI)
+	kubectl -n local-path-storage get pod
+#Deploy Proxmox CSI plugin for ArgoCD applications
+	kustomize build --enable-helm ../k8s/infra/storage/proxmox-csi | kubectl apply -f -
+	$(info Verify: Proxmox CSI)
+	kubectl get csistoragecapacities -ocustom-columns=CLASS:.storageClassName,AVAIL:.capacity,ZONE:.nodeTopology.matchLabels -A
+
+argocd:
+	$(info ARGOCD Deployment)
+#Deploy Cilium gateways for argocd http routes
+	kubectl kustomize ../k8s/infra/network/gateway | kubectl apply -f -
+#Deploy ArgoCD to load the full set of applicatoins
+	kustomize build --enable-helm ../k8s/infra/controllers/argocd | kubectl apply -f -
+#Loading of the cluster into ArgoCD
 	kubectl apply -k ../k8s/sets

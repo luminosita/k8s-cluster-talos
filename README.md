@@ -104,10 +104,32 @@ proxmox = {
 $ cd tf
 $ make talos
 ```
-#### Setup necessary components to start ArgoCD (Cilium, Gateway, cert-manager, Promox CSI plugin)
+
+### Bootstrap Kubernetes
+
+#### Setup necessary Kubernetes components (Cilium, Gateway, cert-manager, CSI plugins)
 
 ```bash
-$ make k8s
+$ make bootstrap-k8s
+```
+
+### Create Sealed Secrets
+
+#### Cert-manager
+```bash
+$ make cert-secret
+```
+
+> **_IMPORTANT_**: New sealed secret `../k8s/infra/controllers/cert-manager/cloudflare-api-token.yaml` needs to be pushed into git repository before proceeding further
+
+#### Light LDAP
+
+Follow the 
+[link](k8s/infra/auth/lldap/README.md)
+
+### Deploy ArgoCD
+```bash
+$ make argocd
 ```
 
 #### Install ArgoCD CLI
@@ -143,26 +165,3 @@ $ argocd cluster add admin@talos
 #### ArgoCD WebUI
 
 WebUI should be accessible on https://argocd.emisia.net
-
-### Useful Tips:
-
-#### TIP 1: Create Sealed Secret
-
-Convert `Secret` into `SealedSecret` with the following command
-```
-$ kubeseal --format=yaml --controller-namespace=sealed-secrets < cloudflare-api-token.yaml  > sealed-cloudflare-api-token.yaml
-```
-
-Example `Secret`:
-
-```yaml
-# gateway/cloudflare-api-token.yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cloudflare-api-token-secret
-  namespace: cert-manager
-type: Opaque
-stringData:
-  api-token: <api-token>
-```

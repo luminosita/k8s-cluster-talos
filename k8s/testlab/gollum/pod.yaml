@@ -16,7 +16,7 @@ spec:
         #   - '--single-branch'
         #   - '--'
         #   - 'https://https://github.com/luminosita/wiki'
-        #   - '/wiki/'
+        #   - '/wiki/repo'
         # env:
         # - name: GIT_USERNAME
         #   valueFrom:

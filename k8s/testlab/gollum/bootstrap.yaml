@@ -14,14 +14,12 @@ spec:
         - name: init-clone-repo
           image: alpine/git
           imagePullPolicy: Always
-          command: [ "/bin/bash", "-c", "--" ]
-          args: [ "while true; do sleep 30; done;" ]
-          # args:
-          #   - clone
-          #   - '--single-branch'
-          #   - '--'
-          #   - 'https://https://github.com/luminosita/wiki'
-          #   - '/wiki/'
+          args:
+            - clone
+            - '--single-branch'
+            - '--'
+            - 'https://https://github.com/luminosita/wiki'
+            - '/wiki'
           # env:
           # - name: GIT_USERNAME
           #   valueFrom:

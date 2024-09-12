@@ -36,27 +36,19 @@ bootstrap-k8s:
 		kubeseal --controller-namespace=sealed-secrets \
 		--format=yaml - > kubectl apply -f -
 #Cert-manager	
-	kustomize build --enable-helm ../k8s/infra/controllers/cert-manager | kubectl apply -f -
+	# kustomize build --enable-helm ../k8s/infra/controllers/cert-manager | kubectl apply -f -
 #Deploy Proxmox CSI plugin for ArgoCD applications
-	kustomize build --enable-helm ../k8s/infra/storage/proxmox-csi | kubectl apply -f -
-	kubectl get csistoragecapacities -ocustom-columns=CLASS:.storageClassName,AVAIL:.capacity,ZONE:.nodeTopology.matchLabels -A
+	# kustomize build --enable-helm ../k8s/infra/storage/proxmox-csi | kubectl apply -f -
+	# kubectl get csistoragecapacities -ocustom-columns=CLASS:.storageClassName,AVAIL:.capacity,ZONE:.nodeTopology.matchLabels -A
 
 argocd:
 	$(info Deploying ArgoCD)
 #Deploy Cilium gateways for argocd http routes
-	kubectl kustomize ../k8s/infra/network/gateway | kubectl apply -f -
+	# kubectl kustomize ../k8s/infra/network/gateway | kubectl apply -f -
 #Deploy ArgoCD to load the full set of applicatoins
 	kustomize build --enable-helm ../k8s/infra/controllers/argocd | kubectl apply -f -
 #Loading of the cluster into ArgoCD
 	kubectl apply -k ../k8s/sets
-
-cert-manager-secret:
-	$(info Creating Cloudflare Cert-manager Sealed Secret)
-	kubectl create secret generic cloudflare-api-token \
-  	  	--from-literal=api-token=${CF_TOKEN} \
-	  	-n cert-manager --dry-run=client -o yaml | \
-  		kubeseal --controller-namespace=sealed-secrets \
-		--format=yaml - > kubectl apply -f -
 
 ######################### TEST PURPOSE #######################
 

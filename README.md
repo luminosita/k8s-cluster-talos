@@ -132,15 +132,8 @@ $ make bootstrap-k8s
 
 ### Create Sealed Secrets
 
-#### Cert-manager Secret
-```bash
-$ make cert-manager-secret
-```
-
-> **_IMPORTANT_**: New sealed secret `../k8s/infra/controllers/cert-manager/cloudflare-api-token.yaml` needs to be pushed into git repository before proceeding further
-
 #### Light LDAP Secrets
-
+#FIXME: delete lldap secrets from git, deploy them thru makefile
 Follow the 
 [link](k8s/infra/auth/lldap/README.md)
 
@@ -149,6 +142,8 @@ Follow the
 ```bash
 $ make argocd
 ```
+
+> **_IMPORTANT:_** Next steps depend on ArgoCD sync. Verify that applications are synced with `kubectl get Application -n argocd`
 
 #### Install ArgoCD CLI
 ```bash
@@ -161,9 +156,10 @@ $ argocd admin initial-password -n argocd
 <generated password>
 ```
 
+> **_NOTE:_** There should be an entry for `argocd.local` pointing to `192.168.50.223` in `/etc/hosts`. That is insecure gateway IP address (`k8s/infra/network/gateway/gw-insecure.yaml`)
 #### Login into ArgoCD
 ```bash
-$ argocd login argocd.emisia.net:80
+$ argocd login argocd.local:80
 user: admin
 password: <generated password>
 ```

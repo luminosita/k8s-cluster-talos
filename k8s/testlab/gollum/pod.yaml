@@ -17,7 +17,7 @@ spec:
   containers:
     - name: gollum-pod-debug
       image: gollumwiki/gollum:latest
-      args: #[ "while true; do sleep 30; done;" ]
+      args: ["--page-file-dir /wiki/repo"]      
       securityContext:
         allowPrivilegeEscalation: false
         readOnlyRootFilesystem: true

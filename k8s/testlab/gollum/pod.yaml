@@ -4,8 +4,8 @@ metadata:
   name: gollum-pod-debug
   namespace: gollum
   labels:
-    app: gollum-debug
-spec:
+    app.kubernetes.io/name: gollumic
+  spec:
   securityContext:
     runAsNonRoot: false
     runAsUser: 999

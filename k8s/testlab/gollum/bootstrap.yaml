@@ -11,8 +11,8 @@ spec:
     spec:
       securityContext:
         runAsNonRoot: false
-        runAsUser: 1
-        runAsGroup: 1
+        runAsUser: 999
+        runAsGroup: 999
         fsGroup: 999
         fsGroupChangePolicy: OnRootMismatch
         seccompProfile:
@@ -31,7 +31,7 @@ spec:
           command:
             - 'sh'
             - '-c' 
-            - "git clone https://github.com/luminosita/wiki /tmp/wiki; rm -rf /wiki*; cp -r /tmp/wiki/* /wiki"
+            - "git clone https://github.com/luminosita/wiki /tmp/wiki; rm -rf /wiki/*; cp -r /tmp/wiki/* /wiki"
           # args:
           #   - clone
           #   - '--single-branch'

@@ -27,7 +27,7 @@ spec:
       containers:
         - name: gollum
           image: gollumwiki/gollum:latest
-          args:
+          args: ["--page-file-dir /wiki/repo"]
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
@@ -40,12 +40,6 @@ spec:
             - name: gollum-repo
               mountPath: /wiki
           resources: {}
-            # requests:
-            #   cpu: 50m
-            #   memory: 12Mi
-            # limits:
-            #   cpu: 1000m
-            #   memory: 24Mi
       volumes:
         - name: gollum-repo
           persistentVolumeClaim:

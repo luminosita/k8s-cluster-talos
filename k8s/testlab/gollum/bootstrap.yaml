@@ -19,36 +19,15 @@ spec:
           type: RuntimeDefault
       restartPolicy: OnFailure
       containers:
-        # - name: init-myservice
-        #   image: busybox:1.28
-        #   command: 
-        #     - 'sh'
-        #     - '-c' 
-        #     - "rm -rf /wiki/*; git clone https://github.com/luminosita/wiki /wiki"
         - name: init-clone-repo
           image: alpine/git
           imagePullPolicy: Always
-          command:
-            - 'sh'
-            - '-c' 
-            - "git clone https://github.com/luminosita/wiki /tmp/wiki; rm -rf /wiki/*; cp -r /tmp/wiki/* /wiki"
-          # args:
-          #   - clone
-          #   - '--single-branch'
-          #   - '--'
-          #   - 'https://github.com/luminosita/wiki'
-          #   - '/wiki'
-          # env:
-          # - name: GIT_USERNAME
-          #   valueFrom:
-          #     secretKeyRef:
-          #       key: username
-          #       name: test-secret
-          # - name: GIT_PASSWORD
-          #   valueFrom:
-          #     secretKeyRef:
-          #       key: password
-          #       name: test-secret
+          args:
+            - clone
+            - '--single-branch'
+            - '--'
+            - 'https://github.com/luminosita/wiki'
+            - '/wiki/repo'
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File

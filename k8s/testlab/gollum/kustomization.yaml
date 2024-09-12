@@ -4,9 +4,9 @@ kind: Kustomization
 resources:
   - ns.yaml
   - pvc.yaml
-#  - pod.yaml
+  - pod.yaml
   - bootstrap.yaml
-  - deployment.yaml
+#  - deployment.yaml
   - svc.yaml
   - http-route.yaml
   - https-route.yaml

@@ -5,7 +5,7 @@ metadata:
   namespace: gollum
   labels:
     app.kubernetes.io/name: gollumic
-  spec:
+spec:
   securityContext:
     runAsNonRoot: false
     runAsUser: 999

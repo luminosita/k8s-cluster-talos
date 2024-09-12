@@ -17,7 +17,7 @@ spec:
   containers:
     - name: gollum
       image: gollumwiki/gollum:latest
-#      args: [ "while true; do sleep 30; done;" ]
+      args: #[ "while true; do sleep 30; done;" ]
       securityContext:
         allowPrivilegeEscalation: false
         readOnlyRootFilesystem: true

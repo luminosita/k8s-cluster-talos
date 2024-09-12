@@ -133,8 +133,7 @@ $ make bootstrap-k8s
 ### Create Sealed Secrets
 
 #### Light LDAP Secrets
-#FIXME: delete lldap secrets from git, deploy them thru makefile
-Follow the 
+> **_NOTE:_** Light LDAP sealed secrets should be generated only in case main opelssl certificates update	
 [link](k8s/infra/auth/lldap/README.md)
 
 ### Deploy ArgoCD
@@ -143,7 +142,7 @@ Follow the
 $ make argocd
 ```
 
-> **_IMPORTANT:_** Next steps depend on ArgoCD sync. Verify that applications are synced with `kubectl get Application -n argocd`
+> **_IMPORTANT:_** Next steps depend on ArgoCD sync. Verify that applications are synced `kubectl get Application -n argocd` and gateways are created `kubectl get Gateway -n gateway`
 
 #### Install ArgoCD CLI
 ```bash

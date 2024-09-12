@@ -1,0 +1,15 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: cloudflare-api-token
+  namespace: cert-manager
+spec:
+  encryptedData:
+    api-token: AgBSYYnlvPoKNaCPmsePv9tY1p2PLTF6i7aSUzgilcHuQxOgS8fGjBD8vOKOe7pAQ4nG6WzNKBMthNgVhYxZgWHUvSmi6vUwObybYMEolZNX4qsDoV5Xus7B1zSdB0AdAZmbbWfuXKKiWbhcMETmCN/Bs7CvOPvlduFNbvG/eUxUjRGnWPXFnc4Zox6RRQuPsClhNAnCQB1ce5Wp3AU+egusMThtmAtTXbu0dZRP5TOcXjPitYGHxitkggKaFhQr5sZ3J2yPY6BAOUw49VjeRmCWdC7o5pH8maWV2pDLj2sPDjOMhf/qr9BcxLTIVnBFwD+EFhpxJFFh2n9q5ZsUX8V5tTWuszAecttKJHsCHIUrgOJNfMY0/EZztoFPmo8+cdjSq65HwoQR67TcJYZqagkjg5RyyhJRdJ4BEOnH0in6/4ZV+ryvKF0epmLICR5RzuDdnXuJVP45Iz6y10DrAnGqmd2G90RfxK55O/R4vzyzmkZBID/7QNDCmXg8QvFy+ZhPn96SbKZR95fXhPzpm9q11OT4GaIMA5AcQ1SWtmcE+7V6ixw001TYVgZBQwIANguaL8uiRhID27nukRFZnHjXuwBcEQ1ZkzF8rEoR3djb1lPDz5vdh/R3gYjf03lMV6HenqYbT/HUX62vXSNRlOxNrnh68Gy23zyzJ3QvJiRrhuR5IZC/+MiQffC5I/JKBI4xhNve8LNiZ8NYSotsVWe3rmC6KWXGz8YHFfe5C2qY3kSVNBsZW8LA
+  template:
+    metadata:
+      creationTimestamp: null
+      name: cloudflare-api-token
+      namespace: cert-manager

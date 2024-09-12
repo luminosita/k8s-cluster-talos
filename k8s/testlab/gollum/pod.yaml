@@ -9,7 +9,7 @@ spec:
       - name: init-clone-repo
         image: alpine/git
         imagePullPolicy: Always
-        command: [ "/bin/bash", "-c", "--" ]
+        command: [ "/bin/sh", "-c", "--" ]
         args: [ "while true; do sleep 30; done;" ]
         # args:
         #   - clone

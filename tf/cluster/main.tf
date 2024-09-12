@@ -107,10 +107,6 @@ module "volumes" {
 
   proxmox_api = var.proxmox
   volumes = {
-    pv-gollum = {
-      node = "proxmox"
-      size = "1G"
-    }
     # pv-sonarr = {
     #   node = "proxmox"
     #   size = "4G"

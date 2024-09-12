@@ -111,6 +111,14 @@ module "volumes" {
       node = "proxmox"
       size = "1G"
     }
+    pv-single-database = {
+      node = "proxmox"
+      size = "4G"
+    }
+    pv-prometheus = {
+      node = "proxmox"
+      size = "10G"
+    }
     # pv-sonarr = {
     #   node = "proxmox"
     #   size = "4G"
@@ -154,14 +162,6 @@ module "volumes" {
     # pv-plex = {
     #   node = "proxmox"
     #   size = "12G"
-    # }
-    # pv-prometheus = {
-    #   node = "proxmox"
-    #   size = "10G"
-    # }
-    # pv-single-database = {
-    #   node = "proxmox"
-    #   size = "4G"
     # }
   }
 }

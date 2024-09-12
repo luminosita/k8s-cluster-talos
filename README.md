@@ -222,9 +222,9 @@ metadata:
 spec:
   project: testlab
   source:
-    path: k8s/testlab/test-app
     repoURL: https://github.com/luminosita/k8s-cluster-talos
     targetRevision: testlab-branch
+    path: k8s/testlab/test-app
   destination:
     namespace: argocd
     name: in-cluster

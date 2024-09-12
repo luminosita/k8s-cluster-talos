@@ -4,7 +4,6 @@
 Warning: would violate PodSecurity "baseline:latest": non-default capabilities (container "proxmox-csi-plugin-node" must not include "SYS_ADMIN" in securityContext.capabilities.add), hostPath volumes (volumes "socket", "registration", "kubelet", "dev", "sys"), privileged (container "proxmox-csi-plugin-node" must not set securityContext.privileged=true)
 daemonset.apps/proxmox-csi-plugin-node created
 
-
 - [ ] BUG 2:
 http://whoami.emisia.net prolazi
 https://emisia.net/whoami - samo kroz curl
@@ -15,10 +14,11 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 
 ## 🏗️ Work in Progress
 
+- [ ] Renovate
 - [ ] Ansible instead of Makefile or Taskfile
 - [x] Finish README
-- [ ] Gollum with local-path provisioner 
-- [ ] Gollum with storage
+- [x] Gollum with local-path provisioner 
+- [x] Gollum with storage
 - [ ] VSCode with local-path provisioner 
 
 # K8s (Proxmox VMs and DigitalOcean for true HA)
@@ -53,7 +53,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 
 # K8s Apps
 - [ ] VS Code (web)
-- [ ] Gollum
+- [x] Gollum
 - [ ] GitKraken
 - [ ] Mattermost
 - [ ] eJabberd K8S cluster
@@ -82,7 +82,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [ ] NetBox
 
 # Storage
-- [ ] Ceph /Rook
+- [ ] Ceph/Rook/Proxmox/CSI Plugin
 - [ ] Type of storage (fast, slow, archive, backup, block, file, object)
 
 # Misc

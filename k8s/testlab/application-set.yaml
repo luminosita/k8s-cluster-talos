@@ -11,8 +11,7 @@ spec:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
         revision: local-path-provisioner
         directories:
-          - path: examples/pod
-          - path: examples/pvc
+          - path: k8s/testlab/*
   template:
     metadata:
       name: '{{ path.basename }}'

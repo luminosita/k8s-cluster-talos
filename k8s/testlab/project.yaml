@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: storage
+  name: testlab
   namespace: argocd
 spec:
   sourceRepos:
@@ -9,9 +9,7 @@ spec:
   destinations:
     - namespace: 'argocd'
       server: '*'
-    - namespace: 'csi-proxmox'
-      server: '*'
-    - namespace: 'local-path-storage'
+    - namespace: 'default'
       server: '*'
   clusterResourceWhitelist:
     - group: '*'

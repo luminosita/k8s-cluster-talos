@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gollum
+  namespace: gollum
+  labels:
+    app: gollum
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gollum
+  template:
+    metadata:
+      namespace: gollum
+      labels:
+        app: gollum
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 999
+        runAsGroup: 999
+        fsGroup: 999
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: gollum
+          image: gollumwiki/gollum:latest
+          args:
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ "ALL" ]
+          ports:
+            - name: http
+              containerPort: 4567
+          volumeMounts:
+            - name: gollum-repo
+              mountPath: /wiki
+          resources:
+            requests:
+              cpu: 50m
+              memory: 12Mi
+            limits:
+              cpu: 1000m
+              memory: 24Mi
+      volumes:
+        - name: gollum-repo
+          persistentVolumeClaim:
+            claimName: pvc-gollum

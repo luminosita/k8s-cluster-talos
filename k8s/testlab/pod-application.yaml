@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pod
+  namespace: argocd
+  labels:
+    me.kundun: testlab
+spec:
+  metadata:
+    name: gollum-wiki
+    labels:
+      me.kundun: testlab
+    # finalizers:
+    #   - resources-finalizer.argocd.argoproj.io
+  spec:
+    project: testlab
+    source:
+      repoURL: https://github.com/luminosita/k8s-cluster-talos
+      targetRevision: gollum-wiki
+      path: k8s/testlab/gollum
+    destination:
+      name: in-cluster
+      namespace: argocd
+    syncPolicy:
+      automated:
+        selfHeal: true
+        prune: true

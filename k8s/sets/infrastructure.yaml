@@ -8,7 +8,7 @@ spec:
   source:
     path: k8s/infra
     repoURL: https://github.com/luminosita/k8s-cluster-talos
-    targetRevision: HEAD
+    targetRevision: cnpg
   destination:
     namespace: argocd
     name: in-cluster

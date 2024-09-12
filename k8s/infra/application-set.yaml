@@ -9,7 +9,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
-        revision: HEAD
+        revision: cnpg
         directories:
           - path: k8s/infra/*
   template:
@@ -21,7 +21,7 @@ spec:
       project: infrastructure
       source:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
-        targetRevision: HEAD
+        targetRevision: cnpg
         path: '{{ path }}'
       destination:
         name: in-cluster

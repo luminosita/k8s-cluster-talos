@@ -10,11 +10,12 @@ talos:
 	# mkdir -p ${CERT_FOLDER} && \
 	# 	openssl req -x509 -days 365 -nodes -newkey rsa:4096 -keyout ${CERT_KEY_PATH} -out ${CERT_PATH} -subj "/CN=sealed-secret/O=sealed-secret"
 #Deploy Talos cluster and set local ~/.kube.config	
-	# cd cluster && \
-	# 	terraform init && \
-	# 	terraform plan -out talos.tfplan && \
-	# 	terraform apply talos.tfplan && \
-	# 	terraform output -raw kube_config > ~/.kube/config
+	cd cluster && \
+		terraform init && \
+		terraform plan -out talos.tfplan && \
+		terraform apply talos.tfplan && \
+		terraform output -raw kube_config > ~/.kube/config
+		terraform output -raw talos_config > ~/.talos/config
 
 destroy-talos:
 	$(info TERRAFORM: Destroying Talos Cluster)

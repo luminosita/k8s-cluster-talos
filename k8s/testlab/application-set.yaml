@@ -29,7 +29,7 @@ spec:
       project: testlab
       source:
         repoURL: https://github.com/rancher/local-path-provisioner
-        targetRevision: local-path-provisioner
+        targetRevision: HEAD
         path: '{{ path }}'
       destination:
         name: in-cluster

@@ -5,7 +5,7 @@ metadata:
   namespace: gollum
 spec:
   selector:
-    app: gollum
+    app: gollum-debug
   ports:
     - name: http
       port: 80

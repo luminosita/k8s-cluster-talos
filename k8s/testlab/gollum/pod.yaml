@@ -4,14 +4,14 @@ metadata:
   name: gollum-pod-debug
   namespace: gollum
 spec:
-  # securityContext:
-  #   runAsNonRoot: true
-  #   runAsUser: 999
-  #   runAsGroup: 999
-  #   fsGroup: 999
-  #   fsGroupChangePolicy: OnRootMismatch
-  #   seccompProfile:
-  #     type: RuntimeDefault
+  securityContext:
+    runAsNonRoot: false
+    runAsUser: 1
+    runAsGroup: 1
+    # fsGroup: 999
+    # fsGroupChangePolicy: OnRootMismatch
+    # seccompProfile:
+    #   type: RuntimeDefault
   containers:
     - name: gollum
       image: gollumwiki/gollum:latest

@@ -22,19 +22,9 @@ spec:
         readOnlyRootFilesystem: true
         capabilities:
           drop: [ "ALL" ]
-      ports:
-        - name: http
-          containerPort: 4567
       volumeMounts:
         - name: gollum-repo
           mountPath: /wiki
-      resources:
-        requests:
-          cpu: 50m
-          memory: 12Mi
-        limits:
-          cpu: 1000m
-          memory: 24Mi
   restartPolicy: OnFailure
   volumes:
     - name: gollum-repo

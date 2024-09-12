@@ -167,25 +167,84 @@ $ argocd cluster add admin@talos
 
 WebUI should be accessible on https://argocd.emisia.net
 
-### Useful Tips:
+## Useful Tips:
 
-#### TIP 1: Create Sealed Secret
+### TIP 1: Create Test Lab
 
-Convert `Secret` into `SealedSecret` with the following command
+#### Add test lab branch
+
+> **_NOTE:_** Make sure the code is in `main` git branch
+
+```bash
+$ git branch testlab-branch
+$ git checkout testlab-branch
 ```
-$ kubeseal --format=yaml --controller-namespace=sealed-secrets < cloudflare-api-token.yaml  > sealed-cloudflare-api-token.yaml
-```
 
-Example `Secret`:
+#### Setup `testlab` folder
+
+Make `testlab` folder
+
+$ mkdir k8s/testlab
+
+Add ArgoCD project manifest
 
 ```yaml
-# gateway/cloudflare-api-token.yaml
-apiVersion: v1
-kind: Secret
+#File k8s/testlab/project.xml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
 metadata:
-  name: cloudflare-api-token-secret
-  namespace: cert-manager
-type: Opaque
-stringData:
-  api-token: <api-token>
+  name: testlab
+  namespace: argocd
+spec:
+  sourceRepos:
+    - 'https://github.com/luminosita/k8s-cluster-talos'
+  destinations:
+    - namespace: 'argocd'
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
 ```
+
+> **_IMPORTANT_**: Make sure to all namespaces used by test application deployments into `spec.destinations`
+
+> **_IMPORTANT_**: Make sure to all additional source code repositories if used by ArgoCD test application manifest into `spec.sourceRepos`
+
+Add ArgoCD test application manifest
+
+```yaml
+#File k8s/testlab/test-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-app
+  namespace: argocd
+spec:
+  project: testlab
+  source:
+    path: k8s/testlab/test-app
+    repoURL: https://github.com/luminosita/k8s-cluster-talos
+    targetRevision: testlab-branch
+  destination:
+    namespace: argocd
+    name: in-cluster
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+```
+
+> **_IMPORTANT_**: Make sure to place proper `spec.source.path` and `spec.source.targetRevision` values
+
+Add Kustomization manifest
+
+```yaml
+#File k8s/testlab/kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: argocd
+
+resources:
+  - project.yaml
+  - test-app.yaml
+  ```

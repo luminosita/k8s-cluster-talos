@@ -14,6 +14,9 @@ spec:
         - path:
             type: PathPrefix
             value: /wiki
+        - path:
+            type: PathPrefix
+            value: /gollum/*
       backendRefs:
         - name: gollum
           port: 80

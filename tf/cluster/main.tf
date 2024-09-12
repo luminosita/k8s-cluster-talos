@@ -107,7 +107,7 @@ module "volumes" {
 
   proxmox_api = var.proxmox
   volumes = {
-    pv-gollum = {
+    pv-wiki = {
       node = "proxmox"
       size = "1G"
     }

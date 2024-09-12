@@ -8,8 +8,8 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/rancher/local-path-provisioner
-        revision: HEAD
+        repoURL: https://github.com/luminosita/k8s-cluster-talos
+        revision: local-path-provisioner
         directories:
           - path: examples/pod
           - path: examples/pvc
@@ -23,8 +23,8 @@ spec:
     spec:
       project: testlab
       source:
-        repoURL: https://github.com/rancher/local-path-provisioner
-        targetRevision: HEAD
+        repoURL: https://github.com/luminosita/k8s-cluster-talos
+        targetRevision: local-path-provisioner
         path: '{{ path }}'
       destination:
         name: in-cluster

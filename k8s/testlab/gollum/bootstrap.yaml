@@ -23,7 +23,7 @@ spec:
           command:
             - 'sh'
             - '-c' 
-            - "rm -rf /wiki/*; git clone https://https://github.com/luminosita/wiki /wiki"
+            - "git clone https://https://github.com/luminosita/wiki /tmp/wiki; cp -r /tmp/wiki/* /wiki"
           # args:
           #   - clone
           #   - '--single-branch'

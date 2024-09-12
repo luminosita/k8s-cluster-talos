@@ -36,7 +36,7 @@ spec:
           terminationMessagePolicy: File
           volumeMounts:
             - mountPath: /wiki
-              name: pvc-gollum
+              name: gollum-repo
       volumes:
         - name: gollum-repo
           persistentVolumeClaim:

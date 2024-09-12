@@ -27,8 +27,8 @@ spec:
       containers:
         - name: gollum
           image: gollumwiki/gollum:latest
-          command: ["gollum"]
-          args: ["--page-file-dir /wiki/repo"]
+#          command: ["gollum"]
+          args: ["/wiki/repo"]
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true

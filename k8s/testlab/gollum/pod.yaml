@@ -15,7 +15,7 @@ spec:
     seccompProfile:
       type: RuntimeDefault
   containers:
-    - name: gollum
+    - name: gollum-pod-debug
       image: gollumwiki/gollum:latest
       args: #[ "while true; do sleep 30; done;" ]
       securityContext:

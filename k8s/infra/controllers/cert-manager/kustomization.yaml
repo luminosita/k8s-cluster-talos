@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-  - cloudflare-api-token.yaml
   - cluster-issuer.yaml
   - cert-emisia-wildcard.yaml
 

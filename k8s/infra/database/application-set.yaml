@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: database
+  namespace: argocd
+  labels:
+    me.kundun: database
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/luminosita/homelab
+        revision: cnpg
+        directories:
+          - path: k8s/infra/database/*
+  template:
+    metadata:
+      name: '{{ path.basename }}'
+      labels:
+        me.kundun: controllers
+    spec:
+      project: database
+      source:
+        plugin:
+          name: kustomize-build-with-helm
+        repoURL: https://github.com/luminosita/homelab
+        targetRevision: cnpg
+        path: '{{ path }}'
+      destination:
+        name: in-cluster
+        namespace: argocd
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+#          - ApplyOutOfSyncOnly=true
+          - ServerSideApply=true

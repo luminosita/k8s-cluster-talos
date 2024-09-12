@@ -11,15 +11,21 @@ spec:
     spec:
       restartPolicy: OnFailure
       containers:
-        - name: init-clone-repo
-          image: alpine/git
-          imagePullPolicy: Always
-          args:
-            - clone
-            - '--single-branch'
-            - '--'
-            - 'https://https://github.com/luminosita/wiki'
-            - '/wiki'
+        - name: init-myservice
+          image: busybox:1.28
+          command: 
+            - 'sh'
+            - '-c' 
+            - "rm -rf /wiki/*; git clone https://https://github.com/luminosita/wiki /wiki"
+        # - name: init-clone-repo
+        #   image: alpine/git
+        #   imagePullPolicy: Always
+        #   args:
+        #     - clone
+        #     - '--single-branch'
+        #     - '--'
+        #     - 'https://https://github.com/luminosita/wiki'
+        #     - '/wiki'
           # env:
           # - name: GIT_USERNAME
           #   valueFrom:

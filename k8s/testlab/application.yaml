@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pod
+  namespace: argocd
+  labels:
+    me.kundun: testlab
+spec:
+  metadata:
+    name: testlab-pod
+    labels:
+      me.kundun: testlab
+    # finalizers:
+    #   - resources-finalizer.argocd.argoproj.io
+  spec:
+    project: testlab
+    source:
+      repoURL: https://github.com/luminosita/k8s-cluster-talos
+      targetRevision: local-path-provisioner
+      path: k8s/testlab/pod
+    destination:
+      name: in-cluster
+      namespace: argocd
+    syncPolicy:
+      automated:
+        selfHeal: true
+        prune: true

@@ -5,7 +5,7 @@ metadata:
   namespace: gollum
 spec:
   selector:
-    app.kubernetes.io/name: gollumic
+    app: gollum
   type: LoadBalancer
   ports:
     - name: http

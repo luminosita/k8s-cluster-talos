@@ -39,13 +39,13 @@ spec:
           volumeMounts:
             - name: gollum-repo
               mountPath: /wiki
-          resources:
-            requests:
-              cpu: 50m
-              memory: 12Mi
-            limits:
-              cpu: 1000m
-              memory: 24Mi
+          resources: {}
+            # requests:
+            #   cpu: 50m
+            #   memory: 12Mi
+            # limits:
+            #   cpu: 1000m
+            #   memory: 24Mi
       volumes:
         - name: gollum-repo
           persistentVolumeClaim:

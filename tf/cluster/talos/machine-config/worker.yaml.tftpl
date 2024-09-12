@@ -4,12 +4,3 @@ machine:
   nodeLabels:
     topology.kubernetes.io/region: ${cluster_name}
     topology.kubernetes.io/zone: ${node_name}
-  kubelet:
-    extraMounts:
-      - destination: /mnt/data
-        type: bind
-        source: /var/mnt
-        options:
-          - bind
-          - rshared
-          - rw

@@ -6,6 +6,7 @@ metadata:
 spec:
   sourceRepos:
     - 'https://github.com/luminosita/k8s-cluster-talos'
+    - 'https://github.com/rancher/local-path-provisioner'
   destinations:
     - namespace: 'argocd'
       server: '*'

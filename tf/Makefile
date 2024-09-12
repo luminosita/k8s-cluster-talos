@@ -23,28 +23,20 @@ destroy-talos:
 		terraform plan -destroy -out=destroy.tfplan && \
 		terraform apply destroy.tfplan
 
-#TODO: Cert-manager depends on sealed cloudflare-api-token
-#TODO: Sealed cloudflare-api-token depends on sealed-secrets-controller
-#TODO: Gateway depends on emisia-wild certificate
-#TODO: Emisia-wild certificate depends on cert-manager
-#TODO: Sealed-secrets-controller depends on certificates created in the first step of make talos. These should be recreated only of non-existing
-#TODO: Sealed cloudflare-api-token needs to be pushed into repository once created
-
-
-
 bootstrap-k8s:
 	$(info TERRAFORM: Cilium Gateway, Cert-manager, ArgoCD)
 #Gateway API CRDs for cilium-gateways
 	kubectl apply -k ../k8s/infra/crds
 #Reload Cilium with L2 announcement policy and ip pools
 	kubectl kustomize --enable-helm ../k8s/infra/network/cilium | kubectl apply -f -
-#Sealed secrets for cert-manager and gateway certificates
+#Sealed secrets controller for cert-manager and gateway certificates
 	kustomize build --enable-helm ../k8s/infra/controllers/sealed-secrets | kubectl apply -f -
+	$(info Creating Cloudflare Cert-manager Sealed Secret)
+	kubectl create secret generic cloudflare-api-token --from-literal=api-token=${CF_TOKEN} -n cert-manager --dry-run=client -o yaml | \
+		kubeseal --controller-namespace=sealed-secrets \
+		--format=yaml - > kubectl apply -f -
 #Cert-manager	
 	kustomize build --enable-helm ../k8s/infra/controllers/cert-manager | kubectl apply -f -
-#Deploy Local Path Provisioner for ArgoCD applications
-	kustomize build ../k8s/infra/storage/local-path-provisioner | kubectl apply -f -
-	kubectl -n local-path-storage get pod
 #Deploy Proxmox CSI plugin for ArgoCD applications
 	kustomize build --enable-helm ../k8s/infra/storage/proxmox-csi | kubectl apply -f -
 	kubectl get csistoragecapacities -ocustom-columns=CLASS:.storageClassName,AVAIL:.capacity,ZONE:.nodeTopology.matchLabels -A
@@ -64,7 +56,7 @@ cert-manager-secret:
   	  	--from-literal=api-token=${CF_TOKEN} \
 	  	-n cert-manager --dry-run=client -o yaml | \
   		kubeseal --controller-namespace=sealed-secrets \
-		--format=yaml - > ../k8s/infra/controllers/cert-manager/cloudflare-api-token.yaml
+		--format=yaml - > kubectl apply -f -
 
 ######################### TEST PURPOSE #######################
 

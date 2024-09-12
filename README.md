@@ -78,6 +78,23 @@ to [this article](https://blog.stonegarden.dev/articles/2024/08/talos-proxmox-to
         └── 📂 talos       # Talos configuration 
 ```
 
+## Kubernetes Components Dependency Graph
+
+```mermaid
+flowchart TD
+        cert-manager --- cloudflare-api-token
+        cloudflare-api-token --- sealed-secrets-controller
+        gateway-controller --- certificates
+        certificates --- cert-manager
+        cloudflare-api-token --- git
+        gateway-controller --- gateway-api-crds
+        cilium-cni --- gateway-api-crds
+        sealed-secrets-controller --- openssl-certificates-secret
+        openssl-certificates-secret --- openssl-certificates
+        openssl-certificates-secret --- talos
+        sealed-secrets-controller --- talos
+```
+
 ## 🏃‍➡️ Setup
 
 > **_NOTE:_** Proxmox should be deployed and accessible via `ssh root@proxmox.lan`. Local `SSH ID file` should be copied into `/root/.ssh/authorized_keys` (`~/.ssh/id_rsa.pub`)

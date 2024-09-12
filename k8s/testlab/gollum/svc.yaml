@@ -6,6 +6,7 @@ metadata:
 spec:
   selector:
     app: gollum-debug
+  type: LoadBalancer
   ports:
     - name: http
       port: 80

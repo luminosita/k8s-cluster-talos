@@ -7,4 +7,4 @@ commonLabels:
 
 resources:
   - project.yaml
-  - pod-application.yaml
+  - gollum-app.yaml

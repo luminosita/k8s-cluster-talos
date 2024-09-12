@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gollum
+  namespace: argocd
+  labels:
+    me.kundun: testlab
+spec:
+  project: testlab
+  source:
+    repoURL: https://github.com/luminosita/k8s-cluster-talos
+    targetRevision: gollum-wiki
+    path: k8s/testlab/gollum
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

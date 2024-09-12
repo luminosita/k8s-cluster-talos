@@ -29,10 +29,9 @@ spec:
           image: gollumwiki/gollum:latest
 #          command: ["gollum"]
           args: 
+            - "/wiki/repo"
             - "--base-path"
             - "/wiki"
-            - "--page-file-dir"
-            - "repo"
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true

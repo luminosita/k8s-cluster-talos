@@ -11,13 +11,8 @@ spec:
         repoURL: https://github.com/rancher/local-path-provisioner
         revision: HEAD
         directories:
-          - path: examples/*
-          - path: examples/distroless
-            exclude: true
-          - path: examples/quota
-            exclude: true
-          - path: examples/shared-fs
-            exclude: true
+          - path: examples/pod
+          - path: examples/pvc
   template:
     metadata:
       name: '{{ path.basename }}'

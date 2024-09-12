@@ -6,7 +6,7 @@ include common.mk
 
 talos:
 	$(info TERRAFORM: Creating Talos Cluster)
-#TODO: Check if exist and create only if the ceritificate is missing
+#FIXME: Check if exist and create only if the ceritificate is missing
 	# mkdir -p ${CERT_FOLDER} && \
 	# 	openssl req -x509 -days 365 -nodes -newkey rsa:4096 -keyout ${CERT_KEY_PATH} -out ${CERT_PATH} -subj "/CN=sealed-secret/O=sealed-secret"
 #Deploy Talos cluster and set local ~/.kube.config	
@@ -31,10 +31,11 @@ bootstrap-k8s:
 	kubectl kustomize --enable-helm ../k8s/infra/network/cilium | kubectl apply -f -
 #Sealed secrets controller for cert-manager and gateway certificates
 	kustomize build --enable-helm ../k8s/infra/controllers/sealed-secrets | kubectl apply -f -
+#FIXME: sealed secrets should be generated only if main opelssl certificates are recreated	
 	$(info Creating Cloudflare Cert-manager Sealed Secret)
 	kubectl create secret generic cloudflare-api-token --from-literal=api-token=${CF_TOKEN} -n cert-manager --dry-run=client -o yaml | \
 		kubeseal --controller-namespace=sealed-secrets \
-		--format=yaml - > kubectl apply -f -
+		--format=yaml - > ../k8s/infra/controllers/cert-manager/cloudflare-api-token.yaml
 #Cert-manager	
 	# kustomize build --enable-helm ../k8s/infra/controllers/cert-manager | kubectl apply -f -
 #Deploy Proxmox CSI plugin for ArgoCD applications

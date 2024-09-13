@@ -33,7 +33,7 @@ spec:
           args: ["infinity"]
           securityContext:
             allowPrivilegeEscalation: false
-            readOnlyRootFilesystem: true
+            readOnlyRootFilesystem: false
             capabilities:
               drop: [ "ALL" ]
           env:

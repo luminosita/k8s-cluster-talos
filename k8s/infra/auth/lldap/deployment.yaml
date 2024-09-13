@@ -28,7 +28,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: lldap
-          image: ghcr.io/lldap/lldap:latest-alpine-rootless
+          image: nitnelave/lldap:latest-debian
           command: ["sleep"]
           args: ["infinity"]
           securityContext:

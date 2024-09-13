@@ -20,7 +20,7 @@ spec:
             hostname: emisia.net
             path:
               type: ReplacePrefixMatch
-              replaceFullPath: /      
+              replacePrefixMatch: /      
       backendRefs:
         - name: wikijs
           port: 80

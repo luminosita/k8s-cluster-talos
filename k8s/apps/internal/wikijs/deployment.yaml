@@ -29,9 +29,10 @@ spec:
           image: requarks/wiki:latest
           env:
           - name: DB_HOST
-            secretKeyRef:
-              key: host
-              name: single-wikijs-app
+            valueFrom:
+              secretKeyRef:
+                key: host
+                name: single-wikijs-app
           - name: DB_PORT
             valueFrom:
               secretKeyRef:

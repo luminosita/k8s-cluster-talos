@@ -14,6 +14,9 @@ configMapGenerator:
       - LLDAP_URL="http://lldap:80"   
       - LLDAP_ADMIN_USERNAME="admin"
       - DO_CLEANUP="true"     
+  - name: config-toml
+    files:
+      - config.toml
 
 resources:
   - ns.yaml

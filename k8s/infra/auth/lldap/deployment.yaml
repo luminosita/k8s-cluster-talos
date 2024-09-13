@@ -29,8 +29,6 @@ spec:
       containers:
         - name: lldap
           image: ghcr.io/lldap/lldap:stable
-          command: ["sleep"]
-          args: ["infinity"]
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true

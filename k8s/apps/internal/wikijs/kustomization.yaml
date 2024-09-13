@@ -3,16 +3,10 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-  - db-connection.yaml
+#  - cnpg-config.yaml
+  - cnpg.yaml
   - svc.yaml
   - http-route.yaml
   - https-route.yaml
   - deployment.yaml
 
-# helmCharts:
-#   - name: wiki
-#     repo: https://charts.js.wiki
-#     version: 2.2.21
-#     releaseName: my-release
-#     namespace: wikijs
-#     valuesFile: values.yaml

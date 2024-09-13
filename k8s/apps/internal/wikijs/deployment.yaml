@@ -27,22 +27,19 @@ spec:
       containers:
         - name: wikijs
           image: requarks/wiki:latest
-#          image: postgres:latest
-          # command: ["/bin/sleep"]  # Sleep command to keep the container running
-          # args: ["infinity"]           
           env:
           - name: DB_HOST
-            value: single-instance-rw.cnpg-database
+            value: single-wikijs-rw.cnpg-database
           - name: DB_PORT
             valueFrom:
               secretKeyRef:
                 key: port
-                name: single-instance-app
+                name: single-wikijs-app
           - name: DB_USER
             valueFrom:
               secretKeyRef:
                 key: username
-                name: single-instance-app
+                name: single-wikijs-app
           - name: DB_TYPE
             value: postgres
           - name: DB_NAME
@@ -51,7 +48,7 @@ spec:
             valueFrom:
               secretKeyRef:
                 key: password
-                name: single-instance-app
+                name: single-wikijs-app
           ports:
           - containerPort: 3000
             protocol: TCP

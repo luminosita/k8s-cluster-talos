@@ -196,8 +196,10 @@ $ git checkout testlab-branch
 
 Make `testlab` folder
 
+```bash
 $ mkdir k8s/testlab
-
+```
+ß
 Add ArgoCD project manifest
 
 ```yaml
@@ -287,8 +289,9 @@ spec:
 #### Create connection info sealed secret 
 
 ```bash
+$ export APP_NS=<app namespace> 
 $ kubectl get secrets single-instance-app -n cnpg-database -o json | jq 'del(.metadata["namespace","creationTimestamp","resourceVersion","selfLink","uid","annotations","labels","ownerReferences"])' | \
-      kubeseal --controller-namespace=sealed-secrets \
+      kubeseal --controller-namespace=sealed-secrets -n ${APP_NS} \
       --format=yaml - > db-connection.yaml
 ```
 

@@ -22,5 +22,5 @@ spec:
     initdb:
       database: wikijs
       owner: wikijs
-      # secret:
-      #   name: single-wikijs-secret
+      secret:
+        name: single-wikijs-app

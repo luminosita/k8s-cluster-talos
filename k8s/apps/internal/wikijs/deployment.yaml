@@ -29,7 +29,9 @@ spec:
           image: requarks/wiki:latest
           env:
           - name: DB_HOST
-            value: single-wikijs-rw.cnpg-database
+            secretKeyRef:
+              key: host
+              name: single-wikijs-app
           - name: DB_PORT
             valueFrom:
               secretKeyRef:

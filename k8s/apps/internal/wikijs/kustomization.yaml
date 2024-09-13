@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-#  - cnpg-config.yaml
+  - cnpg-config.yaml
   - cnpg.yaml
   - svc.yaml
   - http-route.yaml

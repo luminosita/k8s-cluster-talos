@@ -61,3 +61,4 @@ spec:
         - name: lldap-data
           configMap:
             name: config-toml
+            readOnly: false

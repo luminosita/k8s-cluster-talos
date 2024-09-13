@@ -55,10 +55,10 @@ spec:
             - name: web
               containerPort: 17170
           volumeMounts:
-            - name: lldap-data
-              mountPath: /data
+              - name: lldap-data
+                mountPath: /data/config.toml
+                subPath: config.toml
       volumes:
         - name: lldap-data
           configMap:
             name: config-toml
-            readOnly: false

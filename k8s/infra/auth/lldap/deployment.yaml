@@ -28,9 +28,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: lldap
-          image: nitnelave/lldap:latest-debian
-          command: ["sleep"]
-          args: ["infinity"]
+          image: ghcr.io/lldap/lldap:latest-alpine-rootless
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true

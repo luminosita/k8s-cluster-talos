@@ -8,7 +8,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/luminosita/homelab
+        repoURL: https://github.com/luminosita/k8s-cluster-talos
         revision: cnpg
         directories:
           - path: k8s/infra/database/*
@@ -22,7 +22,7 @@ spec:
       source:
         plugin:
           name: kustomize-build-with-helm
-        repoURL: https://github.com/luminosita/homelab
+        repoURL: https://github.com/luminosita/k8s-cluster-talos
         targetRevision: cnpg
         path: '{{ path }}'
       destination:

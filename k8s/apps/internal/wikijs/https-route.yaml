@@ -19,7 +19,7 @@ spec:
           urlRewrite:
             hostname: emisia.net
             path:
-              type: ReplaceFullPath
+              type: ReplacePrefixMatch
               replaceFullPath: /      
       backendRefs:
         - name: wikijs

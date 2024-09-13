@@ -28,3 +28,7 @@ spec:
       volumeName: pv-single-database
       accessModes:
         - ReadWriteOnce
+  bootstrap:
+    initdb:
+      database: wikijs
+      owner: app

@@ -28,7 +28,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: lldap
-          image: ghcr.io/lldap/lldap:2024-09-02-debian-rootless
+          image: ghcr.io/lldap/lldap:latest-alpine
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true

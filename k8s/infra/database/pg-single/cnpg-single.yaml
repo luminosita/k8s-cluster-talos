@@ -28,9 +28,3 @@ spec:
       volumeName: pv-single-database
       accessModes:
         - ReadWriteOnce
-  bootstrap:
-    initdb:
-      database: wikijs
-      owner: wikijs
-      secret:
-        name: cluster-wikijs-user

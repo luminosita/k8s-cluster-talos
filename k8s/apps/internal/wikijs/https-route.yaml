@@ -8,12 +8,12 @@ spec:
     - name: internal
       namespace: gateway
   hostnames:
-    - wiki.emisia.net
+    - emisia.net
   rules:
     - matches:
         - path:
             type: PathPrefix
-            value: /
+            value: /wiki
       backendRefs:
         - name: wikijs
           port: 80

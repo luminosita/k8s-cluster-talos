@@ -113,7 +113,7 @@ module "volumes" {
     }
     pv-lldap = {
       node = "proxmox"
-      size = "50M"
+      size = "100M"
     }
     pv-matterhorn = {
       node = "proxmox"

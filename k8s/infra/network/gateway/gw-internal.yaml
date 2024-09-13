@@ -18,7 +18,6 @@ spec:
         certificateRefs:
           - kind: Secret
             name: cert-emisia-wildcard
-            namespace: cert-manager
       allowedRoutes:
         namespaces:
           from: All
@@ -31,7 +30,6 @@ spec:
         certificateRefs:
           - kind: Secret
             name: cert-emisia-wildcard
-            namespace: cert-manager
       allowedRoutes:
         namespaces:
           from: All

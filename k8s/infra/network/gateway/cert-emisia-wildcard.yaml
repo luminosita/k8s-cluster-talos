@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: cert-emisia-wildcard
-  namespace: cert-manager
+  namespace: gateway
 spec:
   issuerRef:
     name: cloudflare-cluster-issuer

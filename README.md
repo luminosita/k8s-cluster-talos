@@ -274,7 +274,7 @@ Add database section Cluster
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: single-instance
+  name: <cluster name>
   namespace: cnpg-database
 spec:
     
@@ -290,7 +290,7 @@ spec:
 
 ```bash
 $ export APP_NS=<app namespace> 
-$ kubectl get secrets single-instance-app -n cnpg-database -o json | jq 'del(.metadata["namespace","creationTimestamp","resourceVersion","selfLink","uid","annotations","labels","ownerReferences"])' | \
+$ kubectl get secrets <cluster name>-app -n cnpg-database -o json | jq 'del(.metadata["namespace","creationTimestamp","resourceVersion","selfLink","uid","annotations","labels","ownerReferences"])' | \
       kubeseal --controller-namespace=sealed-secrets -n ${APP_NS} \
       --format=yaml - > db-connection.yaml
 ```
@@ -318,17 +318,17 @@ spec:
       . . .
           env:
           - name: DB_HOST
-            value: single-instance-rw.cnpg-database
+            value: <cluster name>-rw.cnpg-database
           - name: DB_PORT
             valueFrom:
               secretKeyRef:
                 key: port
-                name: single-instance-app
+                name: <cluster name>-app
           - name: DB_USER
             valueFrom:
               secretKeyRef:
                 key: username
-                name: single-instance-app
+                name: <cluster name>-app
           - name: DB_TYPE
             value: postgres
           - name: DB_NAME
@@ -337,5 +337,5 @@ spec:
             valueFrom:
               secretKeyRef:
                 key: password
-                name: single-instance-app
+                name: <cluster name>-app
 ```

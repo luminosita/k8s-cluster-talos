@@ -107,9 +107,17 @@ module "volumes" {
 
   proxmox_api = var.proxmox
   volumes = {
-    pv-single-database = {
+    pv-wikijs = {
       node = "proxmox"
-      size = "4G"
+      size = "1G"
+    }
+    pv-lldap = {
+      node = "proxmox"
+      size = "50M"
+    }
+    pv-matterhorn = {
+      node = "proxmox"
+      size = "5G"
     }
     pv-prometheus = {
       node = "proxmox"

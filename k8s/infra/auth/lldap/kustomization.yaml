@@ -28,4 +28,4 @@ resources:
   - lldap-config.yaml
   - deployment.yaml
   - local-route.yaml
-  - bootstrap.yaml
+  #- bootstrap.yaml

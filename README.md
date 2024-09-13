@@ -259,4 +259,80 @@ namespace: argocd
 resources:
   - project.yaml
   - test-app.yaml
-  ```
+```
+
+### TIP 1: Create Cloud Native PG connection secret
+
+#### Initialize Database
+
+Add database section Cluster
+
+```yaml
+#k8s/infra/database/pg-single/cnpg-single.yaml
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: single-instance
+  namespace: cnpg-database
+spec:
+    
+    . . .   
+  
+  bootstrap:
+  initdb:
+    database: <database name>
+    owner: app
+```
+
+#### Create connection info sealed secret 
+
+```bash
+$ kubectl get secrets single-instance-app -n cnpg-database -o json | jq 'del(.metadata["namespace","creationTimestamp","resourceVersion","selfLink","uid","annotations","labels","ownerReferences"])' | \
+      kubeseal --controller-namespace=sealed-secrets \
+      --format=yaml - > db-connection.yaml
+```
+
+#### Use it in Deployment
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  namespace: app
+  labels:
+    app: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+  . . .
+    spec:
+    . . .
+      containers:
+      . . .
+          env:
+          - name: DB_HOST
+            value: single-instance-rw.cnpg-database
+          - name: DB_PORT
+            valueFrom:
+              secretKeyRef:
+                key: port
+                name: single-instance-app
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                key: username
+                name: single-instance-app
+          - name: DB_TYPE
+            value: postgres
+          - name: DB_NAME
+            value: <database name>
+          - name: DB_PASS
+            valueFrom:
+              secretKeyRef:
+                key: password
+                name: single-instance-app
+```

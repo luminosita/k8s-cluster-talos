@@ -15,10 +15,12 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 ## 🏗️ Work in Progress
 
 - [ ] Renovate
+- [ ] Remark42
 - [ ] Ansible instead of Makefile or Taskfile
 - [x] Finish README
 - [x] Gollum with local-path provisioner 
 - [x] Gollum with storage
+- [ ] Wiki.js
 - [ ] VSCode with local-path provisioner 
 
 # K8s (Proxmox VMs and DigitalOcean for true HA)
@@ -41,6 +43,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [ ] Sentry
  - [ ] Proxmox
  - [ ] K8s
+ - [ ] Databases
 
 # Databases
 - [ ] Postgre

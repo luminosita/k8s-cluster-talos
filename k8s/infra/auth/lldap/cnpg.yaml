@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: single-lldap
-  namespace: cnpg-database
+  namespace: lldap
 spec:
   instances: 1
   affinity:
@@ -11,9 +11,6 @@ spec:
   managed:
     services:
       disabledDefaultServices: [ "ro", "r" ]
-      additional:
-        - selectorType: rw
-          updateStrategy: patch
   storage:
     size: 50M
     pvcTemplate:
@@ -25,5 +22,5 @@ spec:
     initdb:
       database: lldap
       owner: lldap
-      # secret:
-      #   name: single-lldap-secret      
+      secret:
+        name: single-lldap-app

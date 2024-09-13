@@ -34,6 +34,12 @@ spec:
             readOnlyRootFilesystem: true
             capabilities:
               drop: [ "ALL" ]
+          env:
+            - name: LLDAP_DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  key: jdbc-uri
+                  name: single-lldap-app
           envFrom:
             - configMapRef:
                 name: common-env

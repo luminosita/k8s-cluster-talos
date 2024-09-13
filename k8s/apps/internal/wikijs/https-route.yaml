@@ -17,7 +17,7 @@ spec:
       filters:
         - type: URLRewrite
           urlRewrite:
-#            hostname: elsewhere.example
+            hostname: emisia.net
             path:
               type: ReplaceFullPath
               replaceFullPath: /      

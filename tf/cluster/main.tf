@@ -107,10 +107,6 @@ module "volumes" {
 
   proxmox_api = var.proxmox
   volumes = {
-    pv-wiki = {
-      node = "proxmox"
-      size = "1G"
-    }
     pv-single-database = {
       node = "proxmox"
       size = "4G"

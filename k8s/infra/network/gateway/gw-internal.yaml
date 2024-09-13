@@ -17,7 +17,7 @@ spec:
         mode: Terminate
         certificateRefs:
           - kind: Secret
-            name: cert-emisia-wild
+            name: cert-emisia-wildcard
             namespace: cert-manager
       allowedRoutes:
         namespaces:
@@ -30,7 +30,7 @@ spec:
         mode: Terminate
         certificateRefs:
           - kind: Secret
-            name: cert-emisia-wild
+            name: cert-emisia-wildcard
             namespace: cert-manager
       allowedRoutes:
         namespaces:

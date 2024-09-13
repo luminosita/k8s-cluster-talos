@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: internal
+  namespace: argocd
+  labels:
+    me.kundun: internal
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/luminosita/k8s-cluster-talos
+        revision: HEAD
+        directories:
+          - path: k8s/apps/internal/*
+  template:
+    metadata:
+      name: '{{ path.basename }}'
+      labels:
+        me.kundun: application
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
+    spec:
+      project: internal
+      source:
+        repoURL: https://github.com/luminosita/k8s-cluster-talos
+        targetRevision: HEAD
+        path: '{{ path }}'
+      destination:
+        name: in-cluster
+        namespace: argocd
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true

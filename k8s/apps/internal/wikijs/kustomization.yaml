@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ns.yaml
+  - db-connection.yaml
+  - svc.yaml
+  - http-route.yaml
+  - https-route.yaml
+  - deployment.yaml
+
+# helmCharts:
+#   - name: wiki
+#     repo: https://charts.js.wiki
+#     version: 2.2.21
+#     releaseName: my-release
+#     namespace: wikijs
+#     valuesFile: values.yaml

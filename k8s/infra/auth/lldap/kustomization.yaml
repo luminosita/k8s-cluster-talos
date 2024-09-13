@@ -15,6 +15,7 @@ configMapGenerator:
       - LLDAP_ADMIN_USERNAME="admin"
       - DO_CLEANUP="true"     
   - name: config-toml
+    namespace: lldap
     files:
       - config.toml
 

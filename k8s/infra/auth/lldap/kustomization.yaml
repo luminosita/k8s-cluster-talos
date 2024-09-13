@@ -17,7 +17,7 @@ configMapGenerator:
   - name: config-toml
     namespace: lldap
     files:
-      - lldap-config.toml
+      - lldap_config.toml
 
 resources:
   - ns.yaml

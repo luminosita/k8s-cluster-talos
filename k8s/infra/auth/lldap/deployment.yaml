@@ -56,8 +56,8 @@ spec:
               containerPort: 17170
           volumeMounts:
               - name: lldap-data
-                mountPath: /data/lldap-config.toml
-                subPath: lldap-config.toml
+                mountPath: /data/lldap_config.toml
+                subPath: lldap_config.toml
       volumes:
         - name: lldap-data
           configMap:

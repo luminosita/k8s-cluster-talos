@@ -1,0 +1,30 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: single-instance
+  namespace: cnpg-database
+spec:
+  instances: 1
+  affinity:
+    nodeSelector:
+      topology.kubernetes.io/zone: proxmox
+  managed:
+    services:
+      disabledDefaultServices: [ "ro", "r" ]
+      additional:
+        - selectorType: rw
+          updateStrategy: patch
+          serviceTemplate:
+            metadata:
+              name: single-instance-ext
+              annotations:
+                io.cilium/lb-ipam-ips: 192.168.50.230
+            spec:
+              type: LoadBalancer
+  storage:
+    size: 4G
+    pvcTemplate:
+      storageClassName: proxmox-csi
+      volumeName: pv-single-database
+      accessModes:
+        - ReadWriteOnce

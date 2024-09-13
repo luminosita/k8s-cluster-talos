@@ -6,8 +6,8 @@ configMapGenerator:
     namespace: lldap
     literals:
       - TZ="Europe/Oslo"
-      - GID="1000"
-      - UID="1000"
+      - GID="1001"
+      - UID="1001"
   - name: bootstrap-env
     namespace: lldap
     literals:

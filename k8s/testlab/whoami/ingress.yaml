@@ -26,6 +26,7 @@ spec:
             backend:
               serviceName: test-app-service
               servicePort: 80
+            pathType: Prefix
     - host: admin.emisia.net
       http:
         paths:
@@ -33,6 +34,7 @@ spec:
             backend:
               serviceName: test-app-service
               servicePort: 80
+            pathType: Prefix
     - host: secure.emisia.net
       http:
         paths:
@@ -40,6 +42,7 @@ spec:
             backend:
               serviceName: test-app-service
               servicePort: 80
+            pathType: Prefix
     - host: singlefactor.emisia.net
       http:
         paths:
@@ -47,3 +50,44 @@ spec:
             backend:
               serviceName: test-app-service
               servicePort: 80
+            pathType: Prefix
+
+  #   rules:
+  # - host: "pathtypes.example.com"
+  #   http:
+  #     paths:
+  #     - backend:
+  #         service:
+  #           name: exactpath
+  #           port:
+  #             number: 80
+  #       path: /exact
+  #       pathType: Exact
+  #     - backend:
+  #         service:
+  #           name: prefixpath
+  #           port:
+  #             number: 80
+  #       path: /
+  #       pathType: Prefix
+  #     - backend:
+  #         service:
+  #           name: prefixpath2
+  #           port:
+  #             number: 80
+  #       path: /prefix
+  #       pathType: Prefix
+  #     - backend:
+  #         service:
+  #           name: implpath
+  #           port:
+  #             number: 80
+  #       path: /impl
+  #       pathType: ImplementationSpecific
+  #     - backend:
+  #         service:
+  #           name: implpath2
+  #           port:
+  #             number: 80
+  #       path: /impl.+
+  #       pathType: ImplementationSpecific

@@ -32,7 +32,6 @@ spec:
             - name: LDAP_BASE_DN
               value: "dc=emisia,dc=net"
             - name: LDAP_ADMIN_PASSWORD
-              value: "password"
               valueFrom:
                 secretKeyRef:
                   key: jdbc-uri

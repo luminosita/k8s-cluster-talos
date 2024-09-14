@@ -3,7 +3,8 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-  - config.yaml
+  - openldap-credentials.yaml
+  - openldap-config.yaml
   - svc.yaml
   - deployment.yaml
   - webui.yaml

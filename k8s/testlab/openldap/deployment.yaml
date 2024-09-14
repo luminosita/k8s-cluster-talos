@@ -20,7 +20,7 @@ spec:
           image: osixia/openldap:latest
           args: ["--copy-service", "--loglevel", "debug"]
           volumeMounts:
-            - name: config
+            - name: openldap-config
               mountPath: /container/service/slapd/assets/config/bootstrap/ldif/custom/config-ldap.ldif
               subPath: config-ldap.ldif
           ports:
@@ -37,7 +37,11 @@ spec:
               value: "dc=emisia,dc=net"
             - name: LDAP_ADMIN_PASSWORD
               value: "password"
-      volumes:
-        - name: config
-          configMap:
-            name: config
+              valueFrom:
+                secretKeyRef:
+                  key: jdbc-uri
+                  name: openldap-credentials
+          volumes:
+            - name: openldap-config
+              secret:
+                name: openldap-config

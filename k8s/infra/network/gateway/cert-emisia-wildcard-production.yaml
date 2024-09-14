@@ -1,17 +1,17 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: cert-emisia-wildcard
-  namespace: gateway
+  name: cert-emisia-wildcard-production
+  namespace: gateway 
 spec:
   issuerRef:
-    name: cloudflare-cluster-issuer
+    name: cloudflare-cluster-issuer-production
     kind: ClusterIssuer
     group: cert-manager.io
   dnsNames:
     - emisia.net
     - "*.emisia.net"
-  secretName: cert-emisia-wildcard
+  secretName: cert-emisia-wildcard-production
 
   privateKey:
     algorithm: RSA

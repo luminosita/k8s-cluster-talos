@@ -4,9 +4,10 @@ kind: Kustomization
 resources:
   - ns.yaml
   - gateway-class.yaml
-  - cert-emisia-wildcard.yaml
-  - gw-external.yaml
-  - gw-internal.yaml
+  #- cert-emisia-wildcard-staging.yaml
+  - cert-emisia-wildcard-production.yaml
+  #- gw-internal-staging.yaml
+  - gw-internal-production.yaml
   - gw-tls-passthrough.yaml
   - gw-insecure.yaml
   

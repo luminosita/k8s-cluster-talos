@@ -1,7 +1,7 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: internal
+  name: internal-production
   namespace: gateway
 spec:
   gatewayClassName: cilium
@@ -17,7 +17,7 @@ spec:
         mode: Terminate
         certificateRefs:
           - kind: Secret
-            name: cert-emisia-wildcard
+            name: cert-emisia-wildcard-production
       allowedRoutes:
         namespaces:
           from: All
@@ -29,7 +29,7 @@ spec:
         mode: Terminate
         certificateRefs:
           - kind: Secret
-            name: cert-emisia-wildcard
+            name: cert-emisia-wildcard-production
       allowedRoutes:
         namespaces:
           from: All

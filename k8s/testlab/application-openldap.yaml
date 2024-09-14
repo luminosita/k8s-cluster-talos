@@ -8,6 +8,8 @@ metadata:
 spec:
   project: testlab
   source:
+    plugin:
+      name: kustomize-build-with-helm
     repoURL: https://github.com/luminosita/k8s-cluster-talos
     targetRevision: openldap
     path: 'k8s/testlab/openldap'

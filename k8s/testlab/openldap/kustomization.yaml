@@ -7,3 +7,6 @@ resources:
   - svc.yaml
   - deployment.yaml
   - webui.yaml
+  - webui-svc.yaml
+  - http-webui.yaml
+

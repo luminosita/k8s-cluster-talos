@@ -4,15 +4,15 @@ metadata:
   name: secure-ingress
   namespace: solar-system-authelia
   annotations:
-    kubernetes.io/ingress.allow-http: "false"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/auth-url: "http://authelia-service.authelia.svc.cluster.local/api/verify"
-    nginx.ingress.kubernetes.io/auth-signin: "https://whoami.emisia.net/"
+    # kubernetes.io/ingress.allow-http: "false"
+    # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/auth-url: "http://authelia-service.authelia.svc.cluster.local/api/verify"
+    # nginx.ingress.kubernetes.io/auth-signin: "https://whoami.emisia.net/"
     cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
 spec:
   ingressClassName: nginx
   tls:
-    - secretName: test-app-tls
+    - secretName: solar-system-authelia-tls
       hosts:
         - public.emisia.net
         - admin.emisia.net

@@ -29,14 +29,14 @@ spec:
             - containerPort: 636
               name: ldaps
           env:
-        - name: LDAP_ORGANISATION
-          value: "emisia"
-        - name: LDAP_DOMAIN
-          value: "example.net"
-        - name: LDAP_BASE_DN
-          value: "dc=emisia,dc=net"
-        - name: LDAP_ADMIN_PASSWORD
-          value: "password"
+        # - name: LDAP_ORGANISATION
+        #   value: "emisia"
+        # - name: LDAP_DOMAIN
+        #   value: "example.net"
+        # - name: LDAP_BASE_DN
+        #   value: "dc=emisia,dc=net"
+        # - name: LDAP_ADMIN_PASSWORD
+        #   value: "password"
         - name: LDAP_TLS_VERIFY_CLIENT
           value: "try"
         - name: LDAP_ORGANISATION 

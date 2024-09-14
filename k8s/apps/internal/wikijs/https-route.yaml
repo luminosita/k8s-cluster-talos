@@ -5,7 +5,7 @@ metadata:
   namespace: wikijs
 spec:
   parentRefs:
-    - name: internal
+    - name: internal-production
       namespace: gateway
   hostnames:
     - emisia.net

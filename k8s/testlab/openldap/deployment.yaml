@@ -30,7 +30,7 @@ spec:
               name: ldaps
           env:
             - name: LDAP_ORGANISATION
-              value: "emisia"
+              value: "Emisia"
             - name: LDAP_DOMAIN
               value: "example.net"
             - name: LDAP_BASE_DN

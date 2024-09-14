@@ -1,13 +1,28 @@
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-openldap
+  name: pvc-openldap-data
   namespace: openldap
 spec:
   storageClassName: proxmox-csi
-  volumeName: pv-openldap
+  volumeName: pv-openldap-data
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 100M
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-openldap-config
+  namespace: openldap
+spec:
+  storageClassName: proxmox-csi
+  volumeName: pv-openldap-config
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5M

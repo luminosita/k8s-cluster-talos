@@ -5,4 +5,4 @@ resources:
   - ns.yaml
   - svc.yaml
   - deployment.yaml
-  - ingress.yaml
+  - ingress-nginx.yaml

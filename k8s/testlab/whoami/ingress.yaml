@@ -24,32 +24,40 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: test-app-service
-              servicePort: 80
+              service:
+                name: test-app-service
+                port: 
+                  number: 80
             pathType: Prefix
     - host: admin.emisia.net
       http:
         paths:
           - path: /
             backend:
-              serviceName: test-app-service
-              servicePort: 80
+              service:
+                name: test-app-service
+                port: 
+                  number: 80
             pathType: Prefix
     - host: secure.emisia.net
       http:
         paths:
           - path: /
             backend:
-              serviceName: test-app-service
-              servicePort: 80
+              service:
+                name: test-app-service
+                port: 
+                  number: 80
             pathType: Prefix
     - host: singlefactor.emisia.net
       http:
         paths:
           - path: /
             backend:
-              serviceName: test-app-service
-              servicePort: 80
+              service:
+                name: test-app-service
+                port: 
+                  number: 80
             pathType: Prefix
 
   #   rules:

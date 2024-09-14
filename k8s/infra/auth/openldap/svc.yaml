@@ -4,7 +4,7 @@ metadata:
   name: openldap
   namespace: openldap
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: openldap
   ports:

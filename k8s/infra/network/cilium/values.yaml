@@ -78,7 +78,8 @@ hubble:
     rollOutPods: true
 
 ingressController:
-  enabled: false
+  enabled: true
+  loadbalancerMode: shared
 
 # mTLS
 authentication:

@@ -32,7 +32,7 @@ spec:
             - name: LDAP_ORGANISATION
               value: "Emisia"
             - name: LDAP_DOMAIN
-              value: "example.net"
+              value: "emisia.net"
             - name: LDAP_BASE_DN
               value: "dc=emisia,dc=net"
             - name: LDAP_ADMIN_PASSWORD

@@ -4,7 +4,8 @@ kind: Kustomization
 resources:
   - ns.yaml
   - cloudflare-api-token.yaml
-  - cluster-issuer.yaml
+  - cluster-issuer-staging.yaml
+  - cluster-issuer-production.yaml
 
 helmCharts:
   - name: cert-manager

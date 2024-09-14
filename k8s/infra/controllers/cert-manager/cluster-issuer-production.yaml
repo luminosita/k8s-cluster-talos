@@ -1,11 +1,10 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: cloudflare-cluster-issuer
+  name: cloudflare-cluster-issuer-production
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    # server: https://acme-staging-v02.api.letsencrypt.org/directory
     email: milosh@emisia.net
     privateKeySecretRef:
       name: cluster-issuer-account-key
@@ -14,4 +13,5 @@ spec:
           cloudflare:
             apiTokenSecretRef:
               name: cloudflare-api-token
+              namespace: cert-manager
               key: api-token

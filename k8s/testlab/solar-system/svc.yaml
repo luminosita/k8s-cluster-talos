@@ -5,6 +5,7 @@ metadata:
   name: moon
   namespace: solar-system-authelia
 spec:
+  type: LoadBalancer
   selector:
     app: moon
   ports:
@@ -18,6 +19,7 @@ metadata:
   name: sun
   namespace: solar-system-authelia
 spec:
+  type: LoadBalancer
   selector:
     app: sun
   ports:

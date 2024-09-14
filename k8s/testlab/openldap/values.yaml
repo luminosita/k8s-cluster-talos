@@ -550,17 +550,5 @@ phpldapadmin:
   env:
     PHPLDAPADMIN_LDAP_CLIENT_TLS_REQCERT: "never"
   ingress:
-    enabled: true
+    enabled: false
     annotations: {}
-    ## See https://kubernetes.io/docs/concepts/services-networking/ingress/#ingressclass-scope
-    # ingressClassName: nginx
-    path: /
-    pathType: Prefix
-    ## Ingress Host
-    hosts:
-    - phpldapadmin.example
-    ## Ingress cert
-    tls: []
-    # - secretName: phpldapadmin.example
-    #   hosts:
-    #   - phpldapadmin.example

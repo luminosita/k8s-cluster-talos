@@ -21,6 +21,8 @@ spec:
       server: '*'
     - namespace: 'kube-system'
       server: '*'
+    - namespace: 'nginx-ingress'
+      server: '*'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

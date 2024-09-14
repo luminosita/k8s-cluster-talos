@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moon
+  namespace: solar-system-authelia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moon
+  template:
+    metadata:
+      namespace: solar-system-authelia
+      labels:
+        app: moon
+    spec:
+      containers:
+        - name: moon
+          image: armsultan/solar-system:moon-nonroot
+          imagePullPolicy: Always
+          # resources:
+          #   limits:
+          #     cpu: "1"
+          #     memory: "200Mi"
+          #   requests:
+          #     cpu: "0.5"
+          #     memory: "100Mi"
+          ports:
+            - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sun
+  namespace: solar-system-authelia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sun
+  template:
+    metadata:
+      namespace: solar-system-authelia
+      labels:
+        app: sun
+    spec:
+      containers:
+        - name: moon
+          image: armsultan/solar-system:sun-nonroot
+          imagePullPolicy: Always
+          # resources:
+          #   limits:
+          #     cpu: "1"
+          #     memory: "200Mi"
+          #   requests:
+          #     cpu: "0.5"
+          #     memory: "100Mi"
+          ports:
+            - containerPort: 8080

@@ -2,15 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: secure-ingress
-  namespace: whoami-authelia
+  namespace: solar-system-authelia
   annotations:
     kubernetes.io/ingress.allow-http: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/auth-url: "http://authelia-service.authelia.svc.cluster.local/api/verify"
     nginx.ingress.kubernetes.io/auth-signin: "https://whoami.emisia.net/"
+    ingress.cilium.io/force-https: "true"
     cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
+    io.cilium/lb-ipam-ips: 192.168.50.225
 spec:
-  ingressClassName: cilium
+  ingressClassName: nginx
   tls:
     - secretName: test-app-tls
       hosts:
@@ -25,7 +27,7 @@ spec:
           - path: /
             backend:
               service:
-                name: test-app-service
+                name: sun
                 port: 
                   number: 80
             pathType: Prefix
@@ -35,7 +37,7 @@ spec:
           - path: /
             backend:
               service:
-                name: test-app-service
+                name: moon
                 port: 
                   number: 80
             pathType: Prefix
@@ -45,7 +47,7 @@ spec:
           - path: /
             backend:
               service:
-                name: test-app-service
+                name: sun
                 port: 
                   number: 80
             pathType: Prefix
@@ -55,47 +57,7 @@ spec:
           - path: /
             backend:
               service:
-                name: test-app-service
+                name: moon
                 port: 
                   number: 80
             pathType: Prefix
-
-  #   rules:
-  # - host: "pathtypes.example.com"
-  #   http:
-  #     paths:
-  #     - backend:
-  #         service:
-  #           name: exactpath
-  #           port:
-  #             number: 80
-  #       path: /exact
-  #       pathType: Exact
-  #     - backend:
-  #         service:
-  #           name: prefixpath
-  #           port:
-  #             number: 80
-  #       path: /
-  #       pathType: Prefix
-  #     - backend:
-  #         service:
-  #           name: prefixpath2
-  #           port:
-  #             number: 80
-  #       path: /prefix
-  #       pathType: Prefix
-  #     - backend:
-  #         service:
-  #           name: implpath
-  #           port:
-  #             number: 80
-  #       path: /impl
-  #       pathType: ImplementationSpecific
-  #     - backend:
-  #         service:
-  #           name: implpath2
-  #           port:
-  #             number: 80
-  #       path: /impl.+
-  #       pathType: ImplementationSpecific

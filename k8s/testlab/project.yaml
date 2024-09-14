@@ -11,7 +11,7 @@ spec:
       server: '*'
     - namespace: 'authelia'
       server: '*'
-    - namespace: 'whoami-authelia'
+    - namespace: 'solar-system-authelia'
       server: '*'
   clusterResourceWhitelist:
     - group: '*'

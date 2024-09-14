@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: moon
+  namespace: solar-system-authelia
+spec:
+  selector:
+    app: moon
+  ports:
+    - name: web
+      port: 80
+      targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sun
+  namespace: solar-system-authelia
+spec:
+  selector:
+    app: sun
+  ports:
+    - name: web
+      port: 80
+      targetPort: 8080

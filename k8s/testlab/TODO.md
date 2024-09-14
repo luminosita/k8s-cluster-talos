@@ -34,6 +34,12 @@ Add namespaces from test apps and additional source code repositories, if needed
       server: '*'
 ```
 
+### Add Applications to ArgoCD
+
+```bash
+$ kubectl apply -k ../k8s/testlab/
+```
+
 # Notes to Fix When Merging into Main Branch
 
 - [ ]

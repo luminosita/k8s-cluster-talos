@@ -5,10 +5,6 @@ Warning: would violate PodSecurity "baseline:latest": non-default capabilities (
 daemonset.apps/proxmox-csi-plugin-node created
 
 - [ ] BUG 2:
-http://whoami.emisia.net prolazi
-https://emisia.net/whoami - samo kroz curl
-
-- [ ] BUG 3:
 ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 
 
@@ -20,8 +16,8 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [x] Finish README
 - [x] Gollum with local-path provisioner 
 - [x] Gollum with storage
-- [ ] Wiki.js
-- [ ] VSCode with local-path provisioner 
+- [x] Wiki.js
+- [ ] VSCode with NFS provisioner 
 
 # K8s (Proxmox VMs and DigitalOcean for true HA)
 - [x] Terraform
@@ -48,6 +44,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 # Databases
 - [ ] Postgre
 - [ ] MySql (MariaDB)
+- [ ] OpenLDAP
 
 # K8s
 - [ ] Dashboard (Ingress, SSL, Pomerium with GitHub and LDAP)

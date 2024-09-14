@@ -19,10 +19,6 @@ spec:
         - name: openldap
           image: osixia/openldap:latest
           args: ["--copy-service", "--loglevel", "debug"]
-          volumeMounts:
-            - name: openldap-config
-              mountPath: /container/service/slapd/assets/config/bootstrap/ldif/custom/config-ldap.ldif
-              subPath: config-ldap.ldif
           ports:
             - containerPort: 389
               name: ldap
@@ -41,7 +37,11 @@ spec:
                 secretKeyRef:
                   key: jdbc-uri
                   name: openldap-credentials
-          volumes:
-            - name: openldap-config
-              secret:
-                name: openldap-config
+          volumeMounts:
+            - name: config
+              mountPath: /container/service/slapd/assets/config/bootstrap/ldif/custom/config-ldap.ldif
+              subPath: config-ldap.ldif
+      volumes:
+        - name: config
+          secret:
+            name: openldap-config

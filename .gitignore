@@ -31,3 +31,6 @@ override.tf.json
 tmp/
 tf/users.json
 tf/groups.json
+tf/bootstrap.ldif
+tf/sealed-secrets.cert
+tf/sealed-secrets.key

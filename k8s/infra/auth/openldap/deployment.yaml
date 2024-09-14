@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openldap
+  namespace: openldap
+  labels:
+    app: openldap
+spec:
+  selector:
+    matchLabels:
+      app: openldap
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: openldap
+    spec:
+      containers:
+        - name: openldap
+          image: osixia/openldap:latest
+          args: ["--copy-service", "--loglevel", "debug"]
+          ports:
+            - containerPort: 389
+              name: ldap
+            - containerPort: 636
+              name: ldaps
+          env:
+            - name: LDAP_ORGANISATION
+              value: "Emisia"
+            - name: LDAP_DOMAIN
+              value: "emisia.net"
+            - name: LDAP_BASE_DN
+              value: "dc=emisia,dc=net"
+            - name: LDAP_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: LDAP_ADMIN_PASSWORD
+                  name: openldap-credentials
+          volumeMounts:
+            - name: config
+              mountPath: /container/service/slapd/assets/config/bootstrap/ldif/custom/config-ldap.ldif
+              subPath: config-ldap.ldif
+      volumes:
+        - name: config
+          secret:
+            secretName: openldap-config

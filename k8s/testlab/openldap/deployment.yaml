@@ -26,31 +26,31 @@ spec:
           ports:
             - containerPort: 389
               name: openldap
-          env:
-            - name: LDAP_TLS_VERIFY_CLIENT
-              value: "try"
-            - name: LDAP_ORGANISATION 
-              value: "Emisia"
-            - name: LDAP_DOMAIN 
-              value: "emisia.net"
-            - name: LDAP_BACKEND 
-              value: "hdb"
-            - name: LDAP_TLS 
-              value: true
-            - name: LDAP_TLS_ENFORCE 
-              value: false
-            - name: LDAP_REMOVE_CONFIG_AFTER_SETUP 
-              value: true
-            - name: LDAP_READONLY_USER 
-              value: true
-            - name: LDAP_READONLY_USER_USERNAME 
-              value: "readonly"
-            - name: LDAP_READONLY_USER_MASSWORD 
-              value: "password"
-            - name: LDAP_ADMIN_PASSWORD
-              value: "laptop01"
-            - name: LDAP_CONFIG_PASSWORD
-              value: "laptop01"
+          # env:
+          #   - name: LDAP_TLS_VERIFY_CLIENT
+          #     value: "try"
+          #   - name: LDAP_ORGANISATION 
+          #     value: "Emisia"
+          #   - name: LDAP_DOMAIN 
+          #     value: "emisia.net"
+          #   - name: LDAP_BACKEND 
+          #     value: "hdb"
+          #   - name: LDAP_TLS 
+          #     value: true
+          #   - name: LDAP_TLS_ENFORCE 
+          #     value: false
+          #   - name: LDAP_REMOVE_CONFIG_AFTER_SETUP 
+          #     value: true
+          #   - name: LDAP_READONLY_USER 
+          #     value: true
+          #   - name: LDAP_READONLY_USER_USERNAME 
+          #     value: "readonly"
+          #   - name: LDAP_READONLY_USER_MASSWORD 
+          #     value: "password"
+          #   - name: LDAP_ADMIN_PASSWORD
+          #     value: "laptop01"
+          #   - name: LDAP_CONFIG_PASSWORD
+          #     value: "laptop01"
       volumes:
         - name: config
           configMap:

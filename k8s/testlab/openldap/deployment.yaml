@@ -39,18 +39,18 @@ spec:
               value: "true"
             - name: LDAP_TLS_ENFORCE 
               value: "false"
-          #   - name: LDAP_REMOVE_CONFIG_AFTER_SETUP 
-          #     value: true
-          #   - name: LDAP_READONLY_USER 
-          #     value: true
-          #   - name: LDAP_READONLY_USER_USERNAME 
-          #     value: "readonly"
-          #   - name: LDAP_READONLY_USER_MASSWORD 
-          #     value: "password"
-          #   - name: LDAP_ADMIN_PASSWORD
-          #     value: "laptop01"
-          #   - name: LDAP_CONFIG_PASSWORD
-          #     value: "laptop01"
+            - name: LDAP_REMOVE_CONFIG_AFTER_SETUP 
+              value: "true"
+            - name: LDAP_READONLY_USER 
+              value: "true"
+            - name: LDAP_READONLY_USER_USERNAME 
+              value: "readonly"
+            - name: LDAP_READONLY_USER_MASSWORD 
+              value: "password"
+            - name: LDAP_ADMIN_PASSWORD
+              value: "laptop01"
+            - name: LDAP_CONFIG_PASSWORD
+              value: "laptop01"
       volumes:
         - name: config
           configMap:

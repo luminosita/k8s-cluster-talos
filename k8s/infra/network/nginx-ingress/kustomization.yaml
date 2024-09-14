@@ -5,9 +5,9 @@ resources:
   - ns.yaml
 
 helmCharts:
-  - name: nginx-ingress
+  - name: ingress-nginx/ingress-nginx
     repo: https://kubernetes.github.io/ingress-nginx
-    version: v4.11.2
+    version: 4.11.2
     releaseName: "nginx-ingress"
     namespace: nginx-ingress
     

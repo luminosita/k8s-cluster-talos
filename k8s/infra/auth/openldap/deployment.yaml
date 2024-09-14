@@ -37,17 +37,17 @@ spec:
                   key: LDAP_ADMIN_PASSWORD
                   name: openldap-credentials
           volumeMounts:
-            - name: bootstrap
-              mountPath: /container/service/slapd/assets/config/bootstrap/ldif/custom/config-ldap.ldif
-              subPath: config-ldap.ldif
+            # - name: bootstrap
+            #   mountPath: /container/service/slapd/assets/config/bootstrap/ldif/custom/config-ldap.ldif
+            #  subPath: config-ldap.ldif
             - name: data
               mountPath: /var/lib/ldap
             - name: config
               mountPath: /etc/ldap/slapd.d
       volumes:
-        - name: bootstrap
-          secret:
-            secretName: openldap-config
+        # - name: bootstrap
+        #   secret:
+        #     secretName: openldap-config
         - name: data
           persistentVolumeClaim:
             claimName: pvc-openldap-data

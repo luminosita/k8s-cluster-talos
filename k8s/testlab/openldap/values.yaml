@@ -519,20 +519,8 @@ ltb-passwd:
   image:
     tag: 5.2.3
   ingress:
-    enabled: true
+    enabled: false
     annotations: {}
-    # See https://kubernetes.io/docs/concepts/services-networking/ingress/#ingressclass-scope
-    # ingressClassName: nginx
-    path: /
-    pathType: Prefix
-    ## Ingress Host
-    hosts:
-    - "ssl-ldap2.example"
-    ## Ingress cert
-    tls: []
-    # - secretName: ssl-ldap2.example
-    #   hosts:
-    #   - ssl-ldap2.example
   # ldap:
     # if you want to restrict search base tree for users instead of complete domain
     # searchBase: "ou=....,dc=mydomain,dc=com"

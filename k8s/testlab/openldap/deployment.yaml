@@ -44,4 +44,4 @@ spec:
       volumes:
         - name: config
           secret:
-            name: openldap-config
+            secretName: openldap-config

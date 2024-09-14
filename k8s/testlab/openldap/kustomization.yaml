@@ -3,11 +3,6 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-
-helmCharts:
-  - name: openldap
-    repo: https://jp-gouin.github.io/helm-openldap/
-    version: 2.0.4
-    releaseName: my-release
-    namespace: openldap
-    valuesFile: values.yaml
+  - config.yaml
+  - svc.yaml
+  - deployment.yaml

@@ -26,13 +26,13 @@ spec:
           ports:
             - containerPort: 389
               name: openldap
-          # env:
-          #   - name: LDAP_TLS_VERIFY_CLIENT
-          #     value: "try"
-          #   - name: LDAP_ORGANISATION 
-          #     value: "Emisia"
-          #   - name: LDAP_DOMAIN 
-          #     value: "emisia.net"
+          env:
+            - name: LDAP_TLS_VERIFY_CLIENT
+              value: "try"
+            - name: LDAP_ORGANISATION 
+              value: "Emisia"
+            - name: LDAP_DOMAIN 
+              value: "emisia.net"
           #   - name: LDAP_BACKEND 
           #     value: "hdb"
           #   - name: LDAP_TLS 

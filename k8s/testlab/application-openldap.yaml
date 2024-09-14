@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openldap
+  namespace: argocd
+  labels:
+    me.kundun: openldap
+spec:
+  project: testlab
+  source:
+    repoURL: https://github.com/luminosita/k8s-cluster-talos
+    targetRevision: openldap
+    path: 'k8s/testlab/openldap'
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

@@ -515,7 +515,7 @@ test:
 ## ltb-passwd
 # For more parameters check following file: ./charts/ltb-passwd/values.yaml
 ltb-passwd:
-  enabled : true
+  enabled : false
   image:
     tag: 5.2.3
   ingress:

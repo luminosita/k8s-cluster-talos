@@ -23,6 +23,6 @@ spec:
               name: http
           env:
             - name: PHPLDAPADMIN_LDAP_HOSTS
-              value: "openldap-svc.openldap"
+              value: "openldap.openldap"
             - name: PHPLDAPADMIN_HTTPS
               value: "false"

@@ -29,6 +29,8 @@ spec:
       containers:
         - name: lldap
           image: ghcr.io/lldap/lldap:2024-09-02-debian-rootless
+          command: ["sleep"]
+          args: ["infinity"]
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true

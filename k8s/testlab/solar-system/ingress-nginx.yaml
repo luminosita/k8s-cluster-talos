@@ -8,9 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/auth-url: "http://authelia-service.authelia.svc.cluster.local/api/verify"
     nginx.ingress.kubernetes.io/auth-signin: "https://whoami.emisia.net/"
-    ingress.cilium.io/force-https: "true"
     cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
-    io.cilium/lb-ipam-ips: 192.168.50.225
 spec:
   ingressClassName: nginx
   tls:

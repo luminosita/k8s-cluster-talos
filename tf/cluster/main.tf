@@ -111,7 +111,7 @@ module "volumes" {
       node = "proxmox"
       size = "1G"
     }
-    pv-lldap = {
+    pv-openldap = {
       node = "proxmox"
       size = "100M"
     }

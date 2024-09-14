@@ -40,7 +40,17 @@ spec:
             - name: config
               mountPath: /container/service/slapd/assets/config/bootstrap/ldif/custom/config-ldap.ldif
               subPath: config-ldap.ldif
+            - name: data
+              mountPath: /var/lib/ldap
+              subPath: /data
+            - name: config
+              mountPath: /etc/ldap/slapd.d
+              subPath: /config
       volumes:
         - name: config
           secret:
             secretName: openldap-config
+        - name: data
+          persistentVolumeClaim:
+            claimName: pvc-openldap
+          

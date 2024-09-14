@@ -33,12 +33,12 @@ spec:
               value: "Emisia"
             - name: LDAP_DOMAIN 
               value: "emisia.net"
-          #   - name: LDAP_BACKEND 
-          #     value: "hdb"
-          #   - name: LDAP_TLS 
-          #     value: true
-          #   - name: LDAP_TLS_ENFORCE 
-          #     value: false
+            - name: LDAP_BACKEND 
+              value: "hdb"
+            - name: LDAP_TLS 
+              value: true
+            - name: LDAP_TLS_ENFORCE 
+              value: false
           #   - name: LDAP_REMOVE_CONFIG_AFTER_SETUP 
           #     value: true
           #   - name: LDAP_READONLY_USER 

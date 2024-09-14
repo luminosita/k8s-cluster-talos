@@ -20,9 +20,9 @@ spec:
           image: osixia/openldap:latest
           args: ["--copy-service", "--loglevel", "debug"]
           volumeMounts:
-            # - name: config
-            #   mountPath: /container/service/slapd/assets/config/bootstrap/ldif/custom/config-ldap.ldif
-            #   subPath: config-ldap.ldif
+            - name: config
+              mountPath: /container/service/slapd/assets/config/bootstrap/ldif/custom/config-ldap.ldif
+              subPath: config-ldap.ldif
           ports:
             - containerPort: 389
               name: openldap
@@ -34,7 +34,7 @@ spec:
             - name: LDAP_DOMAIN 
               value: "emisia.net"
             - name: LDAP_BACKEND 
-              value: "hdb"
+              value: "mdb"
             - name: LDAP_TLS 
               value: "true"
             - name: LDAP_TLS_ENFORCE 
@@ -52,6 +52,6 @@ spec:
             - name: LDAP_CONFIG_PASSWORD
               value: "laptop01"
       volumes:
-        # - name: config
-        #   configMap:
-        #     name: config
+        - name: config
+          configMap:
+            name: config

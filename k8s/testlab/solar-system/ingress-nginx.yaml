@@ -9,16 +9,16 @@ metadata:
     # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     # nginx.ingress.kubernetes.io/auth-url: "http://authelia-service.authelia.svc.cluster.local/api/verify"
     # nginx.ingress.kubernetes.io/auth-signin: "https://public.emisia.net/"
-    cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
+    # cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
 spec:
   ingressClassName: nginx
-  tls:
-    - secretName: solar-system-authelia-tls
-      hosts:
-        - public.emisia.net
-        - admin.emisia.net
-        - secure.emisia.net
-        - singlefactor.emisia.net
+  # tls:
+  #   - secretName: solar-system-authelia-tls
+  #     hosts:
+  #       - public.emisia.net
+  #       - admin.emisia.net
+  #       - secure.emisia.net
+  #       - singlefactor.emisia.net
   rules:
     - host: public.emisia.net
       http:

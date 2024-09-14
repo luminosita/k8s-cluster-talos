@@ -6,3 +6,4 @@ resources:
   - config.yaml
   - svc.yaml
   - deployment.yaml
+  - webui.yaml

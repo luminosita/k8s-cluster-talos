@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ldap
+  name: openldap
   namespace: openldap
   labels:
-    app: ldap
+    app: openldap
 spec:
   selector:
     matchLabels:
-      app: ldap
+      app: openldap
   replicas: 1
   template:
     metadata:
       labels:
-        app: ldap
+        app: openldap
     spec:
       containers:
-        - name: ldap
-          image: osixia/openldap:1.5.0
+        - name: openldap
+          image: osixia/openldap:latest
           args: ["--copy-service", "--loglevel", "debug"]
           volumeMounts:
             - name: config

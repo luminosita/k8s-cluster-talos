@@ -34,7 +34,7 @@ spec:
             - name: LDAP_ADMIN_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: jdbc-uri
+                  key: LDAP_ADMIN_PASSWORD
                   name: openldap-credentials
           volumeMounts:
             - name: config

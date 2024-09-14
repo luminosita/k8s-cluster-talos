@@ -42,10 +42,10 @@ spec:
               subPath: config-ldap.ldif
             - name: data
               mountPath: /var/lib/ldap
-              subPath: /data
+              subPath: data/
             - name: config
               mountPath: /etc/ldap/slapd.d
-              subPath: /config
+              subPath: config/
       volumes:
         - name: config
           secret:

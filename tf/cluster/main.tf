@@ -111,9 +111,13 @@ module "volumes" {
       node = "proxmox"
       size = "1G"
     }
-    pv-openldap = {
+    pv-openldap-data = {
       node = "proxmox"
       size = "100M"
+    }
+    pv-openldap-config = {
+      node = "proxmox"
+      size = "5M"
     }
     pv-matterhorn = {
       node = "proxmox"

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: openldap
-          image: osixia/openldap:latest
+          image: osixia/openldap:1.5.0
           args: ["--copy-service", "--loglevel", "debug"]
           volumeMounts:
             - name: config

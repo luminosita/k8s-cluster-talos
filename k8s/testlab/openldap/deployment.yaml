@@ -37,6 +37,8 @@ spec:
               value: "dc=emisia,dc=net"
             - name: LDAP_ADMIN_PASSWORD
               value: "password"
+            # - name: LDAP_CONFIG_PASSWORD
+            #   value: "config"
       volumes:
         - name: config
           configMap:

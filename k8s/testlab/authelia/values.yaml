@@ -1,0 +1,85 @@
+image:
+  registry: ghcr.io
+  repository: authelia/authelia
+  tag: 4.38.10 # renovate: docker=ghcr.io/authelia/authelia
+  pullPolicy: IfNotPresent
+
+configMap:
+  theme: 'dark'
+
+  access_control:
+    # upgrade to 'two_factor' later
+    default_policy: 'one_factor'
+    rules:
+     - domain_regex: '^.*\.emisia.net$'
+       policy: 'one_factor'
+
+  # authentication_backend:
+  #   ldap:
+  #     enabled: true
+  #     implementation: 'custom'
+  #     address: 'ldap://openldap.openldap.svc.cluster.local'
+  #     base_dn: 'DC=emisia,DC=net'
+  #     additional_users_dn: 'OU=People'
+  #     # To allow sign in both with username and email, one can use a filter like
+  #     # (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
+  #     users_filter: '(&({username_attribute}={input})(objectClass=person))'
+  #     additional_groups_dn: 'OU=groups'
+  #     groups_filter: '(member={dn})'
+  #     user: 'UID=admin,OU=people,DC=stonegarden,DC=dev'
+  #     password:
+  #       secret_name: 'lldap-auth'
+  #       value: 'password'
+
+  authentication_backend:
+  #   ldap:
+  #     address: 'ldap://openldap.openldap.svc.cluster.local'
+  #     implementation: 'custom'
+  #     timeout: '5s'
+  #     base_dn: 'DC=emisia,DC=net'
+  #     additional_users_dn: 'OU=People'
+  #     users_filter: '(&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))'
+  #     additional_groups_dn: 'OU=Groups'
+  # #    groups_filter: '(&(member=UID={input},OU=users,DC=example,DC=com)(objectClass=groupOfNames))'
+  #     groups_filter: '(member={dn})'
+  #     user: 'UID=authelia,OU=service,DC=emisia,DC=net'
+  #     password:
+  #       secret_name: 'openldap-authelia'
+  #       value: 'password'
+  #     attributes:
+  #       distinguished_name: 'distinguishedName'
+  #       username: 'uid'
+  #       mail: 'mail'
+  #       member_of: 'memberOf'
+  #       group_name: 'cn'
+
+    file:
+      enabled: true
+      disable_reset_password: false
+      file:
+        path: /etc/authelia/users.yaml
+
+  session:
+    cookies:
+      - subdomain: auth
+        domain: emisia.net
+
+  storage:
+    postgres:
+      enabled: false
+      address: 'tcp://postgres.databases.svc.cluster.local:5432'
+    # Switch to Postgres later
+    local:
+      enabled: true
+
+  notifier:
+    filesystem:
+      enabled: true
+
+secret:
+  additionalSecrets:
+    openldap-authelia:
+      items:
+        - key: 'password'
+          path: 'authentication.ldap.password.txt'
+

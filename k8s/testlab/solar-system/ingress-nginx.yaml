@@ -4,10 +4,11 @@ metadata:
   name: secure-ingress
   namespace: solar-system-authelia
   annotations:
-    kubernetes.io/ingress.allow-http: "false"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/auth-url: "http://authelia-service.authelia.svc.cluster.local/api/verify"
-    nginx.ingress.kubernetes.io/auth-signin: "https://public.emisia.net/"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    # kubernetes.io/ingress.allow-http: "false"
+    # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    # nginx.ingress.kubernetes.io/auth-url: "http://authelia-service.authelia.svc.cluster.local/api/verify"
+    # nginx.ingress.kubernetes.io/auth-signin: "https://public.emisia.net/"
     cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
 spec:
   ingressClassName: nginx

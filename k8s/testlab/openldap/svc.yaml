@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: openldap
-  name: openldap-svc
+  name: openldap
   namespace: openldap
 spec:
   ports:

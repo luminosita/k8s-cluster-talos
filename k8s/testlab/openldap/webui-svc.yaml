@@ -3,10 +3,10 @@ kind: Service
 metadata:
   labels:
     app: phpldapadmin
-  name: phpldapadmin-svc
+  name: phpldapadmin
   namespace: openldap
 spec:
-  ports:
-    - port: 80
   selector:
     app: phpldapadmin
+  ports:
+    - port: 80

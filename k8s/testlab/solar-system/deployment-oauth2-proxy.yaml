@@ -20,7 +20,7 @@ spec:
           image: quay.io/oauth2-proxy/oauth2-proxy
           imagePullPolicy: IfNotPresent
           args:
-            - --provider="OpenID Connect"
+            - --provider="oidc"
             - --provider-display-name="Authelia"
             - --client-id="oauth2-proxy"
             - --client-secret="proxy"

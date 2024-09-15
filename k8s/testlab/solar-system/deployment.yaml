@@ -46,7 +46,7 @@ spec:
         app: sun
     spec:
       containers:
-        - name: moon
+        - name: sun
           image: armsultan/solar-system:sun-nonroot
           imagePullPolicy: Always
           # resources:

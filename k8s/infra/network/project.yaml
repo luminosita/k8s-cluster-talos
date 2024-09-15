@@ -21,7 +21,7 @@ spec:
       server: '*'
     - namespace: 'kube-system'
       server: '*'
-    - namespace: 'ingress-nginx'
+    - namespace: 'haproxy'
       server: '*'
   clusterResourceWhitelist:
     - group: '*'

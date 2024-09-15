@@ -1,0 +1,8 @@
+service:
+  type: LoadBalancer
+  annotations: 
+    io.cilium/lb-ipam-ips: "192.168.50.225" # Static IP Assignment
+
+ingress:
+  enabled: true
+#  servicePort: 80

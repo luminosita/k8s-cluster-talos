@@ -19,6 +19,8 @@ spec:
       server: '*'
     - namespace: 'gateway'
       server: '*'
+    - namespace: 'gateway-system'
+      server: '*'
     - namespace: 'kube-system'
       server: '*'
     - namespace: 'haproxy'

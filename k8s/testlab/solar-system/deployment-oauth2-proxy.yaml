@@ -24,10 +24,10 @@ spec:
             - --provider-display-name="Authelia"
             - --client-id="oauth2-proxy"
             - --client-secret="proxy"
-            - --redirect-url="http://oauth2-proxy.solar/oauth2/callback"
+            - --redirect-url="/oauth2/callback"
             - --oidc-issuer-url="http://authelia.authelia-test/api/oidc/authorization"
             - --cookie-secure=false
-            - --cookie-secret="secret"
+            - --cookie-secret="secretsecretsecret"
             - --cookie-expire=24h
             - --set-xauthrequest=true
             - --email-domain="*"

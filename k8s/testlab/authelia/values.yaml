@@ -81,6 +81,10 @@ secret:
       items:
         - key: 'password'
           path: 'authentication.ldap.password.txt'
+
+service:
+  type: 'LoadBalancer'
+
 pod:
   extraVolumeMounts:
     - name: users

@@ -14,13 +14,6 @@ spec:
         - path:
             type: PathPrefix
             value: /wiki
-      filters:
-        - type: URLRewrite
-          urlRewrite:
-            hostname: emisia.net
-            path:
-              type: ReplacePrefixMatch
-              replacePrefixMatch: /      
       backendRefs:
         - name: wikijs
           port: 80

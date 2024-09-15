@@ -4,6 +4,7 @@ namespace: authelia
 
 configMapGenerator:
 - name: users
+  namespace: authelia
   files:
     - users.yaml
 

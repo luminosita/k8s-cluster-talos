@@ -161,7 +161,7 @@ identity_providers:
       - id: oauth2-proxy
         description: Outline
         secret: proxy
-        public: false
+        public: true
         authorization_policy: one_factor
         audience: []
         scopes:

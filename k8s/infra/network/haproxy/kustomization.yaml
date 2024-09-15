@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - ns.yaml
+  - gateway-class.yaml
 
 helmCharts:
   - name: kubernetes-ingress

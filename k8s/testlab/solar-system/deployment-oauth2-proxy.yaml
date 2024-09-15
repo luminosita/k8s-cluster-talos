@@ -20,17 +20,17 @@ spec:
           image: quay.io/oauth2-proxy/oauth2-proxy
           imagePullPolicy: IfNotPresent
           args:
-            - --provider "oidc"
-            - --provider-display-name "Authelia"
-            - --client-id "oauth2-proxy"
-            - --client-secret "proxy"
-            - --redirect-url "http://oauth2-proxy.solar/oauth2/callback"
-            - --oidc-issuer-url "http://authelia.authelia-test/api/oidc/authorization"
-            - --cookie-secure false
-            - --cookie-secret "secret"
-            - --cookie-expire 24h
-            - --set-xauthrequest true
-            - --email-domain "*""
+            - --provider="oidc"
+            - --provider-display-name="Authelia"
+            - --client-id="oauth2-proxy"
+            - --client-secret="proxy"
+            - --redirect-url="http://oauth2-proxy.solar/oauth2/callback"
+            - --oidc-issuer-url="http://authelia.authelia-test/api/oidc/authorization"
+            - --cookie-secure=false
+            - --cookie-secret="secret"
+            - --cookie-expire=24h
+            - --set-xauthrequest=true
+            - --email-domain="*"
           ports:
             - containerPort: 4180
               protocol: TCP

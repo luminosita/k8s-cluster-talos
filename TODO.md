@@ -21,7 +21,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 
 # K8s (Proxmox VMs and DigitalOcean for true HA)
 - [x] Terraform
-- [x] Network
+- [ ] Network (https://www.haproxy.com/blog/using-haproxy-as-an-api-gateway-part-1-introduction)
 - [x] Storage
 - [ ] Health Checks (https://blog.kubecost.com/blog/kubernetes-health-check/)
 - [x] Gateway/Ingress

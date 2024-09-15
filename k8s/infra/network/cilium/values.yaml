@@ -58,7 +58,7 @@ externalIPs:
 enableCiliumEndpointSlice: true
 
 gatewayAPI:
-  enabled: false
+  enabled: true
 
 envoy:
   securityContext:

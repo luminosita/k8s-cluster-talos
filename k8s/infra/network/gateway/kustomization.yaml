@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-  - gateway-class-haproxy.yaml
+  - gateway-class-cilium.yaml
   #- cert-emisia-wildcard-staging.yaml
   - cert-emisia-wildcard-production.yaml
   #- gw-internal-staging.yaml

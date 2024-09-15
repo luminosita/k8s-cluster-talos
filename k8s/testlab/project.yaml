@@ -11,7 +11,9 @@ spec:
       server: '*'
     - namespace: 'authelia'
       server: '*'
-    - namespace: 'solar-system-authelia'
+    - namespace: 'solar'
+      server: '*'
+    - namespace: 'oauth2-proxy'
       server: '*'
   clusterResourceWhitelist:
     - group: '*'

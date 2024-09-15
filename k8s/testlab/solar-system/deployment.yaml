@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: moon
-  namespace: solar-system-authelia
+  namespace: solar
 spec:
   replicas: 1
   selector:
@@ -11,7 +11,7 @@ spec:
       app: moon
   template:
     metadata:
-      namespace: solar-system-authelia
+      namespace: solar
       labels:
         app: moon
     spec:
@@ -33,7 +33,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sun
-  namespace: solar-system-authelia
+  namespace: solar
 spec:
   replicas: 1
   selector:
@@ -41,7 +41,7 @@ spec:
       app: sun
   template:
     metadata:
-      namespace: solar-system-authelia
+      namespace: solar
       labels:
         app: sun
     spec:

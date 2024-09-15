@@ -2,16 +2,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: secure-ingress
-  namespace: solar-system-authelia
+  namespace: solar
   annotations:
-#    nginx.ingress.kubernetes.io/rewrite-target: /$1
-#    kubernetes.io/ingress.allow-http: "true"
-#    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-  #   nginx.ingress.kubernetes.io/auth-url: "http://authelia-service.authelia.svc.cluster.local/api/verify"
-  #   nginx.ingress.kubernetes.io/auth-signin: "https://public.emisia.net/"
+    ingress.kubernetes.io/oauth: oauth2_proxy    
     cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
-  #   kubernetes.io/ingress.class: "nginx"
-  #   nginx.ingress.kubernetes.io/service-upstream: "true"
 spec:
   ingressClassName: haproxy
   tls:
@@ -25,6 +19,13 @@ spec:
     - host: public.emisia.net
       http:
         paths:
+          - path: /oauth2
+            pathType: Prefix
+            backend:
+              service:
+                name: oauth2-proxy
+                port:
+                  number: 4180
           - path: /
             backend:
               service:

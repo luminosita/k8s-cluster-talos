@@ -12,10 +12,10 @@ spec:
         revision: HEAD
         directories:
           - path: k8s/infra/network/*
-          - path: k8s/infra/network/gateway
-            exclude: true
-          - path: k8s/infra/network/haproxy
-            exclude: true
+          # - path: k8s/infra/network/gateway
+          #   exclude: true
+          # - path: k8s/infra/network/haproxy
+          #   exclude: true
   template:
     metadata:
       name: '{{ path.basename }}'

@@ -85,7 +85,7 @@ secret:
 pod:
   extraVolumeMounts:
     - name: users
-      mountPath: /etc/authelia/users.yaml
+      mountPath: /config/users_database.yml
       subPath: users.yaml
 
   extraVolumes:

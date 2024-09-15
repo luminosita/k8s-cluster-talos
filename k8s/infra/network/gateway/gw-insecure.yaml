@@ -4,7 +4,7 @@ metadata:
   name: insecure
   namespace: gateway
 spec:
-  gatewayClassName: cilium
+  gatewayClassName: haproxy
   infrastructure:
     annotations:
       io.cilium/lb-ipam-ips: 192.168.50.223

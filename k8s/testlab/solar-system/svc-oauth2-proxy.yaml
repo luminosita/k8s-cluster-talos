@@ -4,7 +4,6 @@ metadata:
   labels:
     run: oauth2-proxy
   name: oauth2-proxy
-  namespace: oauth2-proxy
 spec:
   ports:
   - port: 4180

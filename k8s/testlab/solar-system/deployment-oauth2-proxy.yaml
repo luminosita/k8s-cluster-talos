@@ -27,7 +27,7 @@ spec:
             - --redirect-url="/oauth2/callback"
             - --oidc-issuer-url="http://authelia.authelia-test/api/oidc/authorization"
             - --cookie-secure=false
-            - --cookie-secret="secretsecretsecret"
+            - --cookie-secret="secretsecretsecr"
             - --cookie-expire=24h
             - --set-xauthrequest=true
             - --email-domain="*"

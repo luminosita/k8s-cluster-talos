@@ -90,6 +90,6 @@ pod:
 
   extraVolume:
     - name: users
-      config:
+      configMapRef:
         name: users  
 

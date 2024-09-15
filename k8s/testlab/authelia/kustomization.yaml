@@ -3,10 +3,10 @@ kind: Kustomization
 namespace: authelia
 
 configMapGenerator:
-- name: users
-  namespace: authelia
-  files:
-    - users.yaml
+  - name: users
+    namespace: authelia
+    files:
+      - users.yaml
 
 resources:
   - ns.yaml

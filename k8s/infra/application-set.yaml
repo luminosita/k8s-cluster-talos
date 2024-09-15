@@ -12,6 +12,8 @@ spec:
         revision: HEAD
         directories:
           - path: k8s/infra/*
+          - path: k8s/infra/crds
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}'

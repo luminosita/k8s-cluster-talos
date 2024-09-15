@@ -82,4 +82,14 @@ secret:
       items:
         - key: 'password'
           path: 'authentication.ldap.password.txt'
+pod:
+  extraVolumeMounts:
+    - name: users
+      mountPath: /etc/authelia/users.yaml
+      subPath: users.yaml
+
+  extraVolume:
+    - name: users
+      config:
+        name: users  
 

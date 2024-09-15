@@ -9,6 +9,8 @@ spec:
   destinations:
     - namespace: 'argocd'
       server: '*'
+    - namespace: 'gateway-system'
+      server: '*'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

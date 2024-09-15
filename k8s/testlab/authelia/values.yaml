@@ -88,7 +88,7 @@ pod:
       mountPath: /etc/authelia/users.yaml
       subPath: users.yaml
 
-  extraVolume:
+  extraVolumes:
     - name: users
       configMap:
         name: users  

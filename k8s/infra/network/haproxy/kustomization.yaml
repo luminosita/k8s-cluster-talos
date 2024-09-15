@@ -10,5 +10,4 @@ helmCharts:
     version: 1.41.0
     releaseName: "haproxy"
     namespace: haproxy
-    
     valuesFile: values.yaml

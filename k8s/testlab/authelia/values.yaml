@@ -56,8 +56,7 @@ configMap:
     file:
       enabled: true
       disable_reset_password: false
-      file:
-        path: /etc/authelia/users.yaml
+      path: /etc/authelia/users.yaml
 
   session:
     cookies:
@@ -85,7 +84,7 @@ secret:
 pod:
   extraVolumeMounts:
     - name: users
-      mountPath: /config/users_database.yml
+      mountPath: /etc/authelia/users.yaml
       subPath: users.yaml
 
   extraVolumes:

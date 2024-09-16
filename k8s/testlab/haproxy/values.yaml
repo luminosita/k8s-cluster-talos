@@ -6,13 +6,19 @@ controller:
       io.cilium/lb-ipam-ips: "192.168.50.225" # Static IP Assignment
   config:
     frontend-config-snippet: |
+      #global
+          # Path to haproxy-lua-http, below example assumes /usr/local/etc/haproxy/haproxy-lua-http/http.lua
+      #    lua-prepend-path /usr/local/etc/haproxy/?/http.lua
+          # Path to haproxy-auth-request
+      #    lua-load /usr/local/etc/haproxy/auth-request.lua
+      #    log stdout format raw local0 debug
       defaults
           mode http
           log global
           option httplog
 
       frontend fe_http
-          bind *:443 ssl crt emisia.net.pem
+      #    bind *:443 ssl crt emisia.net.pem
 
           ## Trusted Proxies.
           http-request del-header X-Forwarded-For
@@ -72,9 +78,3 @@ controller:
           server moon moon.solar:80 check ssl verify none
 
 
-    #   global
-    #       # Path to haproxy-lua-http, below example assumes /usr/local/etc/haproxy/haproxy-lua-http/http.lua
-    #       lua-prepend-path /usr/local/etc/haproxy/?/http.lua
-    #       # Path to haproxy-auth-request
-    #       lua-load /usr/local/etc/haproxy/auth-request.lua
-    #       log stdout format raw local0 debug

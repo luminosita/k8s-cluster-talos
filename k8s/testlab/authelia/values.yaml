@@ -60,16 +60,16 @@ configMap:
       address: 'ldap://openldap.openldap.svc.cluster.local'
       implementation: 'custom'
       timeout: '5s'
-      base_dn: 'DC=emisia,DC=net'
-      additional_users_dn: 'OU=People'
+      base_dn: 'dc=emisia,dc=net'
+      additional_users_dn: 'ou=People'
       group_search_mode: 'filter'
       permit_referrals: false
       permit_unauthenticated_bind: false
-      users_filter: '(&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))'
-      additional_groups_dn: 'OU=Groups'
+      users_filter: '(&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=inetOrgPerson))'
+      additional_groups_dn: 'ou=Groups'
   #    groups_filter: '(&(member=UID={input},OU=users,DC=example,DC=com)(objectClass=groupOfNames))'
       groups_filter: '(member={dn})'
-      user: 'UID=authelia,OU=service,DC=emisia,DC=net'
+      user: 'cn=authelia,ou=service,dc=emisia,dc=net'
       password:
         secret_name: 'openldap-authelia'
         value: 'password'

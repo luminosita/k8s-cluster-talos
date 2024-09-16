@@ -15,7 +15,7 @@ ingressController:
     metrics: true
     proxyProtocol: false
     experimentalSmartSort: false
-    onDemandTLS: false
+    onDemandTLS: true
 
 loadBalancer:
   # Deprecated in Kubernetes v1.24

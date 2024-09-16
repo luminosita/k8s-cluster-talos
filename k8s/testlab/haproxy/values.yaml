@@ -48,7 +48,7 @@ controller:
       option forwardfor
 
       # Host ACLs
-      acl protected-frontends hdr(Host) -m reg -i ^(?i)(public|admin)\.example\.net
+      acl protected-frontends hdr(Host) -m reg -i ^(?i)(public|admin)\.emisia\.net
       #acl host-authelia hdr(Host) -i auth.emisia.net
       #acl host-public hdr(Host) -i public.emisia.net
       #acl host-admin hdr(Host) -i admin.emisia.net

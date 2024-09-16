@@ -106,6 +106,8 @@ service:
   nodePort: 30091
 
 pod:
+  replicas: 1
+  
   extraVolumeMounts:
     - name: users
       mountPath: /etc/authelia/users.yaml

@@ -8,7 +8,7 @@ resources:
 helmCharts:
   - name: caddy-ingress-controller
     repo: https://caddyserver.github.io/ingress/
-    releaseName: mycaddy
+    releaseName: caddy
     namespace: caddy-system
     version: 1.1.0
     valuesFile: values.yaml

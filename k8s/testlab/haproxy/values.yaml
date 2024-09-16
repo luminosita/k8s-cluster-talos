@@ -33,54 +33,46 @@ controller:
       # Path to haproxy-auth-request
       lua-load /usr/local/etc/haproxy/auth-request.lua
       log stdout format raw local0 debug
-    # frontend-config-snippet: |
-    #   defaults
-    #       mode http
-    #       log global
-    #       option httplog
+    frontend-config-snippet: |
+      ## Trusted Proxies.
+      http-request del-header X-Forwarded-For
 
-    #   frontend fe_http
-    #       bind *:443 ssl crt emisia.net.pem
+      ## Comment the above directive and the two directives below to enable the trusted proxies ACL.
+      # acl src-trusted_proxies src -f trusted_proxies.src.acl
+      # http-request del-header X-Forwarded-For if !src-trusted_proxies
 
-    #       ## Trusted Proxies.
-    #       http-request del-header X-Forwarded-For
+      ## Ensure X-Forwarded-For is set for the auth request.
+      acl hdr-xff_exists req.hdr(X-Forwarded-For) -m found
+      http-request set-header X-Forwarded-For %[src] if !hdr-xff_exists
+      option forwardfor
 
-    #       ## Comment the above directive and the two directives below to enable the trusted proxies ACL.
-    #       # acl src-trusted_proxies src -f trusted_proxies.src.acl
-    #       # http-request del-header X-Forwarded-For if !src-trusted_proxies
+      # Host ACLs
+      acl protected-frontends hdr(Host) -m reg -i ^(?i)(public|admin)\.example\.net
+      acl host-authelia hdr(Host) -i auth.emisia.net
+      acl host-public hdr(Host) -i public.emisia.net
+      acl host-admin hdr(Host) -i admin.emisia.net
 
-    #       ## Ensure X-Forwarded-For is set for the auth request.
-    #       acl hdr-xff_exists req.hdr(X-Forwarded-For) -m found
-    #       http-request set-header X-Forwarded-For %[src] if !hdr-xff_exists
-    #       option forwardfor
+      http-request set-var(req.scheme) str(https) if { ssl_fc }
+      http-request set-var(req.scheme) str(http) if !{ ssl_fc }
+      http-request set-var(req.questionmark) str(?) if { query -m found }
 
-    #       # Host ACLs
-    #       acl protected-frontends hdr(Host) -m reg -i ^(?i)(public|adminheimdall)\.example\.net
-    #       acl host-authelia hdr(Host) -i auth.emisia.net
-    #       acl host-public hdr(Host) -i public.emisia.net
-    #       acl host-admin hdr(Host) -i admin.emisia.net
+      # Required Headers
+      http-request set-header X-Forwarded-Method %[method]
+      http-request set-header X-Forwarded-Proto  %[var(req.scheme)]
+      http-request set-header X-Forwarded-Host   %[req.hdr(Host)]
+      http-request set-header X-Forwarded-URI    %[path]%[var(req.questionmark)]%[query]
 
-    #       http-request set-var(req.scheme) str(https) if { ssl_fc }
-    #       http-request set-var(req.scheme) str(http) if !{ ssl_fc }
-    #       http-request set-var(req.questionmark) str(?) if { query -m found }
+      # Protect endpoints with haproxy-auth-request and Authelia
+      http-request lua.auth-intercept be_authelia /api/authz/forward-auth HEAD * remote-user,remote-groups,remote-name,remote-email - if protected-frontends
+      http-request deny if protected-frontends !{ var(txn.auth_response_successful) -m bool } { var(txn.auth_response_code) -m int 403 }
+      http-request redirect location %[var(txn.auth_response_location)] if protected-frontends !{ var(txn.auth_response_successful) -m bool }
 
-    #       # Required Headers
-    #       http-request set-header X-Forwarded-Method %[method]
-    #       http-request set-header X-Forwarded-Proto  %[var(req.scheme)]
-    #       http-request set-header X-Forwarded-Host   %[req.hdr(Host)]
-    #       http-request set-header X-Forwarded-URI    %[path]%[var(req.questionmark)]%[query]
+      # Authelia backend route
+      use_backend be_authelia if host-authelia
 
-    #       # Protect endpoints with haproxy-auth-request and Authelia
-    #       http-request lua.auth-intercept be_authelia /api/authz/forward-auth HEAD * remote-user,remote-groups,remote-name,remote-email - if protected-frontends
-    #       http-request deny if protected-frontends !{ var(txn.auth_response_successful) -m bool } { var(txn.auth_response_code) -m int 403 }
-    #       http-request redirect location %[var(txn.auth_response_location)] if protected-frontends !{ var(txn.auth_response_successful) -m bool }
-
-    #       # Authelia backend route
-    #       use_backend be_authelia if host-authelia
-
-    #       # Service backend route(s)
-    #       use_backend be_public if host-public
-    #       use_backend be_admin if host-admin
+      # Service backend route(s)
+      use_backend be_public if host-public
+      use_backend be_admin if host-admin
 
     #   backend be_authelia
     #       server authelia authelia.authelia-test #:9091

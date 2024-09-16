@@ -12,6 +12,8 @@ spec:
         revision: authelia
         directories:
           - path: k8s/testlab/*
+          - path: k8s/testlab/solar-system
+            exclude: true
           - path: k8s/testlab/caddy
             exclude: true
   template:

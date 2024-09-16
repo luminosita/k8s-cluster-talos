@@ -3,10 +3,12 @@ kind: Kustomization
 namespace: authelia
 
 configMapGenerator:
-  - name: users
-    namespace: authelia
-    files:
-      - users.yaml
+  - name: haproxy-kubernetes-ingress
+    namespace: haproxy
+    literals: 
+      - frontend-config-snippet= |
+        http-request set-var(txn.scheme) str(https) if { ssl_fc }
+        http-request set-var(txn.scheme) str(http) if !{ ssl_fc }
 
 resources:
   - ns.yaml

@@ -10,7 +10,7 @@ metadata:
     haproxy-ingress.github.io/auth-headers-succeed: remote-user,remote-groups,remote-name,remote-email
     haproxy-ingress.github.io/auth-method: HEAD
     haproxy-ingress.github.io/auth-signin: "auth.emisia.net"
-    haproxy-ingress.github.io/auth-url: "http://authelia.authelia-test/api/authz/forward-auth"
+    haproxy-ingress.github.io/auth-url: "http://authelia.authelia-test.svc/api/authz/forward-auth"
     haproxy-ingress.github.io/headers: |
       X-Forwarded-Method %[method]
       X-Forwarded-Proto  %[var(txn.scheme)]

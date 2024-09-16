@@ -4,10 +4,8 @@ kind: Kustomization
 configMapGenerator:
   - name: haproxy-kubernetes-ingress
     namespace: haproxy
-    literals: 
-      - frontend-config-snippet= |
-        http-request set-var(txn.scheme) str(https) if { ssl_fc }
-        http-request set-var(txn.scheme) str(http) if !{ ssl_fc }
+    files:
+      - frontend-config-snippet=haproxy-config.yaml
 
 resources:
   - ns.yaml

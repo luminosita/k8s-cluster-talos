@@ -17,6 +17,9 @@ controller:
     - name: lua
       mountPath: /usr/local/etc/haproxy/auth-request.lua
       subPath: auth-request.lua
+    - name: lua
+      mountPath: /usr/local/etc/haproxy/json.lua
+      subPath: json.lua
 
   extraVolumes:
     - name: lua

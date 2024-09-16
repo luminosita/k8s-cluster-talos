@@ -9,9 +9,9 @@ ingressController:
   config:
     acmeCA: "https://acme-staging-v02.api.letsencrypt.org/directory"
     debug: true
-    email: "milosh@emisia.net"
+    email: ""    
     acmeEABKeyId: ""
-    acmeEABMacKey: "cluster-issuer-account-key"
+    acmeEABMacKey: ""
     metrics: true
     proxyProtocol: false
     experimentalSmartSort: false

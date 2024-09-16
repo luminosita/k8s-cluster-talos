@@ -71,8 +71,8 @@ controller:
       use_backend be_authelia if host-authelia
 
       # Service backend route(s)
-      use_backend be_public if host-public
-      use_backend be_admin if host-admin
+      use_backend be_solar_sun_web if host-public
+      use_backend be_solar_moon_web if host-admin
 
     #   backend be_authelia
     #       server authelia authelia.authelia-test #:9091

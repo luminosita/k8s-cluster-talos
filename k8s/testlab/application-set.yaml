@@ -16,6 +16,8 @@ spec:
             exclude: true
           - path: k8s/testlab/caddy
             exclude: true
+          - path: k8s/testlab/authelia
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}-test'

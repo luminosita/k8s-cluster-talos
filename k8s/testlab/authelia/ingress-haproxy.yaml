@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: secure-ingress
+  namespace: authelia
+  annotations:
+    cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
+spec:
+  ingressClassName: haproxy
+  tls:
+    - secretName: cert-authelia-staging
+      hosts:
+        - auth.emisia.net
+  rules:
+    - host: auth.emisia.net
+      http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: authelia
+                port: 
+                  number: 80
+            pathType: Prefix

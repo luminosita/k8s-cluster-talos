@@ -1,6 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+configMapGenerator:
+  - name: haproxy-kubernetes-ingress
+    namespace: haproxy
+    literals: 
+      - frontend-config-snippet= |
+        http-request set-var(txn.scheme) str(https) if { ssl_fc }
+        http-request set-var(txn.scheme) str(http) if !{ ssl_fc }
 
 resources:
   - ns.yaml

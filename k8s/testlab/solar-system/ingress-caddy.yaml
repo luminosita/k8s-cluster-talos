@@ -5,17 +5,17 @@ metadata:
   namespace: solar
   annotations:
     kubernetes.io/ingress.class: caddy
-    cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
+    # cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
 spec:
   ingressClassName: caddy
-  tls:
-    - secretName: solar-system-authelia-tls
-      hosts:
-        - auth.emisia.net
-        - public.emisia.net
-        - admin.emisia.net
-        - secure.emisia.net
-        - singlefactor.emisia.net
+  # tls:
+  #   - secretName: solar-system-authelia-tls
+  #     hosts:
+  #       - auth.emisia.net
+  #       - public.emisia.net
+  #       - admin.emisia.net
+  #       - secure.emisia.net
+  #       - singlefactor.emisia.net
   rules:
     - host: public.emisia.net
       http:

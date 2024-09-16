@@ -110,12 +110,12 @@ configMap:
     filesystem:
       enabled: true
 
-# secret:
-#   additionalSecrets:
-#     openldap-authelia:
-#       items:
-#         - key: 'password'
-#           path: 'authentication.ldap.password.txt'
+secret:
+  additionalSecrets:
+    openldap-authelia:
+      items:
+        - key: 'password'
+          path: 'authentication.ldap.password.txt'
 
 service:
   type: 'ClusterIP'

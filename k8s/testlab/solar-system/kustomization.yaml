@@ -9,6 +9,6 @@ resources:
   # - deployment-oauth2-proxy.yaml
   # - ingress-oauth2-proxy.yaml
   #- ingress-caddy.yaml
-  - ingress-haproxy.yaml
+  # - ingress-haproxy.yaml
 
   

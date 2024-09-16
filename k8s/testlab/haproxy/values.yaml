@@ -9,14 +9,28 @@ controller:
     type: LoadBalancer
     annotations: 
       io.cilium/lb-ipam-ips: "192.168.50.225" # Static IP Assignment
+
+  extraVolumeMounts:
+    - name: lua
+      mountPath: /usr/local/etc/haproxy/haproxy-lua-http/http.lua
+      subPath: http.lua
+    - name: lua
+      mountPath: /usr/local/etc/haproxy/auth-request.lua
+      subPath: auth-request.lua
+
+  extraVolumes:
+    - name: lua
+      configMap:
+        name: lua  
+
   config:
+    # global-config-snippet: |
+    #   # Path to haproxy-lua-http, below example assumes /usr/local/etc/haproxy/haproxy-lua-http/http.lua
+    #   lua-prepend-path /usr/local/etc/haproxy/?/http.lua
+    #   # Path to haproxy-auth-request
+    #   lua-load /usr/local/etc/haproxy/auth-request.lua
+    #   log stdout format raw local0 debug
     # frontend-config-snippet: |
-    #   global
-    #       # Path to haproxy-lua-http, below example assumes /usr/local/etc/haproxy/haproxy-lua-http/http.lua
-    #       lua-prepend-path /usr/local/etc/haproxy/?/http.lua
-    #       # Path to haproxy-auth-request
-    #       lua-load /usr/local/etc/haproxy/auth-request.lua
-    #       log stdout format raw local0 debug
     #   defaults
     #       mode http
     #       log global
@@ -81,5 +95,6 @@ controller:
     #       http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
 
     #       server moon moon.solar:80 check ssl verify none
-
-
+    # backend-config-snippet: |
+    #   acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
+    #   http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist

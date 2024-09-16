@@ -98,6 +98,6 @@ controller:
     #       http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
 
     #       server moon moon.solar:80 check ssl verify none
-    # backend-config-snippet: |
-    #   acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
-    #   http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
+    backend-config-snippet: |
+      acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
+      http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist

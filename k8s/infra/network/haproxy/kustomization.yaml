@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-  - haproxy-config.yaml
+  #- haproxy-config.yaml
 
 helmCharts:
   - name: kubernetes-ingress

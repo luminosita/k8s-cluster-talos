@@ -5,10 +5,10 @@ metadata:
   name: moon
   namespace: solar
   annotations:
-    # haproxy.org/backend-config-snippet: |
-    #   acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
-    #   http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
-    # haproxy.org/route-acl: hdr(Host) -i public.emisia.net
+    haproxy.org/backend-config-snippet: |
+      acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
+      http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
+    haproxy.org/route-acl: hdr(Host) -i admin.emisia.net
 spec:
   type: ClusterIP
   selector:
@@ -24,10 +24,10 @@ metadata:
   name: sun
   namespace: solar
   annotations:
-    # haproxy.org/backend-config-snippet: |
-    #   acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
-    #   http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
-    # haproxy.org/route-acl: hdr(Host) -i admin.emisia.net
+    haproxy.org/backend-config-snippet: |
+      acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
+      http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
+    haproxy.org/route-acl: hdr(Host) -i public.emisia.net
 spec:
   type: ClusterIP
   selector:

@@ -4,6 +4,7 @@
 #     pullPolicy: IfNotPresent
 
 controller:
+  replicaCount: 1
   service:
     enabled: true
     type: LoadBalancer

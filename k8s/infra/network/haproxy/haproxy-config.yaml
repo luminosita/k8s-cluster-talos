@@ -1,2 +1,9 @@
-http-request set-var(txn.scheme) str(https) if { ssl_fc }
-http-request set-var(txn.scheme) str(http) if !{ ssl_fc }
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: haproxy-kubernetes-ingress
+  namespace: default
+data:  
+  frontend-config-snippet: |
+    http-request set-var(txn.scheme) str(https) if { ssl_fc }
+    http-request set-var(txn.scheme) str(http) if !{ ssl_fc }

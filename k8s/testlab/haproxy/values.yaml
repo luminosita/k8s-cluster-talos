@@ -1,0 +1,79 @@
+controller:
+  service:
+    enabled: true
+    type: LoadBalancer
+    annotations: 
+      io.cilium/lb-ipam-ips: "192.168.50.225" # Static IP Assignment
+  config:
+    frontend-config-snippet: |
+      global
+          # Path to haproxy-lua-http, below example assumes /usr/local/etc/haproxy/haproxy-lua-http/http.lua
+          lua-prepend-path /usr/local/etc/haproxy/?/http.lua
+          # Path to haproxy-auth-request
+          lua-load /usr/local/etc/haproxy/auth-request.lua
+          log stdout format raw local0 debug
+
+      defaults
+          mode http
+          log global
+          option httplog
+
+      frontend fe_http
+          bind *:443 ssl crt emisia.net.pem
+
+          ## Trusted Proxies.
+          http-request del-header X-Forwarded-For
+
+          ## Comment the above directive and the two directives below to enable the trusted proxies ACL.
+          # acl src-trusted_proxies src -f trusted_proxies.src.acl
+          # http-request del-header X-Forwarded-For if !src-trusted_proxies
+
+          ## Ensure X-Forwarded-For is set for the auth request.
+          acl hdr-xff_exists req.hdr(X-Forwarded-For) -m found
+          http-request set-header X-Forwarded-For %[src] if !hdr-xff_exists
+          option forwardfor
+
+          # Host ACLs
+          acl protected-frontends hdr(Host) -m reg -i ^(?i)(public|adminheimdall)\.example\.net
+          acl host-authelia hdr(Host) -i auth.emisia.net
+          acl host-public hdr(Host) -i public.emisia.net
+          acl host-admin hdr(Host) -i admin.emisia.net
+
+          http-request set-var(req.scheme) str(https) if { ssl_fc }
+          http-request set-var(req.scheme) str(http) if !{ ssl_fc }
+          http-request set-var(req.questionmark) str(?) if { query -m found }
+
+          # Required Headers
+          http-request set-header X-Forwarded-Method %[method]
+          http-request set-header X-Forwarded-Proto  %[var(req.scheme)]
+          http-request set-header X-Forwarded-Host   %[req.hdr(Host)]
+          http-request set-header X-Forwarded-URI    %[path]%[var(req.questionmark)]%[query]
+
+          # Protect endpoints with haproxy-auth-request and Authelia
+          http-request lua.auth-intercept be_authelia /api/authz/forward-auth HEAD * remote-user,remote-groups,remote-name,remote-email - if protected-frontends
+          http-request deny if protected-frontends !{ var(txn.auth_response_successful) -m bool } { var(txn.auth_response_code) -m int 403 }
+          http-request redirect location %[var(txn.auth_response_location)] if protected-frontends !{ var(txn.auth_response_successful) -m bool }
+
+          # Authelia backend route
+          use_backend be_authelia if host-authelia
+
+          # Service backend route(s)
+          use_backend be_public if host-public
+          use_backend be_admin if host-admin
+
+      backend be_authelia
+          server authelia authelia.authelia-test #:9091
+
+      backend be_public
+          ## Pass the Set-Cookie response headers to the user.
+          acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
+          http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
+
+          server sun sun.solar:80 ssl verify none
+
+      backend be_admin
+          ## Pass the Set-Cookie response headers to the user.
+          acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
+          http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
+
+          server moon moon.solar:80 check ssl verify none

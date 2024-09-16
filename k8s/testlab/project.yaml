@@ -17,6 +17,8 @@ spec:
       server: '*'
     - namespace: 'caddy-system'
       server: '*'
+    - namespace: 'haproxy'
+      server: '*'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

@@ -51,6 +51,9 @@ configMap:
   #       value: 'password'
 
   authentication_backend:
+    password_reset:
+      ## Disable both the HTML element and the API for reset password functionality
+      disable: false
   #   ldap:
   #     address: 'ldap://openldap.openldap.svc.cluster.local'
   #     implementation: 'custom'
@@ -76,6 +79,19 @@ configMap:
       enabled: true
       disable_reset_password: false
       path: /etc/authelia/users.yaml
+      watch: false
+      search:
+        email: false
+        case_insensitive: false
+      password:
+        algorithm: 'argon2'
+        argon2:
+          variant: 'argon2id'
+          iterations: 3
+          memory: 65536
+          parallelism: 4
+          key_length: 32
+          salt_length: 16
 
   storage:
     postgres:

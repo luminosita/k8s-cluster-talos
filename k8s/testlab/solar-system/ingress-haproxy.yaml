@@ -4,28 +4,28 @@ metadata:
   name: secure-ingress
   namespace: solar
   annotations:
-    cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
-    haproxy-ingress.github.io/auth-headers-fail: "-"
-    haproxy-ingress.github.io/auth-headers-request: "*"
-    haproxy-ingress.github.io/auth-headers-succeed: remote-user,remote-groups,remote-name,remote-email
-    haproxy-ingress.github.io/auth-method: HEAD
-    haproxy-ingress.github.io/auth-signin: "auth.emisia.net"
-    haproxy-ingress.github.io/auth-url: "http://authelia.authelia-test.svc/api/authz/forward-auth"
-    haproxy-ingress.github.io/headers: |
-      X-Forwarded-Method %[method]
-      X-Forwarded-Proto  %[var(txn.scheme)]
-      X-Forwarded-Host   %[req.hdr(Host)]
-      X-Forwarded-URI    %[path]
+    # cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
+    # haproxy-ingress.github.io/auth-headers-fail: "-"
+    # haproxy-ingress.github.io/auth-headers-request: "*"
+    # haproxy-ingress.github.io/auth-headers-succeed: remote-user,remote-groups,remote-name,remote-email
+    # haproxy-ingress.github.io/auth-method: HEAD
+    # haproxy-ingress.github.io/auth-signin: "auth.emisia.net"
+    # haproxy-ingress.github.io/auth-url: "http://authelia.authelia-test.svc/api/authz/forward-auth"
+    # haproxy-ingress.github.io/headers: |
+    #   X-Forwarded-Method %[method]
+    #   X-Forwarded-Proto  %[var(txn.scheme)]
+    #   X-Forwarded-Host   %[req.hdr(Host)]
+    #   X-Forwarded-URI    %[path]
 spec:
   ingressClassName: haproxy
-  tls:
-    - secretName: cert-solar-system-authelia-staging
-      hosts:
-        - auth.emisia.net
-        - public.emisia.net
-        - admin.emisia.net
-        - secure.emisia.net
-        - singlefactor.emisia.net
+  # tls:
+  #   - secretName: cert-solar-system-authelia-staging
+  #     hosts:
+  #       - auth.emisia.net
+  #       - public.emisia.net
+  #       - admin.emisia.net
+  #       - secure.emisia.net
+  #       - singlefactor.emisia.net
   rules:
     - host: public.emisia.net
       http:
@@ -37,33 +37,33 @@ spec:
                 port: 
                   number: 80
             pathType: Prefix
-    - host: admin.emisia.net
-      http:
-        paths:
-          - path: /
-            backend:
-              service:
-                name: moon
-                port: 
-                  number: 80
-            pathType: Prefix
-    - host: secure.emisia.net
-      http:
-        paths:
-          - path: /
-            backend:
-              service:
-                name: sun
-                port: 
-                  number: 80
-            pathType: Prefix
-    - host: singlefactor.emisia.net
-      http:
-        paths:
-          - path: /
-            backend:
-              service:
-                name: moon
-                port: 
-                  number: 80
-            pathType: Prefix
+    # - host: admin.emisia.net
+    #   http:
+    #     paths:
+    #       - path: /
+    #         backend:
+    #           service:
+    #             name: moon
+    #             port: 
+    #               number: 80
+    #         pathType: Prefix
+    # - host: secure.emisia.net
+    #   http:
+    #     paths:
+    #       - path: /
+    #         backend:
+    #           service:
+    #             name: sun
+    #             port: 
+    #               number: 80
+    #         pathType: Prefix
+    # - host: singlefactor.emisia.net
+    #   http:
+    #     paths:
+    #       - path: /
+    #         backend:
+    #           service:
+    #             name: moon
+    #             port: 
+    #               number: 80
+    #         pathType: Prefix

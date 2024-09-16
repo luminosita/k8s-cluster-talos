@@ -1,0 +1,27 @@
+ingressController:
+  watchNamespace: ""
+  verbose: false
+  rbac:
+    create: true
+  className: "caddy"
+  classNameRequired: false
+  leaseId: ""
+  config:
+    acmeCA: "https://acme-staging-v02.api.letsencrypt.org/directory"
+    debug: true
+    email: "milosh@emisia.net"
+    acmeEABKeyId: ""
+    acmeEABMacKey: ""
+    metrics: true
+    proxyProtocol: false
+    experimentalSmartSort: false
+    onDemandTLS: false
+
+loadBalancer:
+  # Deprecated in Kubernetes v1.24
+  loadBalancerIP:
+  # Set to 'Local' to maintain the client's IP on inbound connections
+  externalTrafficPolicy:
+  annotations:
+    io.cilium/lb-ipam-ips: 192.168.50.224
+

@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: haproxy
   tls:
-    - secretName: solar-system-authelia-tls
+    - secretName: cert-solar-system-authelia-staging
       hosts:
         - auth.emisia.net
         - public.emisia.net

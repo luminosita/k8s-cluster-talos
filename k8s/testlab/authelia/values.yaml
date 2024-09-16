@@ -95,6 +95,16 @@ secret:
         - key: 'password'
           path: 'authentication.ldap.password.txt'
 
+service:
+  type: 'ClusterIP'
+  annotations: 
+    haproxy.org/route-acl: hdr(Host) -i auth.emisia.net
+
+  labels: {}
+
+  port: 80
+  nodePort: 30091
+
 pod:
   extraVolumeMounts:
     - name: users

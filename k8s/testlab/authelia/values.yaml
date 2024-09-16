@@ -54,29 +54,34 @@ configMap:
     password_reset:
       ## Disable both the HTML element and the API for reset password functionality
       disable: false
-  #   ldap:
-  #     address: 'ldap://openldap.openldap.svc.cluster.local'
-  #     implementation: 'custom'
-  #     timeout: '5s'
-  #     base_dn: 'DC=emisia,DC=net'
-  #     additional_users_dn: 'OU=People'
-  #     users_filter: '(&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))'
-  #     additional_groups_dn: 'OU=Groups'
-  # #    groups_filter: '(&(member=UID={input},OU=users,DC=example,DC=com)(objectClass=groupOfNames))'
-  #     groups_filter: '(member={dn})'
-  #     user: 'UID=authelia,OU=service,DC=emisia,DC=net'
-  #     password:
-  #       secret_name: 'openldap-authelia'
-  #       value: 'password'
-  #     attributes:
-  #       distinguished_name: 'distinguishedName'
-  #       username: 'uid'
-  #       mail: 'mail'
-  #       member_of: 'memberOf'
-  #       group_name: 'cn'
+
+    ldap:
+      enabled: true
+      address: 'ldap://openldap.openldap.svc.cluster.local'
+      implementation: 'custom'
+      timeout: '5s'
+      base_dn: 'DC=emisia,DC=net'
+      additional_users_dn: 'OU=People'
+      group_search_mode: 'filter'
+      permit_referrals: false
+      permit_unauthenticated_bind: false
+      users_filter: '(&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))'
+      additional_groups_dn: 'OU=Groups'
+  #    groups_filter: '(&(member=UID={input},OU=users,DC=example,DC=com)(objectClass=groupOfNames))'
+      groups_filter: '(member={dn})'
+      user: 'UID=authelia,OU=service,DC=emisia,DC=net'
+      password:
+        secret_name: 'openldap-authelia'
+        value: 'password'
+      attributes:
+        distinguished_name: 'distinguishedName'
+        username: 'uid'
+        mail: 'mail'
+        member_of: 'memberOf'
+        group_name: 'cn'
 
     file:
-      enabled: true
+      enabled: false
       disable_reset_password: false
       path: /etc/authelia/users.yaml
       watch: false

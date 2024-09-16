@@ -11,11 +11,11 @@ ingressController:
     debug: true
     email: "milosh@emisia.net"
     acmeEABKeyId: ""
-    acmeEABMacKey: ""
+    acmeEABMacKey: "cluster-issuer-account-key"
     metrics: true
     proxyProtocol: false
     experimentalSmartSort: false
-    onDemandTLS: true
+    onDemandTLS: false
 
 loadBalancer:
   # Deprecated in Kubernetes v1.24

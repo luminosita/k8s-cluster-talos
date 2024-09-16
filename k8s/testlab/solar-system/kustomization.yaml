@@ -8,6 +8,7 @@ resources:
   # - svc-oauth2-proxy.yaml
   # - deployment-oauth2-proxy.yaml
   # - ingress-oauth2-proxy.yaml
-  - ingress-caddy.yaml
+  #- ingress-caddy.yaml
+  - ingress-haproxy.yaml
 
   

@@ -17,7 +17,7 @@ spec:
   #       - secure.emisia.net
   #       - singlefactor.emisia.net
   rules:
-    - host: public.emisia.net
+    - host: whoami.emisia.net
       http:
         paths:
           - path: /
@@ -27,33 +27,33 @@ spec:
                 port: 
                   number: 80
             pathType: Prefix
-    - host: admin.emisia.net
-      http:
-        paths:
-          - path: /
-            backend:
-              service:
-                name: moon
-                port: 
-                  number: 80
-            pathType: Prefix
-    - host: secure.emisia.net
-      http:
-        paths:
-          - path: /
-            backend:
-              service:
-                name: sun
-                port: 
-                  number: 80
-            pathType: Prefix
-    - host: singlefactor.emisia.net
-      http:
-        paths:
-          - path: /
-            backend:
-              service:
-                name: moon
-                port: 
-                  number: 80
-            pathType: Prefix
+    # - host: admin.emisia.net
+    #   http:
+    #     paths:
+    #       - path: /
+    #         backend:
+    #           service:
+    #             name: moon
+    #             port: 
+    #               number: 80
+    #         pathType: Prefix
+    # - host: secure.emisia.net
+    #   http:
+    #     paths:
+    #       - path: /
+    #         backend:
+    #           service:
+    #             name: sun
+    #             port: 
+    #               number: 80
+    #         pathType: Prefix
+    # - host: singlefactor.emisia.net
+    #   http:
+    #     paths:
+    #       - path: /
+    #         backend:
+    #           service:
+    #             name: moon
+    #             port: 
+    #               number: 80
+    #         pathType: Prefix

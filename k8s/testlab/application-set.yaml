@@ -9,7 +9,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
-        revision: 
+        revision: authelia
         directories:
           - path: k8s/testlab/*
   template:
@@ -24,7 +24,7 @@ spec:
         plugin:
           name: kustomize-build-with-helm
         repoURL: https://github.com/luminosita/k8s-cluster-talos
-        targetRevision: 
+        targetRevision: authelia
         path: '{{ path }}'
       destination:
         name: in-cluster

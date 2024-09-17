@@ -1,0 +1,38 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: moon
+  namespace: solar
+  annotations:
+    haproxy.org/backend-config-snippet: |
+      acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
+      http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
+    haproxy.org/route-acl: hdr(Host) -i moon.emisia.net
+spec:
+  type: ClusterIP
+  selector:
+    app: moon
+  ports:
+    - name: web
+      port: 80
+      targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sun
+  namespace: solar
+  annotations:
+    haproxy.org/backend-config-snippet: |
+      acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
+      http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
+    haproxy.org/route-acl: hdr(Host) -i sun.emisia.net
+spec:
+  type: ClusterIP
+  selector:
+    app: sun
+  ports:
+    - name: web
+      port: 80
+      targetPort: 8080

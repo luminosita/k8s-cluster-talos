@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: authelia
+
+configMapGenerator:
+- name: users
+  files:
+    - users.yaml
+
+resources:
+  - ns.yaml
+  - openldap-authelia.yaml
+
+helmCharts:
+  - name: authelia
+    repo: https://charts.authelia.com
+    releaseName: authelia
+    namespace: authelia
+    version: 0.9.5
+    valuesFile: values.yaml

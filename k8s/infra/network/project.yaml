@@ -23,6 +23,8 @@ spec:
       server: '*'
     - namespace: 'haproxy'
       server: '*'
+    - namespace: 'caddy'
+      server: '*'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

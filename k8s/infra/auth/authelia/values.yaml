@@ -1,0 +1,204 @@
+image:
+  registry: ghcr.io
+  repository: authelia/authelia
+  tag: 4.38.10 # renovate: docker=ghcr.io/authelia/authelia
+  pullPolicy: IfNotPresent
+
+configMap:
+  theme: 'dark'
+
+  access_control:
+    # upgrade to 'two_factor' later
+    default_policy: 'one_factor'
+    rules:
+     - domain_regex: '^.*\.emisia.net$'
+       policy: 'one_factor'
+  
+  server:
+    endpoints:
+      authz:
+        forward-auth:
+          implementation: 'ForwardAuth'
+
+  session:
+    cookies:
+      - subdomain: auth
+        domain: emisia.net
+        default_redirection_url: 'https://www.emisia.net'
+
+  authentication_backend:
+    password_reset:
+      ## Disable both the HTML element and the API for reset password functionality
+      disable: false
+
+    ldap:
+      enabled: true
+      address: 'ldap://openldap.openldap.svc.cluster.local'
+      implementation: 'custom'
+      timeout: '5s'
+      base_dn: 'dc=emisia,dc=net'
+      additional_users_dn: 'ou=People'
+      group_search_mode: 'filter'
+      permit_referrals: false
+      permit_unauthenticated_bind: false
+      users_filter: '(&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=inetOrgPerson))'
+      additional_groups_dn: 'ou=Groups'
+  #    groups_filter: '(&(member=UID={input},OU=users,DC=example,DC=com)(objectClass=groupOfNames))'
+      groups_filter: '(member={dn})'
+      user: 'cn=authelia,ou=service,dc=emisia,dc=net'
+      password:
+        secret_name: 'openldap-authelia'
+        value: 'password'
+      attributes:
+        distinguished_name: 'distinguishedName'
+        username: 'uid'
+        mail: 'mail'
+        member_of: 'memberOf'
+        group_name: 'cn'
+
+    file:
+      enabled: false
+      disable_reset_password: false
+      path: /etc/authelia/users.yaml
+      watch: false
+      search:
+        email: false
+        case_insensitive: false
+      password:
+        algorithm: 'argon2'
+        argon2:
+          variant: 'argon2id'
+          iterations: 3
+          memory: 65536
+          parallelism: 4
+          key_length: 32
+          salt_length: 16
+
+  storage:
+    postgres:
+      enabled: false
+      address: 'tcp://postgres.databases.svc.cluster.local:5432'
+    # Switch to Postgres later
+    local:
+      enabled: true
+
+  notifier:
+    filesystem:
+      enabled: true
+
+secret:
+  additionalSecrets:
+    openldap-authelia:
+      items:
+        - key: 'password'
+          path: 'authentication.ldap.password.txt'
+
+service:
+  type: 'ClusterIP'
+  annotations: 
+    haproxy.org/route-acl: hdr(Host) -i auth.emisia.net
+
+  labels: {}
+
+  port: 80
+  nodePort: 30091
+
+pod:
+  kind: 'Deployment'
+  replicas: 1
+
+  extraVolumeMounts:
+    - name: users
+      mountPath: /etc/authelia/users.yaml
+      subPath: users.yaml
+
+  extraVolumes:
+    - name: users
+      configMap:
+        name: users  
+
+# jwt_secret: a_very_important_secret
+# default_redirection_url: https://public.emisia.net
+
+# identity_providers:
+#   oidc:
+#     hmac_secret: this_is_a_secret_abc123abc123abc
+#     issuer_private_key: |
+#       -----BEGIN RSA PRIVATE KEY----- 
+#       b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
+#       NhAAAAAwEAAQAAAgEAxW37Nxmu0w3OVK3BkeFI7P7Or21hl8zXos2GmHt6pADR62NxzNw9
+#       gRSsB/lRrpF3WLT0+Y5AcV9/P+9/TWAmE7V6A/TrAPGw+A6B2o7XCa26emWDMJxb56SK09
+#       xr5jPClhSmzlgFUGNq3NbSLjmy2XIkvqVH0paBH+Ch21rYf6wQP7D2RMASR4x2nDBnXrzW
+#       9UXSiMLuitah7vY77bGbMMTWpSDUG/bp2J5Ce8qDq1f8HgEr/zRAxBia3ie6NZ0vVUQFT4
+#       CXdKXFjsUR27wDsJFttKENplNCzB8PkXEkviGNtoOH164MTF8fnhAusEmO2Or/T8NHvqnh
+#       QzVSdoTH6Nn9ojICvttSXvP4FwMUzXRKbuuA1ikHqZSxMm+JLBAS6vwq3B9232TaMTq4rP
+#       4Ppnl5vyflNdbBWwQBRcIeKa3+6OD2WRaoY8XJOKfeaZfpKS+aMv6ohuKlLXlE4Is0CmZI
+#       yvOWFoXC02LA5bY1cWAKyq1GLhGUAO2sIJ+ml52roc13k/mggi+sgc7mErCyvimBsHTrQb
+#       tIXZ9ItXeGgpCPtipQHRDzK7Q7G7/J/SVlkJkJEFUsGk1r1UKTHkkX6jo2S0V7ZEB3Iwkd
+#       7VGxOFxuHe3cgw9YgrBANovAUF88XRhsruDbA6N+vJPJu4fTU9byZBDrk7bF2AzZEV5v+e
+#       EAAAdItABCu7QAQrsAAAAHc3NoLXJzYQAAAgEAxW37Nxmu0w3OVK3BkeFI7P7Or21hl8zX
+#       os2GmHt6pADR62NxzNw9gRSsB/lRrpF3WLT0+Y5AcV9/P+9/TWAmE7V6A/TrAPGw+A6B2o
+#       7XCa26emWDMJxb56SK09xr5jPClhSmzlgFUGNq3NbSLjmy2XIkvqVH0paBH+Ch21rYf6wQ
+#       P7D2RMASR4x2nDBnXrzW9UXSiMLuitah7vY77bGbMMTWpSDUG/bp2J5Ce8qDq1f8HgEr/z
+#       RAxBia3ie6NZ0vVUQFT4CXdKXFjsUR27wDsJFttKENplNCzB8PkXEkviGNtoOH164MTF8f
+#       nhAusEmO2Or/T8NHvqnhQzVSdoTH6Nn9ojICvttSXvP4FwMUzXRKbuuA1ikHqZSxMm+JLB
+#       AS6vwq3B9232TaMTq4rP4Ppnl5vyflNdbBWwQBRcIeKa3+6OD2WRaoY8XJOKfeaZfpKS+a
+#       Mv6ohuKlLXlE4Is0CmZIyvOWFoXC02LA5bY1cWAKyq1GLhGUAO2sIJ+ml52roc13k/mggi
+#       +sgc7mErCyvimBsHTrQbtIXZ9ItXeGgpCPtipQHRDzK7Q7G7/J/SVlkJkJEFUsGk1r1UKT
+#       HkkX6jo2S0V7ZEB3Iwkd7VGxOFxuHe3cgw9YgrBANovAUF88XRhsruDbA6N+vJPJu4fTU9
+#       byZBDrk7bF2AzZEV5v+eEAAAADAQABAAACACBJslH6k0rU8S+MEyImc+S+b1LlUpae2402
+#       i5KYbyAvOiWC5/OW+UAI/3F2ZtNj2t7ZCU9e4k8oTQlJw8oFtXR3s3K+NUi8PjLzPG1f+u
+#       8MSHkH7QKgL6+ci0/Gtqa5RFODIRyR7JyPBcUEJO+GZCeHsVa0dSCNmKR7+jyDiPCoVSf1
+#       avEncFXfNO6qQ92MiKMoPhw7tQNjwqvv/TEMYNMC/g+XZNkF8oyIpVrVbd8xznuhuW5NP2
+#       JSm9FFMgDeqgUJ0MyFvT9IdRy6QgdrojbYMdbel/rhlwUG92bT2Cx4FFMLA8ZUIpLC48rX
+#       3qrZ/NCg7gw/ZZZa9golyEy1vnOe2jroz8Qwy+VGEMA8DXx4+dGxyVQYm8hECSG2QxDHU+
+#       GSXarQPqiqoVEVQzr2ZyWnygf7RSbeOD35bpV8Xv+LFsG1T6Mq+4rQoEAX0vWeOMM3zMMC
+#       tfcBH0F+vD78oZdzjDwX/JUoytz8Sh34qWnnWxtE0dCTaNv13g66VSdaYkq2Fnzd233Kvs
+#       1wu7oORQyQnk/pY0VZERh/qNyJ7Wr/BVUwpXJcJxuTlzu0uaq2IHHE4moPNENGwFcGGBnn
+#       WeWlTV2mkPy/59yYbMj+GuLSPS9CrKZhMhu4I07wO+ZlCiJDTAWWhdTONrozD/pcc9TAyl
+#       8GN2WcmokNLpbUA9V5AAABAHmNTYvCARe5s6aoT+VRg2A3oH4qPRzSDyCTRtvuqqKDnTXB
+#       Op+uaqboX8bBztkrjG0QzZ+SUZAk5S3vYFZVt2qVBsyrGUFWZnAyHzXeCzNTBhW4BNOxMT
+#       9JgU6eqHI40Ez5wO/gqCOoAK0oMy27HIc3bHqI6DRJLyW3aFsJXINTEZieX5IwJGBR6d2v
+#       Gefb35RaoN4aWHxFVjvA+mgU/8YsI4GZBtFY414FAILWcFymc+XQfqefKXZKYtFsbYjo+n
+#       tPPSLVQWRE5z3+fecvVR/bMfFcmk7Ia0ZTn61IImDMejTFoY/6b1wvWdPGy/KtL2xXDrvS
+#       dXn5DxJR3JNcc0wAAAEBAOE14XVCh4ABMZaGee+09xd6XNg+iBO76y8RK/mKm2t1IgN0f6
+#       /eG2Is6AXmzaYoaSj6qtPee3uvyZ7J13HNpQoud8Cjmli5wAYdopMctZEhxc45wIVvMgYw
+#       VIqyHz/rOhxkoxNDmHD+/pd85GyYf055DMrA/3jFp41Z+LiGWRSmjxMWqeKvYQxgrsu0A8
+#       RCox+GorvDLaho6/oPuUjCn3bBlk+1rZ23zEwQw1wJQ2mz8P8SFnAnuBzr2Asew656IahE
+#       4Ca9OsWl8AnWeVrFKDk6uiSYnbh5bFdU84bRsv9jJJpmHurFiB8bF6tVMqh+7Xg4VB15Pz
+#       r6KitXtSEnO0cAAAEBAOBrzRW6/EBro+IyQ2RZ8vc/Hr5lFZ7UM7mGF5O8kdPw1fWHqVkP
+#       1bPPEPeSMIN3jTYigaSWXo59kk+QNq+/ZQOWDDvzMYTIPMCZp8EWB+HwY2oqu/TgoROHdo
+#       aVfA3i0o3sYXtR8I2fb4qndMbtwlPyFEFFLzyHF1cyR2v6Og5OkLBRdj0mQhf14aQnJdpz
+#       MNSBRmLCjKMs/DVcPBSKWY9oRgXR65EBYuCfTaRy03A8u4Pj/Sbuov1AddNlpAoqD3rkyM
+#       yD5hpCWshn81idaUwju6/CFE0RIOYOG7ckb8d/PQtGaOuKZFj6NKc+qetEguv0xrSSMmAu
+#       VS21DB1PZZcAAAANbWlsb3NoQEdpYW5uaQECAwQFBg==
+#       -----END RSA PRIVATE KEY-----
+#     access_token_lifespan: 1h
+#     authorize_code_lifespan: 1m
+#     id_token_lifespan: 1h
+#     refresh_token_lifespan: 90m
+#     enable_client_debug_messages: false
+#     clients:
+#       - id: oauth2-proxy
+#         description: Outline
+#         secret: proxy
+#         public: true
+#         authorization_policy: one_factor
+#         audience: []
+#         scopes:
+#           - openid
+#           - groups
+#           - email
+#           - profile
+#         redirect_uris:
+#           - https://public.emisia.net
+#         grant_types:
+#           - refresh_token
+#           - authorization_code
+#         response_types:
+#           - code
+#         response_modes:
+#           - form_post
+#           - query
+#           - fragment
+#         userinfo_signing_algorithm: none

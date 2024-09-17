@@ -1,0 +1,57 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: secure-ingress
+  namespace: solar
+  annotations:
+    cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
+spec:
+  ingressClassName: haproxy
+  tls:
+    - secretName: cert-solar-system-staging
+      hosts:
+        - sun.emisia.net
+        - moon.emisia.net
+  #       - secure.emisia.net
+  #       - singlefactor.emisia.net
+  rules:
+    - host: sun.emisia.net
+      http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: sun
+                port: 
+                  number: 80
+            pathType: Prefix
+    - host: moon.emisia.net
+      http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: moon
+                port: 
+                  number: 80
+            pathType: Prefix
+    # - host: secure.emisia.net
+    #   http:
+    #     paths:
+    #       - path: /
+    #         backend:
+    #           service:
+    #             name: sun
+    #             port: 
+    #               number: 80
+    #         pathType: Prefix
+    # - host: singlefactor.emisia.net
+    #   http:
+    #     paths:
+    #       - path: /
+    #         backend:
+    #           service:
+    #             name: moon
+    #             port: 
+    #               number: 80
+    #         pathType: Prefix

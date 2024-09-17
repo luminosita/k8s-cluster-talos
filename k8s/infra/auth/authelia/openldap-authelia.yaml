@@ -1,0 +1,13 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: openldap-authelia
+  namespace: authelia
+spec:
+  encryptedData:   #password   cn=authelia,ou=service,dc=emisia,dc=net
+    password: AgCxAI2YOrLkSonjO3RaMmLUpkX7bJFpeNw30Bivpnbbp44aQRJwA9+LoObytUnCs/b9orlWFrjSVrRjD0mAT4URnxaUc/yQ834OcA1kP8dUT1USyPYwC5YhBoa4dZzMjvPsRk0qAtx5z1P3sF7QJwz0GBPKC2P223YpnEi4F2X7KLM0X0GZZRLtAB89E8n3yzvXK3oRopSeHicL716/jJQXV/1NZhXOc7mDK8L8uu1mwtgOavQqiZs0/qcGs0MYNZW+ZlKFSLOq2L8P+vTTtl7pVXGJXv7jZMlHhRDLD1SEbWmogvDSrpE6tgHiGqZ/Ta9/aN+Hz4x6clWgTTo1my7v+7gQLCQw8fz+IIKOAJDe4x5yklON0VfqSZD6qX/uOY/M+uahI45fxr9iM5UFKfxL4YHSPMLv+hZStyqGllryaGFR2yuIj8cp89nCfXixa6oBtre4NglOd7SGkrwi8lfqhv+8TdG3sJ0Vx1J0qCw8OfU21dT07pej9mwyYMzbEpN8XnHu6AyBdcqRILRcMjkHdGSQPZs+vWh0m70E0pxTbFY3BxDJK5hM/piBs7uPmgZW+D9O0+WCKalal7T8vR4ipWPZ/9P52Xo/8kQ7R8y3B6xD+szD5+C4GLfsi4VwQ7rS+w1veNPOhQv8HGVANiKJVTCTkSA8l+huEtU/IrEemjYtSZAGx3lsqDDZUMbbmz+Ro1Opl5LnPw==
+  template:
+    metadata:
+      name: openldap-authelia
+      namespace: authelia

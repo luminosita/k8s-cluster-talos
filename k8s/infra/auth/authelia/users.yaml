@@ -1,0 +1,27 @@
+users:
+  john:
+    disabled: false
+    displayname: "John"
+    password: "$argon2id$v=19$m=65536,t=3,p=4$I+1DvIq5P7Hn36shojK9ow$2PdY3SwDieRsqRcNHXtIyW+NBv1ffwhS7VDa4ocU5mA"  #laptop01
+    email: john.doe@authelia.com
+    groups:
+      - admins
+      - dev
+  harry:
+    disabled: false
+    displayname: "Harry"
+    password: "$argon2id$v=19$m=65536,t=3,p=4$I+1DvIq5P7Hn36shojK9ow$2PdY3SwDieRsqRcNHXtIyW+NBv1ffwhS7VDa4ocU5mA"
+    email: harry.potter@authelia.com
+    groups: []
+  bob:
+    disabled: false
+    displayname: "Bob"
+    password: "$argon2id$v=19$m=65536,t=3,p=4$I+1DvIq5P7Hn36shojK9ow$2PdY3SwDieRsqRcNHXtIyW+NBv1ffwhS7VDa4ocU5mA"
+    email: bob.dylan@authelia.com
+    groups:
+      - dev
+  james:
+    disabled: false
+    displayname: "James"
+    password: "$argon2id$v=19$m=65536,t=3,p=4$I+1DvIq5P7Hn36shojK9ow$2PdY3SwDieRsqRcNHXtIyW+NBv1ffwhS7VDa4ocU5mA"
+    email: james.dean@authelia.com

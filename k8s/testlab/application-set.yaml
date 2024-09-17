@@ -12,8 +12,6 @@ spec:
         revision: authelia
         directories:
           - path: k8s/testlab/*
-          - path: k8s/testlab/caddy
-            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}-test'

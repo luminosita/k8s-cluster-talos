@@ -1,8 +1,3 @@
-# image:
-#     repository: haproxytech/haproxy-alpine    # can be changed to use CE or EE images
-#     tag: "3.1"                                   # overrides the image tag whose default is the chart appVersion
-#     pullPolicy: IfNotPresent
-
 controller:
   replicaCount: 1
   service:
@@ -49,9 +44,6 @@ controller:
 
       # Host ACLs
       acl protected-frontends hdr(Host) -m reg -i ^(?i)(public|admin)\.emisia\.net
-      #acl host-authelia hdr(Host) -i auth.emisia.net
-      #acl host-public hdr(Host) -i public.emisia.net
-      #acl host-admin hdr(Host) -i admin.emisia.net
 
       http-request set-var(req.scheme) str(https) if { ssl_fc }
       http-request set-var(req.scheme) str(http) if !{ ssl_fc }
@@ -67,27 +59,3 @@ controller:
       http-request lua.auth-intercept authelia_authelia_http /api/authz/forward-auth HEAD * remote-user,remote-groups,remote-name,remote-email - if protected-frontends
       http-request deny if protected-frontends !{ var(txn.auth_response_successful) -m bool } { var(txn.auth_response_code) -m int 403 }
       http-request redirect location %[var(txn.auth_response_location)] if protected-frontends !{ var(txn.auth_response_successful) -m bool }
-
-      # Authelia backend route
-      #use_backend be_authelia if host-authelia
-
-      # Service backend route(s)
-      #use_backend be_solar_sun_web if host-public
-      #use_backend be_solar_moon_web if host-admin
-
-    #   backend be_authelia
-    #       server authelia authelia.authelia-test #:9091
-
-    #   backend be_public
-    #       ## Pass the Set-Cookie response headers to the user.
-    #       acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
-    #       http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
-
-    #       server sun sun.solar:80 ssl verify none
-
-    #   backend be_admin
-    #       ## Pass the Set-Cookie response headers to the user.
-    #       acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
-    #       http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
-
-    #       server moon moon.solar:80 check ssl verify none

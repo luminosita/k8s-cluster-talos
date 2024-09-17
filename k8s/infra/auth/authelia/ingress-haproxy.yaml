@@ -4,11 +4,11 @@ metadata:
   name: secure-ingress
   namespace: authelia
   annotations:
-    cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
+    cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-production"
 spec:
   ingressClassName: haproxy
   tls:
-    - secretName: cert-authelia-staging
+    - secretName: cert-authelia-production
       hosts:
         - auth.emisia.net
   rules:

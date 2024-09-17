@@ -10,12 +10,12 @@ spec:
   tls:
     - secretName: cert-solar-system-staging
       hosts:
-        - public.emisia.net
-        - admin.emisia.net
+        - sun.emisia.net
+        - moon.emisia.net
   #       - secure.emisia.net
   #       - singlefactor.emisia.net
   rules:
-    - host: public.emisia.net
+    - host: sun.emisia.net
       http:
         paths:
           - path: /
@@ -25,7 +25,7 @@ spec:
                 port: 
                   number: 80
             pathType: Prefix
-    - host: admin.emisia.net
+    - host: moon.emisia.net
       http:
         paths:
           - path: /

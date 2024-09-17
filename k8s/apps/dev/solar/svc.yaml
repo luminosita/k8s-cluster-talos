@@ -8,7 +8,7 @@ metadata:
     haproxy.org/backend-config-snippet: |
       acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
       http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
-    haproxy.org/route-acl: hdr(Host) -i admin.emisia.net
+    haproxy.org/route-acl: hdr(Host) -i moon.emisia.net
 spec:
   type: ClusterIP
   selector:
@@ -27,7 +27,7 @@ metadata:
     haproxy.org/backend-config-snippet: |
       acl set_cookie_exist var(req.auth_response_header.set_cookie) -m found
       http-response set-header Set-Cookie %[var(req.auth_response_header.set_cookie)] if set_cookie_exist
-    haproxy.org/route-acl: hdr(Host) -i public.emisia.net
+    haproxy.org/route-acl: hdr(Host) -i sun.emisia.net
 spec:
   type: ClusterIP
   selector:

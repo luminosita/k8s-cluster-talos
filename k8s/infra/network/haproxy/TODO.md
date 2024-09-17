@@ -1,4 +1,4 @@
-- [ ] proxy for authorization 
+- [ ] proxy for authorization instead of direct backend reference
 
 ```yaml
 . . .

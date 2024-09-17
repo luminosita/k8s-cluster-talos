@@ -5,7 +5,7 @@ charts/example
 **/testlab/**/charts
 *secret*.yaml
 
-.terraform
+**/.terraform
 output
 
 *.tfstate

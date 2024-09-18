@@ -17,8 +17,13 @@ spec:
     spec:
       containers:
         - name: minio
-          image: quay.io/minio/minio
+          image: quay.io/minio/minio:latest
           imagePullPolicy: Always
+          command:
+            - /bin/bash
+            - -c
+          args: 
+            - minio server /data --console-address :9001
           #FIXME
           # resources:
           #   limits:

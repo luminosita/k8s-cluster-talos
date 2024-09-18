@@ -131,10 +131,10 @@ module "volumes" {
       node = "proxmox"
       size = "2G"
     }
-    # pv-sonarr = {
-    #   node = "proxmox"
-    #   size = "4G"
-    # }
+    pv-minio = {
+      node = "proxmox"
+      size = "10G"
+    }
     # pv-radarr = {
     #   node = "proxmox"
     #   size = "4G"

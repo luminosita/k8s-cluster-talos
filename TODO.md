@@ -22,6 +22,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 # K8s (Proxmox VMs and DigitalOcean for true HA)
 - [x] Terraform
 - [ ] Network (https://www.haproxy.com/blog/using-haproxy-as-an-api-gateway-part-1-introduction)
+    - [ ] Hubble
 - [x] Storage
 - [ ] NFS Provisioner
 - [ ] Health Checks (https://blog.kubecost.com/blog/kubernetes-health-check/)
@@ -34,12 +35,14 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [x] Sealed secrets
 
 # Identity Provider
-- [ ] Keycloak, Dex, Pomerium (LDAP, Google, GitHub)
+- [ ] Keycloak
+    - [ ] OpenLDAP
     - [ ] Solar
-    - [ ] ArgpCD
+    - [ ] ArgoCD
     - [ ] Wikijs
     - [ ] Mattermost
-
+    - [ ] OpenId Connect
+ 
 # Monitoring 
 - [ ] Prometheus/Grafana (https://medium.com/@abdullah.eid.2604)
 - [ ] Telemetry
@@ -49,6 +52,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
     - [ ] Proxmox
     - [ ] K8s
     - [ ] Databases
+    - [ ] etcd
 
 # Databases
 - [ ] Postgre
@@ -59,6 +63,9 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [ ] Dashboard (Ingress, SSL, Pomerium with GitHub and LDAP)
 - [ ] Egress (VPN/Tor)
 - [ ] Backup (Velero) 
+    - [ ] etcd
+    - [ ] Databases
+    - [ ] PVs
 
 # K8s Apps
 - [ ] VS Code (web)

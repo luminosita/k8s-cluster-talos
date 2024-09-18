@@ -40,4 +40,4 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: pvc-minio
+            claimName: pvc-mattermost-minio

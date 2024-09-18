@@ -12,7 +12,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 
 - [ ] Renovate
 - [ ] Remark42
-- [ ] Ansible instead of Makefile or Taskfile
+- [ ] Taskfile
 - [x] Finish README
 - [x] Gollum with local-path provisioner 
 - [x] Gollum with storage
@@ -23,8 +23,10 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [x] Terraform
 - [ ] Network (https://www.haproxy.com/blog/using-haproxy-as-an-api-gateway-part-1-introduction)
 - [x] Storage
+- [ ] NFS Provisioner
 - [ ] Health Checks (https://blog.kubecost.com/blog/kubernetes-health-check/)
 - [x] Gateway/Ingress
+- [ ] Crossplane
 
 # SSL
 - [x] LetsEnrypt
@@ -33,13 +35,20 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 
 # Identity Provider
 - [ ] Keycloak, Dex, Pomerium (LDAP, Google, GitHub)
+    - [ ] Solar
+    - [ ] ArgpCD
+    - [ ] Wikijs
+    - [ ] Mattermost
 
 # Monitoring 
 - [ ] Prometheus/Grafana (https://medium.com/@abdullah.eid.2604)
+- [ ] Telemetry
+- [ ] Aggregated Logs
+- [ ] Audit
 - [ ] Sentry
- - [ ] Proxmox
- - [ ] K8s
- - [ ] Databases
+    - [ ] Proxmox
+    - [ ] K8s
+    - [ ] Databases
 
 # Databases
 - [ ] Postgre
@@ -74,7 +83,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 
 # Ci/CD
 - [ ] GitHub actions / worker nodes
-- [ ] Trigger create VM on checkin
+- [ ] Trigger create VM on checkin (Crossplane)
 - [x] ArgoCD
 
 # DCIM

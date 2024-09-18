@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
   - ns.yaml
   - pvc.yaml
-  - secret-keycloak-admin.yaml
-  - secret-keycloak-db-credentials.yaml
+  - keycloak-admin.yaml
+  - keycloak-db-credentials.yaml
   - http-route.yaml
 
 helmCharts:

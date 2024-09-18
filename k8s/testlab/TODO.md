@@ -42,4 +42,4 @@ $ kubectl apply -k ../k8s/testlab/
 
 # Notes to Fix When Merging into Main Branch
 
-- [ ]
+- [ ] Change revision keycloak to HEAD

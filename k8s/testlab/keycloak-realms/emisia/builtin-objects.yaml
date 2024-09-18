@@ -1,11 +1,11 @@
 apiVersion: keycloak.crossplane.io/v1alpha1
 kind: XBuiltinObjects
 metadata:
-  name: builtin-objects-homelab
+  name: builtin-objects-emisia
 spec:
   providerConfigName: default
   providerSecretName: keycloak-credentials
-  realm: homelab
+  realm: emisia
   builtinClients:
     - account
     - account-console

@@ -1,0 +1,13 @@
+apiVersion: user.keycloak.crossplane.io/v1alpha1
+kind: User
+metadata:
+  name: milos
+spec:
+  forProvider:
+    enabled: true
+    email: milosh@emisia.net
+    firstName: Milos
+    lastName: Milosavljevic
+    username: mmilosavljevic
+    realmIdRef:
+      name: emisia

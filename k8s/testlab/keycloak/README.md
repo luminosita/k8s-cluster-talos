@@ -30,3 +30,13 @@ kubectl create secret generic keycloak-db-credentials \
   kubeseal --controller-namespace=sealed-secrets \
   --format=yaml - > ../k8s/infra/auth/keycloak/keycloak-db-credentials.yaml
 ```
+
+### Create Keycloak Crossplane Credentials Sealed Secret
+
+```bash
+kubectl create secret generic keycloak-credentials \
+  --from-literal=credentials=${KEYCLOAK_ADMIN_PASSWORD} \
+  -n ${NAMESPACE} --dry-run=client -o yaml | \
+  kubeseal --controller-namespace=sealed-secrets \
+  --format=yaml - > ../k8s/infra/crossplane-crds/providers/keycloak/keycloak-credentials.yaml
+```

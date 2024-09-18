@@ -8,8 +8,8 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/luminosita/homelab
-        revision: HEAD
+        repoURL: 'https://github.com/luminosita/k8s-cluster-talos'
+        revision: keycloak
         directories:
           - path: k8s/infra/crossplane-crds/*
   template:
@@ -22,8 +22,8 @@ spec:
       source:
         plugin:
           name: kustomize-build-with-helm
-        repoURL: https://github.com/luminosita/homelab
-        targetRevision: HEAD
+        repoURL: https://github.com/luminosita/k8s-cluster-talos
+        targetRevision: keycloak
         path: '{{ path }}'
       destination:
         name: in-cluster

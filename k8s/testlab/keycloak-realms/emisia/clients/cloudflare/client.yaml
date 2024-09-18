@@ -9,7 +9,7 @@ spec:
     accessType: CONFIDENTIAL
     clientId: cloudflare
     realmIdRef:
-      name: homelab
+      name: emisia
     clientSecretSecretRef:
       name: cloudflare-oidc-credentials
       namespace: keycloak

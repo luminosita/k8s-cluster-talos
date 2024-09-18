@@ -1,15 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: testlab
+  name: crossplane-crds
   namespace: argocd
 spec:
   sourceRepos:
-    - 'https://github.com/luminosita/k8s-cluster-talos'
+    - 'https://github.com/luminosita/homelab'
   destinations:
     - namespace: 'argocd'
-      server: '*'
-    - namespace: 'keycloak'
       server: '*'
     - namespace: 'crossplane'
       server: '*'

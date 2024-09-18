@@ -9,9 +9,15 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
-        revision: authelia
+        revision: keycloak
         directories:
           - path: k8s/testlab/*
+          - path: k8s/testlab/keycloak
+            exclude: true
+          - path: k8s/testlab/keycloak-realms
+            exclude: true
+          - path: k8s/testlab/crossplane-crds
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}-test'
@@ -24,7 +30,7 @@ spec:
         plugin:
           name: kustomize-build-with-helm
         repoURL: https://github.com/luminosita/k8s-cluster-talos
-        targetRevision: authelia
+        targetRevision: keycloak
         path: '{{ path }}'
       destination:
         name: in-cluster

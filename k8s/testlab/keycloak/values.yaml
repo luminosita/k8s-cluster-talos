@@ -7,7 +7,7 @@ auth:
 production: true
 
 nodeSelector:
-  topology.kubernetes.io/zone: euclid
+  topology.kubernetes.io/zone: proxmox
 
 proxy: edge
 
@@ -30,7 +30,7 @@ postgresql:
     nodeAffinityPreset:
       type: hard
       key: topology.kubernetes.io/zone
-      values: [ euclid ]
+      values: [ proxmox ]
     persistence:
       enabled: true
       existingClaim: keycloak-db

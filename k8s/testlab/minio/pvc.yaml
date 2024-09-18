@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-minio
+  namespace: minio
+spec:
+  storageClassName: proxmox-csi
+  volumeName: pv-minio
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10G

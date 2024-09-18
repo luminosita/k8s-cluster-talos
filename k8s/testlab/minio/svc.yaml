@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio
+  namespace: minio
+spec:
+  type: ClusterIP
+  selector:
+    app: minio
+  ports:
+    - name: web
+      port: 80
+      targetPort: console
+    - name: data
+      port: 9000
+      targetPort: data

@@ -10,9 +10,9 @@ spec:
   tls:
     - secretName: cert-authelia-production
       hosts:
-        - auth.emisia.net
+        - authelia.emisia.net   #change to "auth.emisia.net"
   rules:
-    - host: auth.emisia.net
+    - host: authelia.emisia.net   #change to "auth.emisia.net"
       http:
         paths:
           - path: /

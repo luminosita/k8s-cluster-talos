@@ -11,7 +11,7 @@ spec:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
         revision: keycloak
         directories:
-          - path: k8s/infra/crossplane-crds/*
+          - path: k8s/testlab/crossplane-crds/*
   template:
     metadata:
       name: 'crossplane-crds-{{ path.basename }}'

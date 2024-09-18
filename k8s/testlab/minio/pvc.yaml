@@ -6,7 +6,7 @@ metadata:
   namespace: minio
 spec:
   storageClassName: proxmox-csi
-  volumeName: pv-mattermost-minio
+  volumeName: pv-minio
   accessModes:
     - ReadWriteOnce
   resources:

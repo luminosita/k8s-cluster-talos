@@ -127,6 +127,10 @@ module "volumes" {
       node = "proxmox"
       size = "10G"
     }
+    pv-keycloak = {
+      node = "proxmox"
+      size = "2G"
+    }
     # pv-sonarr = {
     #   node = "proxmox"
     #   size = "4G"
@@ -150,10 +154,6 @@ module "volumes" {
     # pv-remark42 = {
     #   node = "proxmox"
     #   size = "1G"
-    # }
-    # pv-keycloak = {
-    #   node = "proxmox"
-    #   size = "2G"
     # }
     # pv-jellyfin = {
     #   node = "proxmox"

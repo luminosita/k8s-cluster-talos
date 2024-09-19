@@ -1,29 +1,28 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: testlab
+  name: monitoring
   namespace: argocd
   labels:
-    me.kundun: testlab
+    me.kundun: monitoring
 spec:
   generators:
     - git:
-        repoURL: https://github.com/luminosita/k8s-cluster-talos
+        repoURL: https://github.com/luminosita/homelab
         revision: prometheus
         directories:
-          - path: k8s/testlab/*
+          - path: k8s/infra/monitoring/*
   template:
     metadata:
-      name: '{{ path.basename }}-test'
+      name: '{{ path.basename }}'
       labels:
-        me.kundun: testlab
-      finalizers:
+        me.kundun: controllers
     spec:
-      project: testlab
+      project: monitoring
       source:
         plugin:
           name: kustomize-build-with-helm
-        repoURL: https://github.com/luminosita/k8s-cluster-talos
+        repoURL: https://github.com/luminosita/homelab
         targetRevision: prometheus
         path: '{{ path }}'
       destination:
@@ -33,3 +32,6 @@ spec:
         automated:
           selfHeal: true
           prune: true
+        syncOptions:
+          - ApplyOutOfSyncOnly=true
+          - ServerSideApply=true

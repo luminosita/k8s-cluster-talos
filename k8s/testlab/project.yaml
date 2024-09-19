@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: testlab
+  name: testlab-nfs
   namespace: argocd
 spec:
   sourceRepos:

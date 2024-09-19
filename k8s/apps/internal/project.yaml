@@ -11,6 +11,8 @@ spec:
       server: '*'
     - namespace: 'wikijs'
       server: '*'
+    - namespace: 'android'
+      server: '*'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

@@ -12,6 +12,8 @@ spec:
         revision: HEAD
         directories:
           - path: k8s/infra/database/*
+          - path: k8s/infra/database/pg-cluster
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}'

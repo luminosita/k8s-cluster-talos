@@ -1,5 +1,5 @@
-certController:
-  enabled: false
+# certController:
+#   enabled: false
 # metrics:
 #   enabled: true
 #   serviceMonitor:

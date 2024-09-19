@@ -3,10 +3,9 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-  - mariadb-auth.yaml
-  - mariadb-configmap.yaml
+#  - mariadb-auth.yaml
+#  - mariadb-configmap.yaml
   - mariadb-credentials.yaml
-  - mariadb-auth.yaml
   - database.yaml
   - user.yaml
   - grant.yaml

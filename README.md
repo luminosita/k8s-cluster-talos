@@ -199,7 +199,7 @@ Make `testlab` folder
 ```bash
 $ mkdir k8s/testlab
 ```
-ß
+
 Add ArgoCD project manifest
 
 ```yaml

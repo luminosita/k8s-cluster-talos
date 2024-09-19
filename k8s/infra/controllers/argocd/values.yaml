@@ -24,15 +24,15 @@ crds:
   keep: false
 
 controller:
-  clusterRoleRules:
-    enabled: true
-    rules:
-      - apiGroups:
-        - ""
-        resources:
-          - pods/exec
-        verbs:
-          - create
+  # clusterRoleRules:
+  #   enabled: true
+  #   rules:
+  #     - apiGroups:
+  #       - ""
+  #       resources:
+  #         - pods/exec
+  #       verbs:
+  #         - create
   resources:
     requests:
       cpu: 100m

@@ -53,12 +53,6 @@ argocd:
 
 ######################### TEST PURPOSE #######################
 
-#Deploy testlab project and applications under k8s/testlab for a specific branch
-deploy-testlab:
-	BRANCH ?= $(shell bash -c 'read -s -p "Password: " pwd; echo $$pwd')
-	git checkout $(BRANCH) && \
-		kubectl apply -k ../k8s/testlab
-
 test-plan:
 	$(info TERRAFORM: Test Plan)
 	cd cluster && \

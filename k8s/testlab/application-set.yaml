@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: testlab-prometheus
+  name: testlab
   namespace: argocd
   labels:
-    me.kundun: testlab-prometheus
+    me.kundun: testlab
 spec:
   generators:
     - git:
@@ -16,10 +16,10 @@ spec:
     metadata:
       name: '{{ path.basename }}-test'
       labels:
-        me.kundun: testlab-prometheus
+        me.kundun: testlab
       finalizers:
     spec:
-      project: testlab-prometheus
+      project: testlab
       source:
         plugin:
           name: kustomize-build-with-helm

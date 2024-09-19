@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: testlab-prometheus
+  name: testlab
   namespace: argocd
 spec:
   sourceRepos:

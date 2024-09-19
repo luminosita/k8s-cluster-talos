@@ -36,7 +36,7 @@ spec:
         - name: nfs-vol
           nfs:
             server: 192.168.50.12 # IP to our NFS server
-            path: /data # The exported directory       
+            path: /mnt/data # The exported directory       
           # resources:
           #   limits:
           #     cpu: "1"

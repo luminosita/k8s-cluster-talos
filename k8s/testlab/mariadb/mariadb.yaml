@@ -5,13 +5,13 @@ metadata:
   namespace: mariadb
 spec:
   rootPasswordSecretKeyRef:
-    name: mariadb-root
-    key: password
+    name: mariadb
+    key: root-password
     generate: true
 
   username: mariadb
   passwordSecretKeyRef:
-    name: mariadb-password
+    name: mariadb
     key: password
     generate: true
   database: mariadb

@@ -15,7 +15,7 @@ spec:
         valueFiles:
           - $values/k8s/testlab/monitoring/prometheus-stack/values.yaml
     - repoURL: https://github.com/luminosita/k8s-cluster-talos
-      targetRevision: HEAD
+      targetRevision: prometheus
       ref: values
   destination:
     name: in-cluster

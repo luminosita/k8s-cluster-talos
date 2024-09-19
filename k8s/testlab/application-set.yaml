@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: testlab
+  name: testlab-nfs
   namespace: argocd
   labels:
-    me.kundun: testlab
+    me.kundun: testlab-nfs
 spec:
   generators:
     - git:
@@ -16,10 +16,10 @@ spec:
     metadata:
       name: '{{ path.basename }}-test'
       labels:
-        me.kundun: testlab
+        me.kundun: testlab-nfs
       finalizers:
     spec:
-      project: testlab
+      project: testlab-nfs
       source:
         plugin:
           name: kustomize-build-with-helm

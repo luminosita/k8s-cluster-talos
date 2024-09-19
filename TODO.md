@@ -61,11 +61,12 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [x] Postgre
 - [ ] MySql (MariaDB)
 - [x] OpenLDAP
-- [ ] Minio Dev
+- [x] Minio Dev
 
 # K8s
 - [ ] Dashboard (Ingress, SSL, Pomerium with GitHub and LDAP)
 - [ ] Egress (VPN/Tor)
+    - [ ] VPN failover connections
 - [ ] Backup (Velero) 
     - [ ] etcd
     - [ ] Databases
@@ -77,10 +78,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [ ] GitKraken
 - [ ] Mattermost
 - [ ] eJabberd K8S cluster
-- [ ] VPN failover connections
 - [ ] Emisia SVN Repository on VM
-- [ ] Mikrotik/pfSense hardening
-- [ ] eBPF
 
 # Private Artifact Repo
 - [ ] JFrog for docker images, VMs, phone images
@@ -91,6 +89,8 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [ ] BGP
 - [ ] RBAC
 - [ ] Mesh
+- [ ] Mikrotik/pfSense hardening
+- [ ] eBPF
 
 # Ci/CD
 - [ ] GitHub actions / worker nodes

@@ -5,6 +5,8 @@ configs:
   cm:
     create: true
     application.resourceTrackingMethod: "annotation+label"
+    exec: 
+      enabled: true
   cmp:
     create: true
     plugins:
@@ -22,6 +24,15 @@ crds:
   keep: false
 
 controller:
+  clusterRoleRules:
+    enabled: true
+    rules:
+      - apiGroups:
+        - ""
+        resources:
+          - pods/exec
+        verbs:
+          - create
   resources:
     requests:
       cpu: 100m

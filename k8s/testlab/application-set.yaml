@@ -1,30 +1,30 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: testlab
+  name: testlab-< branch >
   namespace: argocd
   labels:
-    me.kundun: testlab
+    me.kundun: testlab-< branch >
 spec:
   generators:
     - git:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
-        revision: authelia
+        revision: < branch >
         directories:
           - path: k8s/testlab/*
   template:
     metadata:
       name: '{{ path.basename }}-test'
       labels:
-        me.kundun: testlab
+        me.kundun: testlab-< branch >
       finalizers:
     spec:
-      project: testlab
+      project: testlab-< branch >
       source:
         plugin:
           name: kustomize-build-with-helm
         repoURL: https://github.com/luminosita/k8s-cluster-talos
-        targetRevision: authelia
+        targetRevision: < branch >
         path: '{{ path }}'
       destination:
         name: in-cluster

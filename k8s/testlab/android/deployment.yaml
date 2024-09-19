@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: android
+  namespace: android
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: android
+  template:
+    metadata:
+      namespace: android
+      labels:
+        app: android
+    spec:
+      containers:
+        - name: android
+          image: codercom/code-server:4.16.1-ubuntu
+          imagePullPolicy: Always
+          env:
+            - name: DOCKER_USER
+              value: build
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: vscode-credentials
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: data
+              mountPath: /home/coder
+      volumes:
+        - name: nfs-vol
+          nfs:
+            server: 192.168.50.12 # IP to our NFS server
+            path: /data # The exported directory       
+          # resources:
+          #   limits:
+          #     cpu: "1"
+          #     memory: "200Mi"
+          #   requests:
+          #     cpu: "0.5"
+          #     memory: "100Mi"

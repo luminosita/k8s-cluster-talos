@@ -2,13 +2,13 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ns.yaml
-#  - mariadb-auth.yaml
-#  - mariadb-configmap.yaml
-  - mariadb-credentials.yaml
-  - database.yaml
-  - user.yaml
-  - grant.yaml
+   - ns.yaml
+  # - mariadb-auth.yaml
+  # - mariadb-configmap.yaml
+  # - mariadb-credentials.yaml
+  # - database.yaml
+  # - user.yaml
+  # - grant.yaml
 
 helmCharts:
   - name: mariadb-operator

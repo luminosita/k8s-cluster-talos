@@ -4,12 +4,12 @@ hosts:
 listenGlobal:
   # -- c2s top-level listener options:
   #    https://docs.ejabberd.im/admin/configuration/toplevel/#c2s-cafile
-  c2s_ciphers: TLS_CIPHERS
-  c2s_protocol_options: TLS_OPTIONS
+  #c2s_ciphers: TLS_CIPHERS
+  #c2s_protocol_options: TLS_OPTIONS
   # -- s2s top-level listener options:
   #    https://docs.ejabberd.im/admin/configuration/toplevel/#s2s-access
-  s2s_ciphers: TLS_CIPHERS
-  s2s_protocol_options: TLS_OPTIONS
+  #s2s_ciphers: TLS_CIPHERS
+  #s2s_protocol_options: TLS_OPTIONS
   s2s_use_starttls: optional
 
 #

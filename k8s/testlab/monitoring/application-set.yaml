@@ -18,7 +18,7 @@ spec:
       labels:
         me.kundun: controllers
     spec:
-      project: testlab
+      project: monitoring
       source:
         plugin:
           name: kustomize-build-with-helm

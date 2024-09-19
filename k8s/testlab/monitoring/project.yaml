@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   sourceRepos:
-    - 'https://github.com/luminosita/homelab'
+    - 'https://github.com/luminosita/k8s-cluster-talos'
     - 'https://prometheus-community.github.io/helm-charts'
   destinations:
     - namespace: 'argocd'

@@ -14,7 +14,7 @@ spec:
       helm:
         valueFiles:
           - $values/k8s/infra/monitoring/prometheus-stack/values.yaml
-    - repoURL: https://github.com/luminosita/homelab
+    - repoURL: https://github.com/luminosita/k8s-cluster-talos
       targetRevision: HEAD
       ref: values
   destination:

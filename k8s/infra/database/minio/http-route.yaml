@@ -1,0 +1,19 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: minio-http
+  namespace: minio
+spec:
+  parentRefs:
+    - name: insecure
+      namespace: gateway
+  hostnames:
+    - "minio.local"
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: minio
+          port: 80

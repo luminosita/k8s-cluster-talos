@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: testlab
+  name: testlab-minio
   namespace: argocd
   labels:
-    me.kundun: testlab
+    me.kundun: testlab-minio
 spec:
   generators:
     - git:
@@ -16,10 +16,10 @@ spec:
     metadata:
       name: '{{ path.basename }}-test'
       labels:
-        me.kundun: testlab
+        me.kundun: testlab-minio
       finalizers:
     spec:
-      project: testlab
+      project: testlab-minio
       source:
         plugin:
           name: kustomize-build-with-helm

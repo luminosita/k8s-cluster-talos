@@ -16,4 +16,4 @@ spec:
             value: /
       backendRefs:
         - name: minio
-          port: web
+          port: 80

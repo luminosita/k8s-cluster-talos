@@ -5,8 +5,7 @@ configs:
   cm:
     create: true
     application.resourceTrackingMethod: "annotation+label"
-    exec: 
-      enabled: true
+#    exec.enabled: true
   cmp:
     create: true
     plugins:

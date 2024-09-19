@@ -13,18 +13,19 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [ ] Renovate
 - [ ] Remark42
 - [ ] Taskfile
+- [ ] DNS records: internal (VPN, Cloudflare) and external
 - [x] Finish README
 - [x] Gollum with local-path provisioner 
 - [x] Gollum with storage
 - [x] Wiki.js
-- [ ] VSCode with NFS provisioner 
+- [x] VSCode with NFS provisioner 
 
 # K8s (Proxmox VMs and DigitalOcean for true HA)
 - [x] Terraform
 - [ ] Network (https://www.haproxy.com/blog/using-haproxy-as-an-api-gateway-part-1-introduction)
     - [ ] Hubble
 - [x] Storage
-- [ ] NFS Provisioner
+- [x] NFS Provisioner
 - [ ] Health Checks (https://blog.kubecost.com/blog/kubernetes-health-check/)
 - [x] Gateway/Ingress
 - [ ] Crossplane
@@ -42,6 +43,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
     - [ ] Wikijs
     - [ ] Mattermost
     - [ ] OpenId Connect
+    - [ ] Android VSCode
  
 # Monitoring 
 - [ ] Prometheus/Grafana (https://medium.com/@abdullah.eid.2604)
@@ -58,6 +60,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [x] Postgre
 - [ ] MySql (MariaDB)
 - [x] OpenLDAP
+- [ ] Minio Dev
 
 # K8s
 - [ ] Dashboard (Ingress, SSL, Pomerium with GitHub and LDAP)
@@ -68,7 +71,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
     - [ ] PVs
 
 # K8s Apps
-- [ ] VS Code (web)
+- [x] VS Code (web)
 - [x] Gollum
 - [ ] GitKraken
 - [ ] Mattermost

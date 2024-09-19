@@ -48,6 +48,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
  
 # Monitoring 
 - [ ] Prometheus/Grafana (https://medium.com/@abdullah.eid.2604)
+- [ ] OpenObserve (https://datavirke.dk/posts/bare-metal-kubernetes-part-10-metrics-and-monitoring-with-openobserve/)
 - [ ] Telemetry
 - [ ] Aggregated Logs
 - [ ] Audit

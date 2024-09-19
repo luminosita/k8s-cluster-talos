@@ -34,6 +34,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [x] LetsEnrypt
 - [x] Key rotation
 - [x] Sealed secrets
+- [ ] Self-signed CA Issuer for internal apps
 
 # Identity Provider
 - [ ] Keycloak

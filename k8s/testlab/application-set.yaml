@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: testlab
+  name: testlab-keycloak
   namespace: argocd
   labels:
-    me.kundun: testlab
+    me.kundun: testlab-keycloak
 spec:
   generators:
     - git:
@@ -16,10 +16,10 @@ spec:
     metadata:
       name: '{{ path.basename }}-test'
       labels:
-        me.kundun: testlab
+        me.kundun: testlab-keycloak
       finalizers:
     spec:
-      project: testlab
+      project: testlab-keycloak
       source:
         plugin:
           name: kustomize-build-with-helm

@@ -55,9 +55,9 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
     - [ ] etcd
 
 # Databases
-- [ ] Postgre
+- [x] Postgre
 - [ ] MySql (MariaDB)
-- [ ] OpenLDAP
+- [x] OpenLDAP
 
 # K8s
 - [ ] Dashboard (Ingress, SSL, Pomerium with GitHub and LDAP)

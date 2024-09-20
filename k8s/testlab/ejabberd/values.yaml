@@ -28,4 +28,5 @@ acl:
 certFiles:
   # -- Please specify your kubernetes secret containing the tls certificates for
   # the domains specified in .Values.hosts, otherwise the service will not work
-  secretName: {}
+  secretName: 
+    - xmppserver-cert

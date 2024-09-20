@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ns.yaml
   - svc.yaml
+  - http-route.yaml
   - deployment.yaml
   - ingress-haproxy.yaml
 

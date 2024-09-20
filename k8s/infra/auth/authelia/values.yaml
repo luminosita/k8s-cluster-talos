@@ -58,7 +58,7 @@ configMap:
   #       group_name: 'cn'
 
     file:
-      enabled: false
+      enabled: true
       disable_reset_password: false
       path: /etc/authelia/users.yaml
       watch: false

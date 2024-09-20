@@ -12,6 +12,8 @@ spec:
         revision: HEAD
         directories:
           - path: k8s/infra/auth/*
+          - path: k8s/infra/auth/lldap
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}'

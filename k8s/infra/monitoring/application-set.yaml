@@ -11,7 +11,7 @@ spec:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
         revision: HEAD
         directories:
-          - path: k8s/testlab/monitoring/*
+          - path: k8s/infra/monitoring/*
   template:
     metadata:
       name: '{{ path.basename }}'

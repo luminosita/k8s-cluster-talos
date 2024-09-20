@@ -11,7 +11,8 @@ spec:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
         revision: prometheus
         directories:
-          - path: k8s/testlab/monitoring/*
+          - path: k8s/testlab/monitoring
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}'

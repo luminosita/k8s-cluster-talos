@@ -37,6 +37,6 @@ certFiles:
 
 elector:
   enabled: true
-  createRbac: false
+  createRbac: true
   name: "ejabberd"
   url: "127.0.0.1:4040"

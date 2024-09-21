@@ -19,7 +19,7 @@ spec:
   renewBefore: 360h # 15d
 
   isCA: true  
-  #  commonName: ca-certificate  
+  commonName: "xmpp-server.com"  
   
   subject:  
     organizations:  

@@ -16,4 +16,4 @@ spec:
             value: /
       backendRefs:
         - name: ejabberd
-          port: 5443
+          port: 5280

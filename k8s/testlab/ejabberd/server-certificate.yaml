@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1  
+kind: Certificate  
+metadata:  
+  name: ejabberd-server-certificate  
+  namespace: ejabberd
+spec:  
+  secretName: ejabberd-server-certificate
+  isCA: false  
+  usages:  
+    - server auth  
+    - client auth  
+  dnsNames:  
+    - "xmpp-server.com"  
+    - "*.xmpp-server.com"  
+  issuerRef:  
+    name: ejabberd-issuer 

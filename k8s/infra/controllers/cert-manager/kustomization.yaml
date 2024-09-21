@@ -6,6 +6,7 @@ resources:
   - cloudflare-api-token.yaml
   - cluster-issuer-staging.yaml
   - cluster-issuer-production.yaml
+  - cluster-issuer-selfsigned.yaml
 
 helmCharts:
   - name: cert-manager

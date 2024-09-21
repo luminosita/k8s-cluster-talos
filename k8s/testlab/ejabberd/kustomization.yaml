@@ -5,6 +5,7 @@ resources:
   - ns.yaml
   - ca.yaml
   - certificate.yaml
+  - http-route.yaml
 
 helmCharts:
   - name: ejabberd

@@ -39,4 +39,4 @@ elector:
   enabled: true
   createRbac: false
   name: "ejabberd"
-  url: "192.168.50.102:4040"
+  url: "127.0.0.1:4040"

@@ -1,0 +1,51 @@
+# Source: ejabberd/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: pod-reader
+  namespace: ejabberd
+rules:
+- apiGroups: ['']
+  resources: ['pods']
+  verbs: ['get', 'watch', 'list', 'patch'] #, 'update']
+---
+# Source: ejabberd/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: leases
+  namespace: ejabberd
+rules:
+- apiGroups: ['coordination.k8s.io']
+  resources: ['leases']
+  verbs: ['get', 'watch', 'list', 'update', 'create']
+---
+# Source: ejabberd/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ejabberd-read-pods
+  namespace: ejabberd
+subjects:
+- kind: ServiceAccount
+  name: goodly-guppy-ejabberd
+  namespace: ejabberd
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+---
+# Source: ejabberd/templates/rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ejabberd-update-leases
+  namespace: ejabberd
+subjects:
+- kind: ServiceAccount
+  name: goodly-guppy-ejabberd
+  namespace: ejabberd
+roleRef:
+  kind: Role
+  name: leases
+  apiGroup: rbac.authorization.k8s.io

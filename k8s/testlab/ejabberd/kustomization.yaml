@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ns.yaml
   - certificate.yaml
+  - rbac.yaml
 
 helmCharts:
   - name: ejabberd

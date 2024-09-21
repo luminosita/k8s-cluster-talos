@@ -1,3 +1,5 @@
+namespaceOverride: ejabberd
+
 statefulSet:
   # -- Number of pods of the statefulSet
   replicas: 3

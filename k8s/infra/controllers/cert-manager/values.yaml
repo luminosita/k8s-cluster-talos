@@ -4,6 +4,9 @@ crds:
 extraArgs:
   - "--enable-gateway-api"
 
+featureGates:
+  - AdditionalCertificateOutputFormats=true
+
 resources:
   limits:
     cpu: 100m
@@ -12,6 +15,8 @@ resources:
     cpu: 10m
     memory: 64Mi
 webhook:
+  featureGates:
+    - AdditionalCertificateOutputFormats=true
   resources:
     limits:
       cpu: 100m
@@ -20,6 +25,8 @@ webhook:
       cpu: 10m
       memory: 32Mi
 cainjector:
+  featureGates:
+    - AdditionalCertificateOutputFormats=true
   resources:
     limits:
       cpu: 100m

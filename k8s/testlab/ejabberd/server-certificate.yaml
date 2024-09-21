@@ -6,7 +6,7 @@ metadata:
 spec:  
   issuerRef:  
     name: ejabberd-issuer 
-    kind: ClusterIssuer
+    kind: Issuer
     group: cert-manager.io
   dnsNames:  
     - "xmpp-server.com"  

@@ -15,5 +15,5 @@ spec:
             type: PathPrefix
             value: /
       backendRefs:
-        - name: ejabberd-internal
-          port: 5280
+        - name: ejabberd
+          port: 5443

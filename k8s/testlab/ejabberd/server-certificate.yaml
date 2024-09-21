@@ -4,16 +4,33 @@ metadata:
   name: ejabberd-server-certificate  
   namespace: ejabberd
 spec:  
+  issuerRef:  
+    name: ejabberd-issuer 
+    kind: ClusterIssuer
+    group: cert-manager.io
+  dnsNames:  
+    - "xmpp-server.com"  
+    - "*.xmpp-server.com"  
   secretName: ejabberd-server-certificate
-  additionalOutputFormats:
-    - type: CombinedPEM
-    - type: DER
+
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    size: 2048
+
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+
   isCA: false  
   usages:  
     - server auth  
     - client auth  
-  dnsNames:  
-    - "xmpp-server.com"  
-    - "*.xmpp-server.com"  
-  issuerRef:  
-    name: ejabberd-issuer 
+
+
+  subject:
+    organizations:
+      - cert-manager
+
+  additionalOutputFormats:
+    - type: CombinedPEM
+    - type: DER

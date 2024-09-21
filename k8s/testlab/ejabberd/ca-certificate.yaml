@@ -4,21 +4,29 @@ metadata:
   name: ejabberd-ca-certificate
   namespace: ejabberd  
 spec:  
+  issuerRef:  
+    name: selfsigned-cluster-issuer  
+    kind: ClusterIssuer  
+    group: cert-manager.io
+  secretName: ejabberd-ca-certificate
+ 
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    size: 2048
+
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+
   isCA: true  
-  commonName: ca-certificate  
+  #  commonName: ca-certificate  
+  
   subject:  
     organizations:  
       - ACME Inc.  
     organizationalUnits:  
       - Chat  
+ 
   additionalOutputFormats:
     - type: CombinedPEM
     - type: DER
-  secretName: ejabberd-ca-certificate
-  privateKey:  
-    algorithm: ECDSA  
-    size: 256  
-  issuerRef:  
-    name: selfsigned-cluster-issuer  
-    kind: ClusterIssuer  
-    group: cert-manager.io

@@ -45,3 +45,41 @@ elector:
   createRbac: true
   name: "ejabberd"
   url: "127.0.0.1:4040"
+
+listen:
+  http:
+    enabled: true
+    port: 5280
+    expose: true
+    exposedPort: 5280
+    protocol: TCP
+    options:
+      ip: "::"
+      module: ejabberd_http
+      request_handlers: 
+        /admin: ejabberd_web_admin
+
+    request_handlers:
+      /admin: ejabberd_web_admin
+      /api: mod_http_api
+      /bosh: mod_bosh
+      /captcha: ejabberd_captcha
+      /upload: mod_http_upload
+      /ws: ejabberd_http_ws
+  https:
+    enabled: true
+    port: 5443
+    expose: true
+    exposedPort: 5443
+    protocol: TCP
+    options:
+      ip: "::"
+      module: ejabberd_http
+      tls: true
+      request_handlers: 
+        /admin: ejabberd_web_admin
+        /api: mod_http_api
+        /bosh: mod_bosh
+        /captcha: ejabberd_captcha
+        /upload: mod_http_upload
+        /ws: ejabberd_http_ws

@@ -11,7 +11,7 @@ spec:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
         revision: ejabberd
         directories:
-          - path: k8s/testlab/*
+          - path: k8s/testlab/sss*
   template:
     metadata:
       name: '{{ path.basename }}-test'

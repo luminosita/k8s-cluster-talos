@@ -3,12 +3,13 @@ kind: Kustomization
 
 resources:
   - ns.yaml
+  - ca.yaml
   - certificate.yaml
 
 helmCharts:
   - name: ejabberd
     repo: https://luminosita.github.io/helm-ejabberd
-    version: 0.8.2
+    version: 0.8.3
     releaseName: ejabberd
     namespace: ejabberd
     valuesFile: values.yaml

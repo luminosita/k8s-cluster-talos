@@ -4,7 +4,7 @@ kind: Kustomization
 secretGenerator:
 - name: xmppserver-cert
   files:
-  - tmp/fullchain.pem
+  - fullchain.pem
 
 resources:
   - ns.yaml

@@ -8,7 +8,7 @@ resources:
 helmCharts:
   - name: ejabberd
     repo: https://luminosita.github.io/helm-ejabberd
-    version: 0.8.1
+    version: 0.8.2
     releaseName: ejabberd
     namespace: ejabberd
     valuesFile: values.yaml

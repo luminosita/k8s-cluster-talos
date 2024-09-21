@@ -5,6 +5,9 @@ metadata:
   namespace: ejabberd
 spec:  
   secretName: ejabberd-server-certificate
+  additionalOutputFormats:
+    - type: CombinedPEM
+    - type: DER
   isCA: false  
   usages:  
     - server auth  

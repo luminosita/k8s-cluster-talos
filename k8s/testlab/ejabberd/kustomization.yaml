@@ -5,6 +5,9 @@ resources:
   - ns.yaml
   - ca.yaml
   - certificate.yaml
+  - ca-certificate.yaml
+  - issuer.yaml
+  - server-certificate.yaml
   - http-route.yaml
 
 helmCharts:

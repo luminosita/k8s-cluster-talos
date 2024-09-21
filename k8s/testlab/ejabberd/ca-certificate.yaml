@@ -11,6 +11,9 @@ spec:
       - ACME Inc.  
     organizationalUnits:  
       - Chat  
+  additionalOutputFormats:
+    - type: CombinedPEM
+    - type: DER
   secretName: ejabberd-ca-certificate
   privateKey:  
     algorithm: ECDSA  

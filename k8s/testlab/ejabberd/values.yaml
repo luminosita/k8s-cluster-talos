@@ -33,12 +33,12 @@ acl:
   #     - ::1/128
 
 cacert:
-  secretName: ca-cert
+  secretName: ejabberd-ca-certificate
 certFiles:
   # -- Please specify your kubernetes secret containing the tls certificates for
   # the domains specified in .Values.hosts, otherwise the service will not work
   secretName: 
-    - xmppserver-cert
+    - ejabberd-server-certificate
 
 elector:
   enabled: true

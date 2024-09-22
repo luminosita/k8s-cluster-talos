@@ -24,6 +24,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [x] Terraform
 - [ ] Network (https://www.haproxy.com/blog/using-haproxy-as-an-api-gateway-part-1-introduction)
     - [ ] Hubble
+    - Cloudflare Operator
 - [x] Storage
 - [x] NFS Provisioner
 - [ ] Health Checks (https://blog.kubecost.com/blog/kubernetes-health-check/)
@@ -34,7 +35,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 - [x] LetsEnrypt
 - [x] Key rotation
 - [x] Sealed secrets
-- [ ] Self-signed CA Issuer for internal apps
+- [x] Self-signed CA Issuer for internal apps
 
 # Identity Provider
 - [ ] Keycloak

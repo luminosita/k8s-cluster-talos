@@ -3,7 +3,7 @@
 ### Setup Environment Variables
 
 ```bash
-NAMESPACE=cloudflare \
+NAMESPACE=cloudflare-operator-system  \
 CF_API_KEY=<cf global api key>
 CF_API_TOKEN=<cf api token>
 ```

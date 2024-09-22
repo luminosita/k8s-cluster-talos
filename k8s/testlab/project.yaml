@@ -9,7 +9,9 @@ spec:
   destinations:
     - namespace: 'argocd'
       server: '*'
-    - namespace: 'cloudflare'
+    - namespace: 'cloudflare-operator-system'
+      server: '*'
+    - namespace: 'cf-solar'
       server: '*'
   clusterResourceWhitelist:
     - group: '*'

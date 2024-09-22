@@ -1,0 +1,13 @@
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: ClusterTunnel
+metadata:
+  name: cf-cluster-tunnel      # The ClusterTunnel Custom Resource Name
+spec:
+  newTunnel:
+    name: k8s-cluster-talos         # Name of your new tunnel on Cloudflare
+  size: 2                       # This is the number of replicas for cloudflared
+  cloudflare:
+    email: milosh@emisia.net     # Your email used to login to the Cloudflare Dashboard
+    domain: emisia.net         # Domain under which the tunnel runs and adds DNS entries to
+    secret: cloudflare-credentials  # The secret created before
+    accountId: f0175729b7d5c5f35a1dbde661a1d536

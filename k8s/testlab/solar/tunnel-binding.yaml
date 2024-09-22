@@ -1,0 +1,10 @@
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: TunnelBinding
+metadata:
+  name: cf-solar-tunnel-binding
+subjects:
+  - name: soon
+  - name: moon 
+tunnelRef:
+  kind: ClusterTunnel
+  name: cf-cluster-tunnel

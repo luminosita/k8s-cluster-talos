@@ -8,19 +8,8 @@ hosts:
   - xmpp-server.com
 
 listenGlobal:
-  # -- c2s top-level listener options:
-  #    https://docs.ejabberd.im/admin/configuration/toplevel/#c2s-cafile
-  #c2s_ciphers: TLS_CIPHERS
-  #c2s_protocol_options: TLS_OPTIONS
-  # -- s2s top-level listener options:
-  #    https://docs.ejabberd.im/admin/configuration/toplevel/#s2s-access
-  #s2s_ciphers: TLS_CIPHERS
-  #s2s_protocol_options: TLS_OPTIONS
   s2s_use_starttls: optional
 
-#
-# https://docs.ejabberd.im/admin/configuration/toplevel/#acl
-#
 acl: 
   admin:
     user:
@@ -32,7 +21,7 @@ acl:
       - 127.0.0.0/8
       - ::1/128
 
-accessRules:
+accessRules: |
   local:
     allow: local
   c2s:
@@ -49,7 +38,7 @@ accessRules:
   trusted_network:
     allow: loopback
 
-apiPermissions:
+apiPermissions: |
   "console commands":
     from:
       - ejabberd_ctl
@@ -78,13 +67,13 @@ apiPermissions:
       - status
       - connected_users_number
 
-shaper:
+shaper: |
   normal:
     rate: 3000
     burst_size: 20000
   fast: 200000
 
-shaperRules:
+shaperRules: |
   max_user_sessions: 10
   max_user_offline_messages:
     5000: admin

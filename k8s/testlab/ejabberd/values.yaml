@@ -39,12 +39,12 @@ accessRules:
     allow: loopback
 
 apiPermissions: 
-  'console commands':
+  '"console commands"':
     from:
       - ejabberd_ctl
     who: all
     what: "*"
-  'admin access':
+  '"admin access"':
     who:
       access:
         allow:
@@ -60,7 +60,7 @@ apiPermissions:
       - "*"
       - "!stop"
       - "!start"
-  'public commands':
+  '"public commands"':
     who:
       ip: 127.0.0.1/8
     what:

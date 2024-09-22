@@ -25,12 +25,74 @@ acl:
   admin:
     user:
       - "admin@xmpp-server.com"  
-# local:
-  #   user_regexp: ""
-  # loopback:
-  #   ip:
-  #     - 127.0.0.0/8
-  #     - ::1/128
+  local:
+    user_regexp: ""
+  loopback:
+    ip:
+      - 127.0.0.0/8
+      - ::1/128
+
+accessRules:
+  local:
+    allow: local
+  c2s:
+    deny: blocked
+    allow: all
+  announce:
+    allow: admin
+  configure:
+    allow: admin
+  muc_create:
+    allow: local
+  pubsub_createnode:
+    allow: local
+  trusted_network:
+    allow: loopback
+
+apiPermissions:
+  "console commands":
+    from:
+      - ejabberd_ctl
+    who: all
+    what: "*"
+  "admin access":
+    who:
+      access:
+        allow:
+          - acl: loopback
+          - acl: admin
+      oauth:
+        scope: "ejabberd:admin"
+        access:
+          allow:
+            - acl: loopback
+            - acl: admin
+    what:
+      - "*"
+      - "!stop"
+      - "!start"
+  "public commands":
+    who:
+      ip: 127.0.0.1/8
+    what:
+      - status
+      - connected_users_number
+
+shaper:
+  normal:
+    rate: 3000
+    burst_size: 20000
+  fast: 200000
+
+shaperRules:
+  max_user_sessions: 10
+  max_user_offline_messages:
+    5000: admin
+    100: all
+  c2s_shaper:
+    none: admin
+    normal: all
+  s2s_shaper: fast
 
 cacert:
   secretName: ejabberd-ca-certificate
@@ -58,14 +120,12 @@ listen:
       module: ejabberd_http
       request_handlers: 
         /admin: ejabberd_web_admin
-
-    request_handlers:
-      /admin: ejabberd_web_admin
-      /api: mod_http_api
-      /bosh: mod_bosh
-      /captcha: ejabberd_captcha
-      /upload: mod_http_upload
-      /ws: ejabberd_http_ws
+        /admin: ejabberd_web_admin
+        /api: mod_http_api
+        /bosh: mod_bosh
+        /captcha: ejabberd_captcha
+        /upload: mod_http_upload
+        /ws: ejabberd_http_ws
   https:
     enabled: true
     port: 5443
@@ -76,6 +136,7 @@ listen:
       ip: "::"
       module: ejabberd_http
       tls: true
+      protocol_options: 'TLS_OPTIONS'
       request_handlers: 
         /admin: ejabberd_web_admin
         /api: mod_http_api

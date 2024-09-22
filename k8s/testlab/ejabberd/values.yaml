@@ -21,7 +21,7 @@ acl:
       - 127.0.0.0/8
       - ::1/128
 
-accessRules: |
+accessRules: 
   local:
     allow: local
   c2s:
@@ -38,13 +38,13 @@ accessRules: |
   trusted_network:
     allow: loopback
 
-apiPermissions: |
-  "console commands":
+apiPermissions: 
+  "\"console commands\"":
     from:
       - ejabberd_ctl
     who: all
     what: "*"
-  "admin access":
+  "\"admin access\"":
     who:
       access:
         allow:
@@ -60,20 +60,20 @@ apiPermissions: |
       - "*"
       - "!stop"
       - "!start"
-  "public commands":
+  "\"public commands\"":
     who:
       ip: 127.0.0.1/8
     what:
       - status
       - connected_users_number
 
-shaper: |
+shaper: 
   normal:
     rate: 3000
     burst_size: 20000
   fast: 200000
 
-shaperRules: |
+shaperRules: 
   max_user_sessions: 10
   max_user_offline_messages:
     5000: admin

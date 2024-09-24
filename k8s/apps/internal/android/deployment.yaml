@@ -35,7 +35,7 @@ spec:
       volumes:
         - name: data
           nfs:
-            server: 192.168.50.12 # IP to our NFS server
+            server: 192.168.50.5 # IP to our NFS server
             path: /mnt/data # The exported directory       
           # resources:
           #   limits:

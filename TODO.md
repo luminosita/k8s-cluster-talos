@@ -10,6 +10,7 @@ ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 
 ## 🏗️ Work in Progress
 
+- [ ] DNS resolving from internel K8s network to outside (NFS mount with fixed IP)
 - [ ] Renovate
 - [ ] Remark42
 - [ ] Taskfile

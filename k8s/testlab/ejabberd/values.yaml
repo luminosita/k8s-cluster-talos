@@ -10,7 +10,7 @@ hosts:
 listenGlobal:
   s2s_use_starttls: optional
 
-acl: 
+acl: |
   admin:
     user:
       - "admin@xmpp-server.com"  

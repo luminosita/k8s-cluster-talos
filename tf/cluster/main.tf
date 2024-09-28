@@ -139,6 +139,10 @@ module "volumes" {
       node = "proxmox"
       size = "1G"
     }
+    pv-ejabberd = {
+      node = "proxmox"
+      size = "1G"
+    }
     # pv-radarr = {
     #   node = "proxmox"
     #   size = "4G"

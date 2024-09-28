@@ -12,6 +12,8 @@ spec:
         revision: HEAD
         directories:
           - path: k8s/infra/network/*
+          - path: k8s/infra/network/caddy
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}'

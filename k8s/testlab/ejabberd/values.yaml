@@ -6,10 +6,15 @@ statefulSet:
 
 service:
   enabled: true
-  ## -- Single service is using `MixedProtocolLBService` feature gate.
-  ## -- When set to false, it will create two Service, one for TCP and one for UDP.
   single: true
   type: ClusterIP
+  annotations: {}
+  annotationsTCP: {}
+  annotationsUDP: {}
+  labels: {}
+  spec: {}
+  loadBalancerSourceRanges: []
+  externalIPs: []
 
 hosts:
   - xmpp-server.com

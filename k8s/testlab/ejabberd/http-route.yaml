@@ -17,10 +17,10 @@ spec:
       backendRefs:
         - name: ejabberd
           port: 5443
-    # - matches:
-    #     - path:
-    #         type: PathPrefix
-    #         value: /
-    #   backendRefs:
-    #     - name: ejabberd
-    #       port: 5222
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: ejabberd
+          port: 5222

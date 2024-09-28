@@ -12,8 +12,7 @@ listenGlobal:
 
 acl: |
   admin:
-    user:
-      - "admin@xmpp-server.com"  
+    - user: admin@xmpp-server.com
   local:
     user_regexp: ""
   loopback:
@@ -98,6 +97,19 @@ elector:
   url: "127.0.0.1:4040"
 
 listen:
+  c2s:
+    enabled: true
+    port: 5222
+    expose: true
+    exposedPort: 5222
+    protocol: TCP
+    options:
+      ip: "::"
+      module: ejabberd_c2s
+      max_stanza_size: 262144
+      shaper: c2s_shaper
+      access: c2s
+      starttls_required: true
   http:
     enabled: true
     port: 5280

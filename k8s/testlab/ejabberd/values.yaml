@@ -20,22 +20,22 @@ acl: |
       - 127.0.0.0/8
       - ::1/128
 
-# accessRules: |
-#   local:
-#     allow: local
-#   c2s:
-#     deny: blocked
-#     allow: all
-#   announce:
-#     allow: admin
-#   configure:
-#     allow: admin
-#   muc_create:
-#     allow: local
-#   pubsub_createnode:
-#     allow: local
-#   trusted_network:
-#     allow: loopback
+accessRules: |
+  local:
+    allow: local
+  c2s:
+    deny: blocked
+    allow: all
+  announce:
+    allow: admin
+  configure:
+    allow: admin
+  muc_create:
+    allow: local
+  pubsub_createnode:
+    allow: local
+  trusted_network:
+    allow: loopback
 
 # apiPermissions: | 
 #   "console commands":

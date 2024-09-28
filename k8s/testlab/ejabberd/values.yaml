@@ -8,13 +8,6 @@ service:
   enabled: true
   single: true
   type: ClusterIP
-  annotations: {}
-  annotationsTCP: {}
-  annotationsUDP: {}
-  labels: {}
-  spec: {}
-  loadBalancerSourceRanges: []
-  externalIPs: []
 
 hosts:
   - xmpp-server.com

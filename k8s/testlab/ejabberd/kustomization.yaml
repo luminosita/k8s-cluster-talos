@@ -14,4 +14,4 @@ helmCharts:
     version: 0.8.5
     releaseName: ejabberd
     namespace: ejabberd
-    valuesFile: values.yaml
+#    valuesFile: values.yaml

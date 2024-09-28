@@ -16,11 +16,11 @@ spec:
             value: /admin
       backendRefs:
         - name: ejabberd
-          port: 5280
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /
-      backendRefs:
-        - name: ejabberd
-          port: 5222
+          port: 5443
+    # - matches:
+    #     - path:
+    #         type: PathPrefix
+    #         value: /
+    #   backendRefs:
+    #     - name: ejabberd
+    #       port: 5222

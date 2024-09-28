@@ -65,7 +65,16 @@ apiPermissions: |
     what:
       - status
       - connected_users_number
-
+  "webadmin":
+    from:
+      - ejabberd_web_admin
+    who:
+      access:
+        allow:
+          - acl: admin
+    what:
+      - "*"
+      
 shaper: |
   normal:
     rate: 3000

@@ -60,8 +60,7 @@ apiPermissions: |
       - "!stop"
       - "!start"
   "public commands":
-    who:
-      ip: 127.0.0.1/8
+    who: all
     what:
       - status
       - connected_users_number
@@ -75,21 +74,21 @@ apiPermissions: |
     what:
       - "*"
 
-# shaper: |
-#   normal:
-#     rate: 3000
-#     burst_size: 20000
-#   fast: 200000
+shaper: |
+  normal:
+    rate: 3000
+    burst_size: 20000
+  fast: 200000
 
-# shaperRules: |
-#   max_user_sessions: 10
-#   max_user_offline_messages:
-#     5000: admin
-#     100: all
-#   c2s_shaper:
-#     none: admin
-#     normal: all
-#   s2s_shaper: fast
+shaperRules: |
+  max_user_sessions: 10
+  max_user_offline_messages:
+    5000: admin
+    100: all
+  c2s_shaper:
+    none: admin
+    normal: all
+  s2s_shaper: fast
 
 cacert:
   secretName: ejabberd-ca-certificate

@@ -4,21 +4,21 @@ statefulSet:
   # -- Number of pods of the statefulSet
   replicas: 3
 
-# hosts:
-#   - xmpp-server.com
+hosts:
+  - xmpp-server.com
 
-# listenGlobal:
-#   s2s_use_starttls: optional
+listenGlobal:
+  s2s_use_starttls: optional
 
-# acl: |
-#   admin:
-#     - user: admin@xmpp-server.com
-#   local:
-#     user_regexp: ""
-#   loopback:
-#     ip:
-#       - 127.0.0.0/8
-#       - ::1/128
+acl: |
+  admin:
+    - user: admin@xmpp-server.com
+  local:
+    user_regexp: ""
+  loopback:
+    ip:
+      - 127.0.0.0/8
+      - ::1/128
 
 # accessRules: |
 #   local:

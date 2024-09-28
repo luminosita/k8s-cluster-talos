@@ -1,3 +1,16 @@
+image:
+  # -- ejabberd image host registry
+  #registry: ghcr.io
+  # -- ejabberd image repository
+  #repository: sando38/ejabberd
+  repository: ejabberd/ecs
+  
+  # -- defaults to appVersion
+
+  tag: ""
+  # -- ejabberd image pull policy
+  pullPolicy: IfNotPresent
+
 namespaceOverride: "ejabberd"
 
 statefulSet:
@@ -74,7 +87,7 @@ apiPermissions: |
           - acl: admin
     what:
       - "*"
-      
+
 shaper: |
   normal:
     rate: 3000

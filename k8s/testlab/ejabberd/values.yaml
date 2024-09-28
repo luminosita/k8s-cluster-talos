@@ -1,13 +1,14 @@
 image:
   # -- ejabberd image host registry
   #registry: ghcr.io
+  registry: registry.hub.docker.com
   # -- ejabberd image repository
   #repository: sando38/ejabberd
   repository: ejabberd/ecs
   
   # -- defaults to appVersion
 
-  tag: ""
+  tag: "latest"
   # -- ejabberd image pull policy
   pullPolicy: IfNotPresent
 

@@ -4,92 +4,92 @@ statefulSet:
   # -- Number of pods of the statefulSet
   replicas: 3
 
-# hosts:
-#   - xmpp-server.com
+hosts:
+  - xmpp-server.com
 
-# listenGlobal:
-#   s2s_use_starttls: optional
+listenGlobal:
+  s2s_use_starttls: optional
 
-# acl: |
-#   admin:
-#     - user: admin@xmpp-server.com
-#   local:
-#     user_regexp: ""
-#   loopback:
-#     ip:
-#       - 127.0.0.0/8
-#       - ::1/128
+acl: |
+  admin:
+    - user: admin@xmpp-server.com
+  local:
+    user_regexp: ""
+  loopback:
+    ip:
+      - 127.0.0.0/8
+      - ::1/128
 
-# accessRules: |
-#   local:
-#     allow: local
-#   c2s:
-#     deny: blocked
-#     allow: all
-#   announce:
-#     allow: admin
-#   configure:
-#     allow: admin
-#   muc_create:
-#     allow: local
-#   pubsub_createnode:
-#     allow: local
-#   trusted_network:
-#     allow: loopback
+accessRules: |
+  local:
+    allow: local
+  c2s:
+    deny: blocked
+    allow: all
+  announce:
+    allow: admin
+  configure:
+    allow: admin
+  muc_create:
+    allow: local
+  pubsub_createnode:
+    allow: local
+  trusted_network:
+    allow: loopback
 
-# apiPermissions: | 
-#   "console commands":
-#     from:
-#       - ejabberd_ctl
-#     who: all
-#     what: "*"
-#   "admin access":
-#     who:
-#       access:
-#         allow:
-#           - acl: loopback
-#           - acl: admin
-#       oauth:
-#         scope: "ejabberd:admin"
-#         access:
-#           allow:
-#             - acl: loopback
-#             - acl: admin
-#     what:
-#       - "*"
-#       - "!stop"
-#       - "!start"
-#   "public commands":
-#     who:
-#       ip: 127.0.0.1/8
-#     what:
-#       - status
-#       - connected_users_number
-#   "webadmin":
-#     from:
-#       - ejabberd_web_admin
-#     who:
-#       access:
-#         allow:
-#           - acl: admin
-#     what:
-#       - "*"
+apiPermissions: | 
+  "console commands":
+    from:
+      - ejabberd_ctl
+    who: all
+    what: "*"
+  "admin access":
+    who:
+      access:
+        allow:
+          - acl: loopback
+          - acl: admin
+      oauth:
+        scope: "ejabberd:admin"
+        access:
+          allow:
+            - acl: loopback
+            - acl: admin
+    what:
+      - "*"
+      - "!stop"
+      - "!start"
+  "public commands":
+    who:
+      ip: 127.0.0.1/8
+    what:
+      - status
+      - connected_users_number
+  "webadmin":
+    from:
+      - ejabberd_web_admin
+    who:
+      access:
+        allow:
+          - acl: admin
+    what:
+      - "*"
 
-# shaper: |
-#   normal:
-#     rate: 3000
-#     burst_size: 20000
-#   fast: 200000
+shaper: |
+  normal:
+    rate: 3000
+    burst_size: 20000
+  fast: 200000
 
-# shaperRules: |
-#   max_user_sessions: 10
-#   max_user_offline_messages:
-#     5000: admin
-#     100: all
-#   c2s_shaper:
-#     none: admin
-#     normal: all
-#   s2s_shaper: fast
+shaperRules: |
+  max_user_sessions: 10
+  max_user_offline_messages:
+    5000: admin
+    100: all
+  c2s_shaper:
+    none: admin
+    normal: all
+  s2s_shaper: fast
 
 cacert:
   secretName: ejabberd-ca-certificate

@@ -13,7 +13,14 @@ spec:
     - matches:
         - path:
             type: PathPrefix
-            value: /
+            value: /admin
       backendRefs:
         - name: ejabberd
           port: 5280
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: ejabberd
+          port: 5222

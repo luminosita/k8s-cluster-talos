@@ -12,6 +12,9 @@ spec:
       app.kubernetes.io/name: ejabberd
   serviceName: ejabberd-headless
   template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: ejabberd
     spec:
       containers:
         - args: null

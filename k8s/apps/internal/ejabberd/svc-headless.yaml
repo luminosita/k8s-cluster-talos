@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ejabberd-headless
+  namespace: ejabberd
+spec:
+  clusterIP: None
+  ports:
+    - appProtocol: TCP
+      name: tcp-erl-dist
+      port: 5210
+      protocol: TCP
+      targetPort: tcp-erl-dist
+  publishNotReadyAddresses: false
+  selector:
+    app.kubernetes.io/instance: ejabberd
+    app.kubernetes.io/name: ejabberd
+  type: ClusterIP

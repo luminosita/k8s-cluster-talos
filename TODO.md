@@ -32,7 +32,7 @@ Destroys existing DB and always creates new DB regardless
 - [x] Terraform
 - [ ] Network (https://www.haproxy.com/blog/using-haproxy-as-an-api-gateway-part-1-introduction)
     - [ ] Hubble
-    - Cloudflare Operator
+    - [ ] Cloudflare Operator
 - [x] Storage
 - [x] NFS Provisioner
 - [ ] Health Checks (https://blog.kubecost.com/blog/kubernetes-health-check/)

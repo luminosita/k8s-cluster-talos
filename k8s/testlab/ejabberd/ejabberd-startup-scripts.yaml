@@ -219,7 +219,7 @@ data:
 
 
     _createPgsqlConfigFile() {
-        if [ "${DB_host:-}" != '' ] 
+        if [ "${DB_host:-''}" != '' ] 
         then
             cat  << EOF > /opt/ejabberd/conf/db-config.yml
             config: 

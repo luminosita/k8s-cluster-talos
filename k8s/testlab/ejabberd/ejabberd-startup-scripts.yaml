@@ -219,8 +219,8 @@ data:
 
 
     _createPgsqlConfigFile() {
-        if [ "${DB_host:-}" != '' ] 
-        then
+    #    if [ "${DB_host:-}" != '' ] 
+    #    then
     #        cat  << EOF > /opt/ejabberd/db-config.yml
     # config: 
     # sql_type: pgsql
@@ -231,7 +231,7 @@ data:
     # sql_username: ${DB_username}
     # sql_password: ${DB_password}
     #EOF
-        fi
+    #    fi
     }
 
 
@@ -240,7 +240,6 @@ data:
     trap '_shutdown' SIGTERM
 
     touch $HOME/.ejabberd_terminate_false
-
 
     info "==> creating PgSQL config file ..."
 

@@ -28,33 +28,36 @@ spec:
         - name: wikijs
           image: requarks/wiki:latest
           env:
-          - name: DB_HOST
-            valueFrom:
-              secretKeyRef:
-                key: host
-                name: single-wikijs-app
-          - name: DB_PORT
-            valueFrom:
-              secretKeyRef:
-                key: port
-                name: single-wikijs-app
-          - name: DB_USER
-            valueFrom:
-              secretKeyRef:
-                key: username
-                name: single-wikijs-app
-          - name: DB_TYPE
-            value: postgres
-          - name: DB_NAME
-            value: wikijs
-          - name: DB_PASS
-            valueFrom:
-              secretKeyRef:
-                key: password
-                name: single-wikijs-app
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: host
+                  name: single-wikijs-app
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  key: port
+                  name: single-wikijs-app
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  key: username
+                  name: single-wikijs-app
+            - name: DB_TYPE
+              value: postgres
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  key: dbname
+                  name: single-wikijs-app
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: single-wikijs-app
           ports:
-          - containerPort: 3000
-            protocol: TCP
+            - containerPort: 3000
+              protocol: TCP
           resources: {}
           #FIXME
             # requests:

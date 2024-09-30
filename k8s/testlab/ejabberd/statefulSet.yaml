@@ -22,16 +22,15 @@ spec:
         helm.sh/chart: ejabberd-0.8.5
     spec:
       containers:
-        - 
-          # args: null
-          # command:
-          #   - /sbin/tini
-          #   - '--'
-          #   - /bin/sh
-          #   - '-c'
-          #   - run.sh
-          command: [ "/bin/sh", "-c", "--" ]
-          args: [ "while true; do sleep 300; done;" ]
+        - args: null
+          command:
+            - /sbin/tini
+            - '--'
+            - /bin/sh
+            - '-c'
+            - run.sh
+          # command: [ "/bin/sh", "-c", "--" ]
+          # args: [ "while true; do sleep 300; done;" ]
           env:
             - name: K8S_CLUSTERING
               value: 'true'

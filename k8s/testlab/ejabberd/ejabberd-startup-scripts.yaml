@@ -218,9 +218,6 @@ data:
     }
 
 
-    _createPgsqlConfigFile() {
-    }
-
 
     # trap SIGTERM
 

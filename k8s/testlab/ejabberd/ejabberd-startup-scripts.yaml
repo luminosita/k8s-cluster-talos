@@ -228,7 +228,7 @@ data:
 
     info "==> creating PgSQL config file ..."
 
-    _join_cluster_elector2
+    # _join_cluster_elector2
 
     # check first if sidecar has rendered the configmaps/secrets already
 

@@ -157,3 +157,18 @@ listen:
         /captcha: ejabberd_captcha
         /upload: mod_http_upload
         /ws: ejabberd_http_ws
+
+#
+# Database configuration
+# https://docs.ejabberd.im/admin/configuration/database/
+sqlDatabase:
+  enabled: true
+  defaultDb: sql
+  newSqlSchema: false
+  updateSqlSchema: true
+  envConfig: true
+
+envFrom:
+  - secretRef:
+      name: single-ejabberd-app
+    prefix: DB_

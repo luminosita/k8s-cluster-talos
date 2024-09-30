@@ -220,13 +220,13 @@ data:
     _create_pgsql_config_file() {
        if [ "${DB_host:-}" != '' ] 
        then
-           cat "sql_type: pgsql" > /opt/ejabberd/db-config.yml
-           cat "sql_server: ${DB_host}" >> /opt/ejabberd/db-config.yml
-           cat "sql_port: ${DB_port}" >> /opt/ejabberd/db-config.yml
-           cat "sql_ssl: false" >> /opt/ejabberd/db-config.yml
-           cat "sql_database: ${DB_dbname}" >> /opt/ejabberd/db-config.yml
-           cat "sql_username: ${DB_username}" >> /opt/ejabberd/db-config.yml
-           cat "sql_password: ${DB_password}" >> /opt/ejabberd/db-config.yml
+           echo "sql_type: pgsql" > /opt/ejabberd/db-config.yml
+           echo "sql_server: ${DB_host}" >> /opt/ejabberd/db-config.yml
+           echo "sql_port: ${DB_port}" >> /opt/ejabberd/db-config.yml
+           echo "sql_ssl: false" >> /opt/ejabberd/db-config.yml
+           echo "sql_database: ${DB_dbname}" >> /opt/ejabberd/db-config.yml
+           echo "sql_username: ${DB_username}" >> /opt/ejabberd/db-config.yml
+           echo "sql_password: ${DB_password}" >> /opt/ejabberd/db-config.yml
        fi
     }
 

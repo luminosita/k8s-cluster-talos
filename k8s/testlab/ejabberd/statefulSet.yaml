@@ -1,0 +1,157 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: ejabberd
+  namespace: ejabberd
+spec:
+  minReadySeconds: 0
+  replicas: 3
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: ejabberd
+      app.kubernetes.io/name: ejabberd
+  serviceName: ejabberd-headless
+  template:
+    metadata:
+      annotations: null
+      labels:
+        app.kubernetes.io/instance: ejabberd
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: ejabberd
+        app.kubernetes.io/version: 24.06-k8s1
+        helm.sh/chart: ejabberd-0.8.5
+    spec:
+      containers:
+        - args: null
+          command:
+            - /sbin/tini
+            - '--'
+            - /bin/sh
+            - '-c'
+            - run.sh
+          env:
+            - name: K8S_CLUSTERING
+              value: 'true'
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: ELECTOR_ENABLED
+              value: 'true'
+            - name: ELECTION_NAME
+              value: ejabberd
+            - name: ELECTION_URL
+              value: 127.0.0.1:4040
+            - name: ERLANG_COOKIE
+              value: YouR-3rl4n6-C00k!3
+            - name: HTTP_API_URL
+              value: 127.0.0.1:5281
+            - name: ERL_DIST_PORT
+              value: '5210'
+          envFrom:
+            - prefix: DB_
+              secretRef:
+                name: single-ejabberd-app
+          image: ghcr.io/sando38/ejabberd:24.06-k8s1
+          imagePullPolicy: IfNotPresent
+          lifecycle: null
+          livenessProbe:
+            exec:
+              command:
+                - cat
+                - /opt/ejabberd/.ejabberd_ready
+            failureThreshold: 30
+            periodSeconds: 3
+            terminationGracePeriodSeconds: 5
+          name: ejabberd
+          ports:
+            - containerPort: 5222
+              name: c2s
+              protocol: TCP
+            - containerPort: 5280
+              name: http
+              protocol: TCP
+            - containerPort: 5443
+              name: https
+              protocol: TCP
+            - containerPort: 5269
+              name: s2s
+              protocol: TCP
+            - containerPort: 3478
+              name: stun
+              protocol: UDP
+            - containerPort: 5210
+              name: tcp-erl-dist
+              protocol: TCP
+          readinessProbe:
+            exec:
+              command:
+                - cat
+                - /opt/ejabberd/.ejabberd_ready
+            periodSeconds: 3
+          resources: null
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 9000
+            seccompProfile:
+              type: RuntimeDefault
+          startupProbe:
+            exec:
+              command:
+                - cat
+                - /opt/ejabberd/.ejabberd_ready
+            failureThreshold: 10
+            periodSeconds: 3
+          volumeMounts:
+            - mountPath: /opt/ejabberd/cacert/ca.crt
+              name: ejabberd-cacert
+              readOnly: true
+              subPath: ca.crt
+            - mountPath: /opt/ejabberd/certs/ejabberd-server-certificate/tls-combined.pem
+              name: ejabberd-certs-ejabberd-server-certificate
+              readOnly: true
+              subPath: tls-combined.pem
+            - mountPath: /opt/ejabberd/database
+              name: mnesia
+            - mountPath: /opt/ejabberd/conf
+              name: ejabberd-config
+            - mountPath: /usr/local/bin/ejabberdctl
+              name: ejabberd-startup-scripts
+              readOnly: true
+              subPath: ejabberdctl
+            - mountPath: /usr/local/bin/run.sh
+              name: ejabberd-startup-scripts
+              readOnly: true
+              subPath: run.sh
+      hostNetwork: false
+      securityContext:
+        fsGroup: 9000
+      serviceAccountName: ejabberd
+      terminationGracePeriodSeconds: 60
+      volumes:
+        - name: ejabberd-cacert
+          secret:
+            secretName: ejabberd-ca-certificate
+        - name: ejabberd-certs-ejabberd-server-certificate
+          secret:
+            secretName: ejabberd-server-certificate
+        - configMap:
+            name: ejabberd-config
+          name: ejabberd-config
+        - configMap:
+            defaultMode: 493
+            items:
+              - key: run.sh
+                path: run.sh
+              - key: ejabberdctl
+                path: ejabberdctl
+            name: ejabberd-startup-scripts
+          name: ejabberd-startup-scripts
+        - emptyDir: {}
+          name: mnesia
+  updateStrategy:
+    type: RollingUpdate

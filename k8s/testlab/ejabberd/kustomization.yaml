@@ -6,14 +6,20 @@ resources:
   - ca-certificate.yaml
   - issuer.yaml
   - server-certificate.yaml
-  - http-route.yaml
+  - ejabberd-config.yaml
+  - ejabberd-startup-scripts.yaml
+  - rbac.yaml
   - cnpg.yaml
   - cnpg-config.yaml
+  - statefulSet.yaml
+  - svc-headless.yaml
+  - svc.yaml
+  - http-route.yaml
 
-helmCharts:
-  - name: ejabberd
-    repo: https://luminosita.github.io/helm-ejabberd
-    version: 0.8.5
-    releaseName: ejabberd
-    namespace: ejabberd
-    valuesFile: values.yaml
+# helmCharts:
+#   - name: ejabberd
+#     repo: https://luminosita.github.io/helm-ejabberd
+#     version: 0.8.5
+#     releaseName: ejabberd
+#     namespace: ejabberd
+#     valuesFile: values.yaml

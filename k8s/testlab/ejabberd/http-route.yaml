@@ -8,7 +8,7 @@ spec:
     - name: insecure
       namespace: gateway
   hostnames:
-    - "ejabberd.local"
+    - "xmpp.lan"
   rules:
     - matches:
         - path:
@@ -16,7 +16,7 @@ spec:
             value: /admin
       backendRefs:
         - name: ejabberd
-          port: 5443
+          port: 5280
     - matches:
         - path:
             type: PathPrefix

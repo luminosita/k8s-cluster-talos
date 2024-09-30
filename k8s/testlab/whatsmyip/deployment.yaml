@@ -25,7 +25,7 @@ spec:
             - sh
             - -c
             - |
-              while ! IP; do
+              while !$IP; do
                 IP=`curl --socks5 http://localhost:9050 -L check.torproject.org/api/ip`
                 echo "Curl failed, retrying in 5"
                 sleep 5

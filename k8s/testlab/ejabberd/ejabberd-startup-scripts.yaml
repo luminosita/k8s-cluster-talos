@@ -218,7 +218,7 @@ data:
     }
 
 
-    # _createPgsqlConfigFile() {
+    _createPgsqlConfigFile() {
     #    if [ "${DB_host:-}" != '' ] 
     #    then
     #        cat  << EOF > /opt/ejabberd/db-config.yml
@@ -232,7 +232,7 @@ data:
     # sql_password: ${DB_password}
     # EOF
     #    fi
-    # }
+    }
 
 
     # trap SIGTERM

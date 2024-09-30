@@ -218,7 +218,7 @@ data:
     }
 
 
-    _createPgsqlConfigFile() {
+    # _createPgsqlConfigFile() {
     #    if [ "${DB_host:-}" != '' ] 
     #    then
     #        cat  << EOF > /opt/ejabberd/db-config.yml
@@ -230,9 +230,9 @@ data:
     # sql_database: ${DB_dbname}
     # sql_username: ${DB_username}
     # sql_password: ${DB_password}
-    #EOF
+    # EOF
     #    fi
-    }
+    # }
 
 
     # trap SIGTERM
@@ -243,7 +243,7 @@ data:
 
     info "==> creating PgSQL config file ..."
 
-    _createPgsqlConfigFile
+    # _createPgsqlConfigFile
 
     # check first if sidecar has rendered the configmaps/secrets already
 

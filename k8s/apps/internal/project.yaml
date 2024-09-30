@@ -13,6 +13,8 @@ spec:
       server: '*'
     - namespace: 'android'
       server: '*'
+    - namespace: 'ejabberd'
+      server: '*'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

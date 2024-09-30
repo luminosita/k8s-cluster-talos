@@ -15,6 +15,21 @@ spec:
       labels:
         app: whatsmyip
     spec:
+      initContainers:
+        - name: tor
+          image: jess/tor-proxy:latest
+          restartPolicy: Always
+        - name: ping
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |
+              while ! ping -c 1 8.8.8.8; do
+                echo "Ping failed, retrying in 5"
+                sleep 5
+              done
+              echo "ping succesfull, exiting"
       containers:
         - name: whatsmyip
           image: yauritux/busybox-curl

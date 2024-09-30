@@ -17,9 +17,11 @@ spec:
     spec:
       containers:
         - name: whatsmyip
-          image: curlimages/curl:8.10.1
+          image: yauritux/busybox-curl
+          cmd: "/bin/sh"
           args:
-            - "https://api.ipify.org"
+            - "-c"
+            - "curl -s ipinfo.io/ip; sleep infinity"
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

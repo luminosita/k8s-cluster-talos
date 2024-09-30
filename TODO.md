@@ -87,7 +87,7 @@ Destroys existing DB and always creates new DB regardless
 - [x] Gollum
 - [ ] GitKraken
 - [ ] Mattermost
-- [ ] eJabberd K8S cluster
+- [x] eJabberd K8S cluster
 - [ ] Emisia SVN Repository on VM
 
 # Private Artifact Repo

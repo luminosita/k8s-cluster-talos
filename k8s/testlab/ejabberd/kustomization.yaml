@@ -7,6 +7,8 @@ resources:
   - issuer.yaml
   - server-certificate.yaml
   - http-route.yaml
+  - cnpg.yaml
+  - cnpg-config.yaml
 
 helmCharts:
   - name: ejabberd

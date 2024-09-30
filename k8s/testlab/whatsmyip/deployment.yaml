@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whatsmyip
+  namespace: whatsmyip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: whatsmyip
+  template:
+    metadata:
+      namespace: whatsmyip
+      labels:
+        app: whatsmyip
+    spec:
+      containers:
+        - name: whatsmyip
+          image: mdevey/whatsmyip:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

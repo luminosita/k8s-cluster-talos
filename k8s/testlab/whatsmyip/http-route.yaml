@@ -1,0 +1,19 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: whatsmyip-http
+  namespace: whatsmyip
+spec:
+  parentRefs:
+    - name: insecure
+      namespace: gateway
+  hostnames:
+    - whatsmyip.local
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: whatsmyip
+          port: 80

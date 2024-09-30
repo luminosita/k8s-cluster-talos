@@ -20,7 +20,7 @@ spec:
           image: jess/tor-proxy:latest
           restartPolicy: Always
         - name: ping
-          image: busybox
+          image: yauritux/busybox-curl
           command:
             - sh
             - -c

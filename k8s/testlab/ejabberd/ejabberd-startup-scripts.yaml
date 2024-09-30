@@ -221,7 +221,7 @@ data:
     _createPgsqlConfigFile() {
         if [ "${DB_host:-}" != '' ] 
         then
-            cat  << EOF > /opt/ejabberd/db-config.yml
+            cat  <<EOF > /opt/ejabberd/db-config.yml
     sql_type: pgsql
     sql_server: ${DB_host}
     sql_port: ${DB_port}
@@ -239,7 +239,6 @@ data:
     trap '_shutdown' SIGTERM
 
     touch $HOME/.ejabberd_terminate_false
-
 
     info "==> creating PgSQL config file ..."
 

@@ -18,10 +18,8 @@ spec:
       containers:
         - name: whatsmyip
           image: yauritux/busybox-curl
-          cmd: "/bin/sh"
-          args:
-            - "-c"
-            - "curl -s ipinfo.io/ip; sleep infinity"
+          command: [ "/bin/bash", "-c", "--" ]
+          args: [ "while true; do curl -s ipinfo.io/ip;sleep 30; done;" ]  
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

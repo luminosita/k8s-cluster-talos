@@ -31,7 +31,7 @@ spec:
           #   - '-c'
           #   - run.sh
           command: [ "/bin/sh", "-c", "--" ]
-          args: [ "while true; do sleep 30; done;" ]
+          args: [ "while true; do sleep 300; done;" ]
           env:
             - name: K8S_CLUSTERING
               value: 'true'

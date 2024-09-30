@@ -7,6 +7,12 @@ daemonset.apps/proxmox-csi-plugin-node created
 - [ ] BUG 2:
 ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
 
+- [ ] BUG 3:
+CNPG 
+bootstrap:
+    initdb: 
+Destroys existing DB and always creates new DB regardless
+
 
 ## 🏗️ Work in Progress
 

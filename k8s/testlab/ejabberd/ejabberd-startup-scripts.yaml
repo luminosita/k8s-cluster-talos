@@ -217,7 +217,7 @@ data:
         fi
     }
 
-    _createPgsqlConfigFile() {
+    _create_pgsql_config_file() {
     }
 
     # trap SIGTERM
@@ -228,7 +228,7 @@ data:
 
     info "==> creating PgSQL config file ..."
 
-    _createPgsqlConfigFile
+    _create_pgsql_config_file
 
     # check first if sidecar has rendered the configmaps/secrets already
 

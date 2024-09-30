@@ -181,8 +181,8 @@ data:
     default_db: "sql"
     new_sql_schema: "false"
     update_sql_schema: "true"
-    include_config_file:
-      - /opt/ejabberd/db-config.yml
+    # include_config_file:
+    #   - /opt/ejabberd/db-config.yml
     modules:
       mod_adhoc: {}
       mod_admin_extra: {}

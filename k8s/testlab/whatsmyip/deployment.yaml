@@ -33,7 +33,7 @@ spec:
       containers:
         - name: whatsmyip
           image: yauritux/busybox-curl
-          command: ["/bin/sh", "-ec", "while :; do echo `curl --socks5 http://localhost:9050 -sL ifconfig.me`;sleep 5 ; done"]
+          command: ["/bin/sh", "-ec", "while :; do echo `curl --socks5 http://localhost:9050 -L ifconfig.me`; echo `curl --socks http://localhost:9050  -L https://check.torproject.org/api/ip`;sleep 5 ; done"]
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

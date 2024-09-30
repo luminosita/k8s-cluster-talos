@@ -183,6 +183,7 @@ data:
     update_sql_schema: "true"
     include_config_file:
       - /opt/ejabberd/db-config.yml
+      
     modules:
       mod_adhoc: {}
       mod_admin_extra: {}

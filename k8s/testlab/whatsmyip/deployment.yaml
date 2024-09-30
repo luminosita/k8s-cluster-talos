@@ -25,11 +25,32 @@ spec:
             - sh
             - -c
             - |
-              while ! ping -c 1 8.8.8.8; do
-                echo "Ping failed, retrying in 5"
+              while ! IP; do
+                IP=`curl --socks5 http://localhost:9050 -L check.torproject.org/api/ip`
+                echo "Curl failed, retrying in 5"
                 sleep 5
               done
-              echo "ping succesfull, exiting"
+              echo "Curl succesfull, exiting"
+        # - name: vpn
+        #   image: qmcgaw/gluetun:v3.36.0
+        #   restartPolicy: Always
+        #   securityContext:
+        #     capabilities:
+        #       add:
+        #         - NET_ADMIN
+        #   env:
+        #     - name: VPN_SERVICE_PROVIDER
+        #       value: windscribe
+        #     - name: VPN_TYPE
+        #       value: openvpn
+        #     - name: OPENVPN_USER
+        #       value: your_user
+        #     - name: OPENVPN_PASSWORD
+        #       value: your_password
+        #     - name: DNS_KEEP_NAMESERVER
+        #       value: "on"
+        #     - name: FIREWALL_OUTBOUND_SUBNETS
+        #       value: "10.42.0.0/15" 
       containers:
         - name: whatsmyip
           image: yauritux/busybox-curl

@@ -17,7 +17,9 @@ spec:
     spec:
       containers:
         - name: whatsmyip
-          image: mdevey/whatsmyip:latest
+          image: curlimages/curl:8.10.1
+          args:
+            - "https://api.ipify.org"
           imagePullPolicy: Always
           ports:
             - containerPort: 8080

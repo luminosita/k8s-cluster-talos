@@ -75,8 +75,6 @@ Destroys existing DB and always creates new DB regardless
 
 # K8s
 - [ ] Dashboard (Ingress, SSL, Pomerium with GitHub and LDAP)
-- [ ] Egress (VPN/Tor)
-    - [ ] VPN failover connections
 - [ ] Backup (Velero) 
     - [ ] etcd
     - [ ] Databases
@@ -88,6 +86,8 @@ Destroys existing DB and always creates new DB regardless
 - [ ] GitKraken
 - [ ] Mattermost
 - [x] eJabberd K8S cluster
+- [ ] Web Socket reverse proxy eJabberd
+    - [ ] VPN-Tor side car
 - [ ] Emisia SVN Repository on VM
 
 # Private Artifact Repo

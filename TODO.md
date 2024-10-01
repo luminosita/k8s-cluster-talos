@@ -99,7 +99,7 @@ Destroys existing DB and always creates new DB regardless
 - [ ] BGP
 - [ ] RBAC
 - [ ] Mesh
-- [ ] Mikrotik/pfSense hardening
+- [ ] Mikrotik/pfSense hardening (https://wiki.mikrotik.com/wiki/Manual:Securing_Your_Router#Access_to_a_router)
 - [ ] eBPF
 
 # Ci/CD

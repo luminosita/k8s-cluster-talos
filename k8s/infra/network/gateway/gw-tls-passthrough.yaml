@@ -21,7 +21,7 @@ spec:
     - protocol: TLS
       port: 443
       name: proxmox-local
-      hostname: "proxmox.local"
+      hostname: "proxmox.lan"
       tls:
         mode: Passthrough
       allowedRoutes:

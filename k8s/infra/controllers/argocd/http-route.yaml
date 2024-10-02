@@ -8,7 +8,7 @@ spec:
     - name: insecure
       namespace: gateway
   hostnames:
-    - "argocd.local"
+    - "argocd.lan"
   rules:
     - matches:
         - path:

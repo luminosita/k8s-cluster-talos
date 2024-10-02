@@ -6,7 +6,7 @@ metadata:
   labels:
     kubernetes.io/service-name: proxmox
     endpointslice.kubernetes.io/managed-by: cluster-admins
-addressType: IPv4
+addressType: FQDN
 ports:
   - name: https
     protocol: TCP

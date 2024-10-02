@@ -5,6 +5,7 @@ resources:
   - ns.yaml
   - svc.yaml
   - http-route.yaml
+  - https-route.yaml
   - deployment.yaml
   - ingress-haproxy.yaml
 

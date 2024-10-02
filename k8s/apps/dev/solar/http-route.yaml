@@ -1,39 +1,66 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: sun-http
+  name: solar-https
   namespace: solar
 spec:
   parentRefs:
-    - name: insecure
+    - name: internal-production
       namespace: gateway
   hostnames:
-    - sun.local
+    - "solar.lan"
   rules:
     - matches:
         - path:
             type: PathPrefix
-            value: /
+            value: /sun
       backendRefs:
         - name: sun
           port: 80
----
-apiVersion: gateway.networking.k8s.io/v1
-kind: HTTPRoute
-metadata:
-  name: moon-http
-  namespace: solar
-spec:
-  parentRefs:
-    - name: insecure
-      namespace: gateway
-  hostnames:
-    - moon.local
-  rules:
     - matches:
         - path:
             type: PathPrefix
-            value: /
+            value: /moon
       backendRefs:
         - name: moon
           port: 80
+---
+# apiVersion: gateway.networking.k8s.io/v1
+# kind: HTTPRoute
+# metadata:
+#   name: sun-http
+#   namespace: solar
+# spec:
+#   parentRefs:
+#     - name: insecure
+#       namespace: gateway
+#   hostnames:
+#     - sun.local
+#   rules:
+#     - matches:
+#         - path:
+#             type: PathPrefix
+#             value: /
+#       backendRefs:
+#         - name: sun
+#           port: 80
+# ---
+# apiVersion: gateway.networking.k8s.io/v1
+# kind: HTTPRoute
+# metadata:
+#   name: moon-http
+#   namespace: solar
+# spec:
+#   parentRefs:
+#     - name: insecure
+#       namespace: gateway
+#   hostnames:
+#     - moon.local
+#   rules:
+#     - matches:
+#         - path:
+#             type: PathPrefix
+#             value: /
+#       backendRefs:
+#         - name: moon
+#           port: 80

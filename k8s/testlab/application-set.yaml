@@ -12,6 +12,8 @@ spec:
         revision: keycloak
         directories:
           - path: k8s/testlab/*
+          - path: k8s/testlab/keycloak-realms
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}-test'

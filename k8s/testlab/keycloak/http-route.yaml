@@ -5,7 +5,7 @@ metadata:
   namespace: keycloak
 spec:
   parentRefs:
-    - name: internal
+    - name: internal-production
       namespace: gateway
   hostnames:
     - "auth.emisia.net"

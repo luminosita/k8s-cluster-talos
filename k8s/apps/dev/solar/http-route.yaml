@@ -5,7 +5,7 @@ metadata:
   namespace: solar
 spec:
   parentRefs:
-    - name: internal-production
+    - name: insecure
       namespace: gateway
   hostnames:
     - "solar.lan"

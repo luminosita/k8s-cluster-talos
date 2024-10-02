@@ -8,7 +8,7 @@ spec:
     - name: internal-production
       namespace: gateway
   hostnames:
-    - "solar.lan"
+    - "solar.emisia.net"
   rules:
     - matches:
         - path:

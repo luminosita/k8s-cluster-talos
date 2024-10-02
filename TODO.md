@@ -89,9 +89,16 @@ Destroys existing DB and always creates new DB regardless
 - [ ] Web Socket reverse proxy eJabberd
     - [ ] VPN-Tor side car
 - [ ] Emisia SVN Repository on VM
+- [ ] Nextcloud (Glasskube operators)
+- [ ] Odoo (Glasskube operators)
 
 # Private Artifact Repo
 - [ ] JFrog for docker images, VMs, phone images
+
+# Ci/CD
+- [ ] GitHub actions / worker nodes
+- [ ] Trigger create VM on checkin (Crossplane)
+- [x] ArgoCD
 
 # HA K8s
 - [x] HA cluster with embedded etcd (Talos)
@@ -101,11 +108,6 @@ Destroys existing DB and always creates new DB regardless
 - [ ] Mesh
 - [ ] Mikrotik/pfSense hardening (https://wiki.mikrotik.com/wiki/Manual:Securing_Your_Router#Access_to_a_router)
 - [ ] eBPF
-
-# Ci/CD
-- [ ] GitHub actions / worker nodes
-- [ ] Trigger create VM on checkin (Crossplane)
-- [x] ArgoCD
 
 # DCIM
 - [ ] Thinkerbell

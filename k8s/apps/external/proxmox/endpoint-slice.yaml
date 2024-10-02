@@ -13,5 +13,5 @@ ports:
     port: 8006
 endpoints:
   - addresses:
-      - 192.168.50.12
+      - proxmox.lan
     conditions: { } # https://github.com/argoproj/argo-cd/issues/15554

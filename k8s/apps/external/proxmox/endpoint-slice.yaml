@@ -6,12 +6,12 @@ metadata:
   labels:
     kubernetes.io/service-name: proxmox
     endpointslice.kubernetes.io/managed-by: cluster-admins
-addressType: FQDN
+addressType: IPv4
 ports:
   - name: https
     protocol: TCP
     port: 8006
 endpoints:
   - addresses:
-      - proxmox.lan
+      - 192.168.50.5  #FIXME Hardcoded address
     conditions: { } # https://github.com/argoproj/argo-cd/issues/15554

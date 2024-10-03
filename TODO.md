@@ -1,27 +1,11 @@
-## Bugs
-
-- [ ] BUG 1:
-Warning: would violate PodSecurity "baseline:latest": non-default capabilities (container "proxmox-csi-plugin-node" must not include "SYS_ADMIN" in securityContext.capabilities.add), hostPath volumes (volumes "socket", "registration", "kubelet", "dev", "sys"), privileged (container "proxmox-csi-plugin-node" must not set securityContext.privileged=true)
-daemonset.apps/proxmox-csi-plugin-node created
-
-- [ ] BUG 2:
-ERR_TOO_MANY_REDIRECTS with Proxied DNS Record
-
-- [ ] BUG 3:
-CNPG 
-bootstrap:
-    initdb: 
-Destroys existing DB and always creates new DB regardless
-
-
 ## 🏗️ Work in Progress
 
 - [ ] Cloudflare Terraform
-- [ ] DNS resolving from internel K8s network to outside (NFS mount with fixed IP)
+- [x] DNS resolving from internel K8s network to outside (NFS mount with fixed IP)
 - [ ] Renovate
 - [ ] Remark42
 - [ ] Taskfile
-- [ ] DNS records: internal (VPN, Cloudflare) and external
+- [x] DNS records: internal (VPN, Cloudflare) and external
 - [x] Finish README
 - [x] Gollum with local-path provisioner 
 - [x] Gollum with storage
@@ -37,7 +21,6 @@ Destroys existing DB and always creates new DB regardless
 - [x] NFS Provisioner
 - [ ] Health Checks (https://blog.kubecost.com/blog/kubernetes-health-check/)
 - [x] Gateway/Ingress
-- [ ] Crossplane
 
 # SSL
 - [x] LetsEnrypt
@@ -46,14 +29,15 @@ Destroys existing DB and always creates new DB regardless
 - [x] Self-signed CA Issuer for internal apps
 
 # Identity Provider
-- [ ] Keycloak
+- [x] Keycloak
     - [ ] OpenLDAP
-    - [ ] Solar
-    - [ ] ArgoCD
-    - [ ] Wikijs
+    - [x] Solar
+    - [x] ArgoCD
+    - [x] Wikijs
     - [ ] Mattermost
-    - [ ] OpenId Connect
+    - [x] OpenId Connect
     - [ ] Android VSCode
+    - [ ] oauth2-proxy
  
 # Monitoring 
 - [ ] Prometheus/Grafana (https://medium.com/@abdullah.eid.2604)

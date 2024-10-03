@@ -6,3 +6,6 @@ resources:
   - ns.yaml
   - deployment.yaml
   - svc.yaml
+  - echoserver.yaml
+  - cert-echo-staging.yaml
+  - ingress.yaml

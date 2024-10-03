@@ -27,6 +27,10 @@ spec:
           - --oidc-issuer-url=https://auth.emisia.net/realms/emisia
           - --email-domain=emisia.net // Validate email domain for users, see option documentation
           - --code-challenge-method=S256 // PKCE        
+          - --cookie-secure=false
+          - --cookie-name=_oauth2_proxy
+          - --cookie-expire=24h
+          - --set-xauthrequest=true
         # - --http-address=http://:4180
         # - --upstream=file:///dev/null
         # - --provider=XXXXX

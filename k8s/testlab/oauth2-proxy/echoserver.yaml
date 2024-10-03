@@ -5,10 +5,13 @@ metadata:
   namespace: oauth2-proxy
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      run: echoserver
   template:
     metadata:
       labels:
-        app: echoserver
+        run: echoserver
     namespace: oauth2-proxy
     spec:
       containers:

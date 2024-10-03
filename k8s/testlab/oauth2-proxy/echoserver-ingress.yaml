@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: haproxy
   tls:
-    - secretName: cert-echo-staging
+    - secretName: cert-echo-production
       hosts:
         - echo.emisia.net
   rules:

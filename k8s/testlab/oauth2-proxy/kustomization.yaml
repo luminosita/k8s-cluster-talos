@@ -6,5 +6,5 @@ resources:
   - deployment.yaml
   - svc.yaml
   - echoserver.yaml
-  - cert-echo-staging.yaml
+  - cert-echo-production.yaml
   - echoserver-ingress.yaml

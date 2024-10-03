@@ -1,30 +1,30 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: testlab-< branch >
+  name: testlab-oauth2-proxy
   namespace: argocd
   labels:
-    me.kundun: testlab-< branch >
+    me.kundun: testlab-oauth2-proxy
 spec:
   generators:
     - git:
         repoURL: https://github.com/luminosita/k8s-cluster-talos
-        revision: < branch >
+        revision: oauth2-proxy
         directories:
           - path: k8s/testlab/*
   template:
     metadata:
       name: '{{ path.basename }}-test'
       labels:
-        me.kundun: testlab-< branch >
+        me.kundun: testlab-oauth2-proxy
       finalizers:
     spec:
-      project: testlab-< branch >
+      project: testlab-oauth2-proxy
       source:
         plugin:
           name: kustomize-build-with-helm
         repoURL: https://github.com/luminosita/k8s-cluster-talos
-        targetRevision: < branch >
+        targetRevision: oauth2-proxy
         path: '{{ path }}'
       destination:
         name: in-cluster

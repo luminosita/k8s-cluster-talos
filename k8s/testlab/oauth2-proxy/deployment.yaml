@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: oauth2-proxy
+  name: oauth2-proxy
+  namespace: oauth2-proxy
+spec:
+  selector:
+    matchLabels:
+      run: oauth2-proxy
+  template:
+    metadata:
+      labels:
+        run: oauth2-proxy
+      namespace: oauth2-proxy
+    spec:
+      containers:
+      - name: oauth2-proxy
+        image: quay.io/oauth2-proxy/oauth2-proxy
+        imagePullPolicy: IfNotPresent
+        args:
+        - --http-address=http://:4180
+        - --upstream=file:///dev/null
+        - --provider=XXXXX
+        - --client-id=XXXXX
+        - --client-secret=XXXXX
+        - --proxy-prefix=/oauth2
+        - --redirect-url=/oauth2/callback
+        - --email-domain=*
+        - --cookie-name=_oauth2_proxy
+        - --cookie-secret=XXXXX
+        - --cookie-secure=true
+        - --cookie-expire=24h
+        - --set-xauthrequest=true
+        ports:
+        - containerPort: 4180
+          protocol: TCP

@@ -22,10 +22,18 @@ spec:
           env:
             - name: DOCKER_USER
               value: build
-            - name: PASSWORD
+            - name: CODER_DISABLE_PASSWORD_AUTH
+              value: true
+            - name: CODER_OIDC_ISSUER_URL
+              value: "https://auth.emisia.net"
+            - name: CODER_OIDC_EMAIL_DOMAIN
+              value: "emisia.net"
+            - name: CODER_OIDC_CLIENT_ID
+              value: "code-server"
+            - name: CODER_OIDC_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  key: password
+                  key: oidc.secret
                   name: vscode-credentials
           ports:
             - containerPort: 8080

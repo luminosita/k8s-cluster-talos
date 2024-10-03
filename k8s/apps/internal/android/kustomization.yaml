@@ -3,8 +3,8 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-  - svc.yaml
   - vscode-credentials.yaml
+  - svc.yaml
   - deployment.yaml
   - https-route.yaml
 

@@ -14,6 +14,8 @@ spec:
           - path: k8s/infra/network/*
           - path: k8s/infra/network/caddy
             exclude: true
+          - path: k8s/infra/network/haproxy
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}'

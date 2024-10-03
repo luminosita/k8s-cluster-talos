@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   name: echoserver
@@ -12,7 +12,7 @@ spec:
     namespace: oauth2-proxy
     spec:
       containers:
-      - image: gcr.io/google_containers/echoserver:1.9
+      - image: gcr.io/google_containers/echoserver:latest
         imagePullPolicy: Always
         name: echoserver
         ports:

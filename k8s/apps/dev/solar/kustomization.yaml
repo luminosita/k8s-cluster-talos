@@ -7,6 +7,6 @@ resources:
   - http-route.yaml
   - https-route.yaml
   - deployment.yaml
-  - ingress-haproxy.yaml
+#  - ingress-haproxy.yaml
 
   

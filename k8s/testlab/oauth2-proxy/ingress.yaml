@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   annotations:
     ingress.kubernetes.io/oauth: oauth2_proxy
-    cert-manager.io/cluster-issuer: "cloudflare-cluster-issuer-staging"
   namespace: oauth2-proxy
 spec:
   ingressClassName: haproxy

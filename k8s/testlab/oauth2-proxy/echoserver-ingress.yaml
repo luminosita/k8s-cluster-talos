@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     ingress.kubernetes.io/oauth: oauth2_proxy
+  name: echo
   namespace: oauth2-proxy
 spec:
   ingressClassName: haproxy

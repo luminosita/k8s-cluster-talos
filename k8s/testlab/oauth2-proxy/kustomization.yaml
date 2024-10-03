@@ -8,4 +8,4 @@ resources:
   - svc.yaml
   - echoserver.yaml
   - cert-echo-staging.yaml
-  - ingress.yaml
+  - echoserver-ingress.yaml

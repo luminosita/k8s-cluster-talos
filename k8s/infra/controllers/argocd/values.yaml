@@ -31,8 +31,8 @@ configs:
     scopes: "[groups]"
     policy.matchMode: "glob"
 
-secret:
-    createSecret: false
+  secret:
+      createSecret: false
 
 crds:
   install: true

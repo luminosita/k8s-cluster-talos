@@ -5,17 +5,34 @@ configs:
   cm:
     create: true
     application.resourceTrackingMethod: "annotation+label"
-#    exec.enabled: true
+    #url: https://argocd.example.com
+    oidc.config: |
+      name: Keycloak
+      issuer: https://auth.emisia.net/realms/emisia
+      clientID: argocd
+      clientSecret: $oidc.keycloak.clientSecret
+      requestedScopes: ["openid", "profile", "email", "groups"]  
   cmp:
-    create: true
-    plugins:
-      kustomize-build-with-helm:
-        generate:
-          command: [ "sh", "-c" ]
-          args: [ "kustomize build --enable-helm" ]
+      create: true
+      plugins:
+        kustomize-build-with-helm:
+          generate:
+            command: [ "sh", "-c" ]
+            args: [ "kustomize build --enable-helm" ]
   params:
     controller.diff.server.side: true
     server.insecure: true
+  rbac:
+    create: true
+    annotations: {}
+    policy.default: ''
+    policy.csv: |
+      g, ArgoCDAdmins, role:admin
+    scopes: "[groups]"
+    policy.matchMode: "glob"
+
+secret:
+    createSecret: false
 
 crds:
   install: true

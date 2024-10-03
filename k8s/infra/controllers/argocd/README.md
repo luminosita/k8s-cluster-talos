@@ -3,7 +3,7 @@
 ### Setup Environment Variables
 
 ```bash
-NAMESPACE=argocd-system \
+NAMESPACE=argocd \
 OIDC_SECRET=<secret>
 ```
 ### Create Sealed Secret

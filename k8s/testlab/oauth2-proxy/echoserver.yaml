@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         run: echoserver
-    namespace: oauth2-proxy
+      namespace: oauth2-proxy
     spec:
       containers:
       - image: gcr.io/google_containers/echoserver:latest

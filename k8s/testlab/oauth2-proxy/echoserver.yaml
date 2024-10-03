@@ -15,7 +15,7 @@ spec:
       namespace: oauth2-proxy
     spec:
       containers:
-      - image: gcr.io/google_containers/echoserver:latest
+      - image: gcr.io/google_containers/echoserver:2.2
         imagePullPolicy: Always
         name: echoserver
         ports:

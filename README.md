@@ -155,10 +155,10 @@ $ argocd admin initial-password -n argocd
 <generated password>
 ```
 
-> **_NOTE:_** There should be an entry for `argocd.local` pointing to `192.168.50.223` in `/etc/hosts`. That is insecure gateway IP address (`k8s/infra/network/gateway/gw-insecure.yaml`)
+> **_NOTE:_** There should be an entry for `argocd.lan` pointing to `192.168.50.223` in `/etc/hosts`. That is insecure gateway IP address (`k8s/infra/network/gateway/gw-insecure.yaml`)
 #### Login into ArgoCD
 ```bash
-$ argocd login argocd.local:80
+$ argocd login argocd.lan:80
 user: admin
 password: <generated password>
 ```

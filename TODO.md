@@ -10,7 +10,8 @@
 - [x] Gollum with local-path provisioner 
 - [x] Gollum with storage
 - [x] Wiki.js
-- [x] VSCode with NFS provisioner 
+- [x] VSCode with NFS provisioner
+- [ ] Full Coder Environment (coder.com)
 
 # K8s (Proxmox VMs and DigitalOcean for true HA)
 - [x] Terraform
@@ -36,7 +37,7 @@
     - [x] Wikijs
     - [ ] Mattermost
     - [x] OpenId Connect
-    - [ ] Android VSCode
+    - [ ] Coder Full Environment (coder.com)
     - [ ] oauth2-proxy
  
 # Monitoring 

@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: cert-echo-staging
-  namespace: gateway 
+  namespace: oauth2-proxy 
 spec:
   issuerRef:
     name: cloudflare-cluster-issuer-staging

@@ -9,6 +9,8 @@ spec:
   destinations:
     - namespace: 'argocd'
       server: '*'
+    - namespace: 'argocd-system'
+      server: '*'
     - namespace: 'cert-manager'
       server: '*'
     - namespace: 'crossplane'

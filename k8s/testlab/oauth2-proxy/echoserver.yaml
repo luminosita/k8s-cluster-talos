@@ -27,9 +27,10 @@ metadata:
   name: echoserver
   namespace: oauth2-proxy
 spec:
-  ports:
-  - port: 80
-    targetPort: 8080
-    protocol: TCP
+  type: ClusterIP
   selector:
     app: echoserver
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP

@@ -20,6 +20,8 @@ spec:
         image: quay.io/oauth2-proxy/oauth2-proxy
         imagePullPolicy: IfNotPresent
         args:
+          - --http-address=http://:4180
+          - --upstream=file:///dev/null
           - --provider=keycloak-oidc
           - --client-id=echo
           - --client-secret=QKroldXvNCfHRjcqlKew6uJkd6gghmvz
@@ -29,7 +31,7 @@ spec:
           - --email-domain=* # Validate email domain for users, see option documentation
           - --code-challenge-method=S256 # PKCE        
           - --cookie-secret=QKroldXvNCfHRjcqlKew6uJkd6gghmvz
-          - --cookie-secure=false
+          - --cookie-secure=true
           - --cookie-name=_oauth2_proxy
           - --cookie-expire=24h
           - --set-xauthrequest=true

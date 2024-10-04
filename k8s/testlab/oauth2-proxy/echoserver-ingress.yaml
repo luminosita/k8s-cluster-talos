@@ -1,27 +1,27 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  # annotations:
-    # ingress.kubernetes.io/oauth: oauth2_proxy
+  annotations:
+    ingress.kubernetes.io/oauth: oauth2_proxy
   name: echoserver
   namespace: oauth2-proxy
 spec:
   ingressClassName: haproxy
-  # tls:
-  #   - secretName: cert-echo-production
-  #     hosts:
-  #       - echo.emisia.net
+  tls:
+    - secretName: cert-echo-production
+      hosts:
+        - echo.emisia.net
   rules:
   - host: echo.emisia.net
     http:
       paths:
-      # - path: /oauth2
-      #   pathType: Prefix
-      #   backend:
-      #     service:
-      #       name: oauth2-proxy
-      #       port:
-      #         number: 4180
+      - path: /oauth2
+        pathType: Prefix
+        backend:
+          service:
+            name: oauth2-proxy
+            port:
+              number: 4180
       - path: /
         pathType: Prefix
         backend:

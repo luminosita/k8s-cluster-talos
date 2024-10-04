@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: testlab-oauth2-proxy
+  name: testlab-< branch >
   namespace: argocd
 spec:
   sourceRepos:
@@ -9,9 +9,7 @@ spec:
   destinations:
     - namespace: 'argocd'
       server: '*'
-    - namespace: 'oauth2-proxy'
-      server: '*'
-    - namespace: 'haproxy-ingress'
+    - namespace: '< branch >'
       server: '*'
   clusterResourceWhitelist:
     - group: '*'

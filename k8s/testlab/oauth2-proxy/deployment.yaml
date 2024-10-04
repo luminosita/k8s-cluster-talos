@@ -23,11 +23,12 @@ spec:
           - --provider=keycloak-oidc
           - --client-id=echo
           - --client-secret=QKroldXvNCfHRjcqlKew6uJkd6gghmvz
-          - --redirect-url=https://echo.emisia.net/oauth2/callback
+          - --proxy-prefix=/oauth2
+          - --redirect-url=/oauth2/callback
           - --oidc-issuer-url=https://auth.emisia.net/realms/emisia
-          - --email-domain=* // Validate email domain for users, see option documentation
-          - --code-challenge-method=S256 // PKCE        
-          - --cookie-secret=QKroldXvNCfHRjcqlKew6uJkd6gghmvz
+          - --email-domain=* # Validate email domain for users, see option documentation
+          - --code-challenge-method=S256 # PKCE        
+          - --cookie-secret=X
           - --cookie-secure=false
           - --cookie-name=_oauth2_proxy
           - --cookie-expire=24h

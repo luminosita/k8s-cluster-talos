@@ -1,8 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  # annotations:
+  annotations:
   #   ingress.kubernetes.io/oauth: oauth2_proxy
+    haproxy-ingress.github.io/rewrite-target: "/"
   name: echoserver
   namespace: oauth2-proxy
 spec:
@@ -22,7 +23,7 @@ spec:
             name: oauth2-proxy
             port:
               number: 4180
-      - path: /
+      - path: /abc
         pathType: Prefix
         backend:
           service:

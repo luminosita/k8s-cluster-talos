@@ -11,7 +11,7 @@ spec:
       server: '*'
     - namespace: 'oauth2-proxy'
       server: '*'
-    - namespace: 'haproxy'
+    - namespace: 'haproxy-ingress'
       server: '*'
   clusterResourceWhitelist:
     - group: '*'

@@ -4,3 +4,7 @@ controller:
   service:
     annotations:
       io.cilium/lb-ipam-ips: 192.168.50.225    
+    type: LoadBalancer
+  # kind: DaemonSet
+  # daemonset:
+  #   useHostPort: false

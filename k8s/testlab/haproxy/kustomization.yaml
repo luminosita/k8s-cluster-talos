@@ -17,5 +17,5 @@ helmCharts:
     repo: https://haproxy-ingress.github.io/charts
     version: 0.14.7
     releaseName: "haproxy-ingress"
-    namespace: haproxy
+    namespace: haproxy-ingress
     valuesFile: values.yaml

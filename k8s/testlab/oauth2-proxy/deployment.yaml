@@ -25,7 +25,7 @@ spec:
           - --client-secret=QKroldXvNCfHRjcqlKew6uJkd6gghmvz
           - --redirect-url=https://echo.emisia.net/oauth2/callback
           - --oidc-issuer-url=https://auth.emisia.net/realms/emisia
-          - --email-domain=emisia.net // Validate email domain for users, see option documentation
+        #  - --email-domain=emisia.net // Validate email domain for users, see option documentation
           - --code-challenge-method=S256 // PKCE        
           - --cookie-secret=QKroldXvNCfHRjcqlKew6uJkd6gghmvz
           - --cookie-secure=false

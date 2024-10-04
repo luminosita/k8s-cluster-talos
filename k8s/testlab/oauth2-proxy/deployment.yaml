@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: oauth2-proxy
+    app: oauth2-proxy
   name: oauth2-proxy
   namespace: oauth2-proxy
 spec:
   selector:
     matchLabels:
-      run: oauth2-proxy
+      app: oauth2-proxy
   template:
     metadata:
       labels:
-        run: oauth2-proxy
+        app: oauth2-proxy
       namespace: oauth2-proxy
     spec:
       containers:

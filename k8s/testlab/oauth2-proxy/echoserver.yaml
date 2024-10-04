@@ -7,11 +7,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      run: echoserver
+      app: echoserver
   template:
     metadata:
       labels:
-        run: echoserver
+        app: echoserver
       namespace: oauth2-proxy
     spec:
       containers:

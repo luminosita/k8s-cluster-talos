@@ -15,6 +15,8 @@ spec:
       server: '*'
     - namespace: 'lldap'
       server: '*'
+    - namespace: 'oauth2-proxy'
+      server: '*'
     - namespace: 'openldap'
       server: '*'
     - namespace: 'netbird'

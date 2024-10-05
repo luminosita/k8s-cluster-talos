@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-  - oidc-secret.yaml
+  - oidc-credentials.yaml
   - deployment.yaml
   - svc.yaml
   - echoserver.yaml

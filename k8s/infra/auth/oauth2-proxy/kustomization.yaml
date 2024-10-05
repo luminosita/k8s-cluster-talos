@@ -4,8 +4,9 @@ kind: Kustomization
 resources:
   - ns.yaml
   - oidc-credentials.yaml
+  - echoserver.yaml
   - deployment.yaml
   - svc.yaml
   - cert-echo-production.yaml
   - ingress.yaml
-  - echoserver.yaml
+  

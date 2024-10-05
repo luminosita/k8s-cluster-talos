@@ -6,11 +6,11 @@ metadata:
 spec:
   ingressClassName: haproxy
   tls:
-    - secretName: cert-auth2-production
+    - secretName: cert-echo-production
       hosts:
-        - "auth2.emisia.net"
+        - "echo.emisia.net"
   rules:
-  - host: "auth2.emisia.net"
+  - host: "echo.emisia.net"
     http:
       paths:
       - path: /oauth2

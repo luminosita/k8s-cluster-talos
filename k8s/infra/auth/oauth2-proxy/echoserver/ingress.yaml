@@ -2,8 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    ingress.kubernetes.io/auth-url: "https://auth2.emisia.net/oauth2/auth"
-    ingress.kubernetes.io/auth-signin: "https://auth2.emisia.net/oauth2/start"
+    ingress.kubernetes.io/auth-url: "https://echo.emisia.net/oauth2/auth"
+    ingress.kubernetes.io/auth-signin: "https://echo.emisia.net/oauth2/start"
     # ingress.kubernetes.io/auth-headers-succeed: "X-Auth-*"
   name: echoserver
   namespace: oauth2-proxy

@@ -5,4 +5,4 @@ controller:
     annotations:
       io.cilium/lb-ipam-ips: 192.168.50.222    
     type: LoadBalancer
-  kind: DaemonSet
+  kind: daemonset

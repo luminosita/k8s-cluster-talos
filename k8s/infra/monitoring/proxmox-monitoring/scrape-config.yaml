@@ -4,6 +4,7 @@ metadata:
   name: static-config
   namespace: monitoring
   labels:
+    release: kube-prometheus-stack
     prometheus: system-monitoring-prometheus
 spec:
   staticConfigs:

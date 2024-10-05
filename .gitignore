@@ -3,7 +3,6 @@ charts/example
 **/infra/**/charts
 **/apps/**/charts
 **/testlab/**/charts
-*secret*.yaml
 
 **/.terraform
 output

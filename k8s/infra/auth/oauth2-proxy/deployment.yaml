@@ -24,7 +24,7 @@ spec:
           - --upstream=file:///dev/null
           - --provider=keycloak-oidc
           - --client-id=echo
-          - --client-secret=QKroldXvNCfHRjcqlKew6uJkd6gghmvz
+          - --client-secret-file=/var/oidc/oidc.secret
           - --proxy-prefix=/oauth2
           - --redirect-url=/oauth2/callback
           - --oidc-issuer-url=https://auth.emisia.net/realms/emisia
@@ -38,3 +38,10 @@ spec:
         ports:
         - containerPort: 4180
           protocol: TCP
+      volumeMounts:
+        - name: oidc
+          mountPath: /var/oidc/
+    volumes:
+      - name: oidc
+        secret:
+          secretName: oidc-secret

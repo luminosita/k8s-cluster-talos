@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    ingress.kubernetes.io/oauth: oauth2_proxy
+    ingress.kubernetes.io/auth-url: "https://auth.emisia.net/realm/emisia"
   name: echoserver
   namespace: oauth2-proxy
 spec:

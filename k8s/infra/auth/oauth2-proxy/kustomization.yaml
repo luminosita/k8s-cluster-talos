@@ -8,4 +8,5 @@ resources:
   - svc.yaml
   - echoserver.yaml
   - cert-echo-production.yaml
+  - oauth2-proxy-ingress.yaml
   - echoserver-ingress.yaml

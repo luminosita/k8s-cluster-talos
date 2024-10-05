@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: true
+#    ingress.kubernetes.io/proxy-body-size: "2000m"
+#    ingress.kubernetes.io/proxy-buffer-size: "32k"
+    ingress.kubernetes.io/service-upstream: 'true'
+  name: oauth2-proxy
+  namespace: oauth2-proxy
+spec:
+  ingressClassName: haproxy
+  tls:
+    - secretName: cert-echo-production
+      hosts:
+        - echo.emisia.net
+  rules:
+  - host: echo.emisia.net
+    http:
+      paths:
+      - path: /oauth2
+        pathType: Prefix
+        backend:
+          service:
+            name: oauth2-proxy
+            port:
+              number: 4180

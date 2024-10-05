@@ -2,7 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    ingress.kubernetes.io/oauth: oauth2_proxy
+#    ingress.kubernetes.io/oauth: oauth2_proxy
+    ingress.kubernetes.io/ssl-redirect: true
+    # ingress.kubernetes.io/proxy-buffer-size: "32k"
+    # ingress.kubernetes.io/proxy-buffers-number: "4"
+
+    # To be added
+    ingress.kubernetes.io/auth-url: "https://echo.emisia.net/oauth2/auth"
+    ingress.kubernetes.io/auth-signin: "https://echo.emisia.net/oauth2/start?rd=https%3A%2F%2F$host$request_uri"
+    ingress.kubernetes.io/auth-headers-succeed: "x-auth-request-user, x-auth-request-email, x-auth-request-access-token"
+    
   name: echoserver
   namespace: oauth2-proxy
 spec:
@@ -12,33 +21,9 @@ spec:
       hosts:
         - echo.emisia.net
   rules:
-  - host: echo.lan
-    http:
-      paths:
-      - path: /oauth2
-        pathType: Prefix
-        backend:
-          service:
-            name: oauth2-proxy
-            port:
-              number: 4180
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: echoserver
-            port:
-              number: 8080
   - host: echo.emisia.net
     http:
       paths:
-      - path: /oauth2
-        pathType: Prefix
-        backend:
-          service:
-            name: oauth2-proxy
-            port:
-              number: 4180
       - path: /
         pathType: Prefix
         backend:

@@ -25,6 +25,8 @@ spec:
       server: '*'
     - namespace: 'haproxy-ingress'
       server: '*'
+    - namespace: 'nginx-ingress'
+      server: '*'
     - namespace: 'caddy-system'
       server: '*'
   clusterResourceWhitelist:

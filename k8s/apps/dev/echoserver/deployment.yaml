@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: echoserver
-  namespace: oauth2-proxy
+  namespace: echoserver
 spec:
   replicas: 1
   selector:
@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: echoserver
-      namespace: oauth2-proxy
+      namespace: echoserver
     spec:
       containers:
       - image: gcr.io/google_containers/echoserver:1.10
@@ -20,17 +20,3 @@ spec:
         name: echoserver
         ports:
         - containerPort: 8080
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: echoserver
-  namespace: oauth2-proxy
-spec:
-  type: ClusterIP
-  selector:
-    app: echoserver
-  ports:
-    - port: 8080
-      targetPort: 8080
-      protocol: TCP

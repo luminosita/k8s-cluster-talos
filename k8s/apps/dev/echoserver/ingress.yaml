@@ -4,16 +4,11 @@ metadata:
   annotations:
 #    ingress.kubernetes.io/oauth: oauth2_proxy
     ingress.kubernetes.io/ssl-redirect: true
-    # ingress.kubernetes.io/proxy-buffer-size: "32k"
-    # ingress.kubernetes.io/proxy-buffers-number: "4"
-
-    # To be added
-    ingress.kubernetes.io/auth-url: "https://echo.emisia.net/oauth2/auth"
-    ingress.kubernetes.io/auth-signin: "https://echo.emisia.net/oauth2/start?rd=https%3A%2F%2F$host$request_uri"
+    ingress.kubernetes.io/auth-url: "https://auth.emisia.net/oauth2/auth"
+    ingress.kubernetes.io/auth-signin: "https://auth.emisia.net/oauth2/start?rd=https%3A%2F%2F$host$request_uri"
     ingress.kubernetes.io/auth-headers-succeed: "x-auth-request-user, x-auth-request-email, x-auth-request-access-token"
-    
   name: echoserver
-  namespace: oauth2-proxy
+  namespace: echoserver
 spec:
   ingressClassName: haproxy
   tls:

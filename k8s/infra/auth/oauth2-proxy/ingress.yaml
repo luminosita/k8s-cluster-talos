@@ -8,9 +8,9 @@ spec:
   tls:
     - secretName: cert-echo-production
       hosts:
-        - "*.emisia.net"
+        - "echo.emisia.net"
   rules:
-  - host: "*.emisia.net"
+  - host: "echo.emisia.net"
     http:
       paths:
       - path: /oauth2

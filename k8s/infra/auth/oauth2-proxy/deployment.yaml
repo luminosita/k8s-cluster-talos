@@ -25,7 +25,7 @@ spec:
             - --email-domain=*
             - --http-address=0.0.0.0:4180
             - --proxy-prefix=/oauth2
-            - --redirect_url = "/oauth2/callback"
+            - --redirect-url = "/oauth2/callback"
             - --oidc-issuer-url=https://auth.emisia.net/realms/emisia
             # - --whitelist-domain=.echo.emisia.net
             - --skip-provider-button=true

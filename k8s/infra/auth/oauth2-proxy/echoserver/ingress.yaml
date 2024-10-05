@@ -2,13 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    # ingress.kubernetes.io/oauth: oauth2_proxy
-    # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    # nginx.ingress.kubernetes.io/proxy-buffer-size: "32k"
-    # nginx.ingress.kubernetes.io/proxy-buffers-number: "4"
     ingress.kubernetes.io/auth-url: "https://echo.emisia.net/oauth2/auth"
     ingress.kubernetes.io/auth-signin: "https://echo.emisia.net/oauth2/start"
-    # nginx.ingress.kubernetes.io/auth-response-headers: "x-auth-request-user, x-auth-request-email, x-auth-request-access-token"
     ingress.kubernetes.io/auth-headers-succeed: "X-Auth-*"
   name: echoserver
   namespace: oauth2-proxy

@@ -24,7 +24,7 @@ spec:
             # - --cookie-domain="echo.emisia.net"
             - --email-domain=*
             - --http-address=0.0.0.0:4180
-            - --proxy-prefix=/oauth2
+            #- --proxy-prefix=/oauth2
             - --redirect-url=https://auth2.emisia.net/oauth2/callback
             - --oidc-issuer-url=https://auth.emisia.net/realms/emisia
             # - --whitelist-domain=.echo.emisia.net

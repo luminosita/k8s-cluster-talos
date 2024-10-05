@@ -27,4 +27,4 @@ spec:
                 name: pve-credentials
           env:            
             - name: PVE_VERIFY_SSL
-              value: false
+              value: "false"

@@ -26,10 +26,11 @@ spec:
             - --oidc-issuer-url=https://auth.emisia.net/realms/emisia
             - --skip-provider-button=true
             - --upstream=http://echo.emisia.net:8080/
+            - --code-challenge-method=S256
             - --pass-access-token=true
             - --pass-authorization-header=true
             - --pass-user-headers=true
-            - --pass-host-header=true
+            - --pass-host-header=false
           env:
             - name: OAUTH2_PROXY_CLIENT_ID            
               valueFrom:

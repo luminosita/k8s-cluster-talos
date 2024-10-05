@@ -16,7 +16,7 @@ spec:
     metadata:
       name: '{{ path.basename }}'
       labels:
-        me.kundun: controllers
+        me.kundun: monitoring
     spec:
       project: monitoring
       source:

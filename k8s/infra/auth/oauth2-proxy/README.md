@@ -4,14 +4,18 @@
 
 ```bash
 NAMESPACE=oauth2-proxy \
-OIDC_SECRET=<secret>
+OIDC_CLIENT_ID=<client_id>
+OIDC_CLIENT_SECRET=<client_secret>
+COOKIE_SECRET=<cookie_secret>
 ```
 ### Create Sealed Secret
 
 ```bash
-kubectl create secret generic oidc-secret \
-  --from-literal=oidc.secret=${OIDC_SECRET} \
+kubectl create secret generic oidc-credentials \
+  --from-literal=oauth2_proxy_client_id=${OIDC_CLIENT_ID} \
+  --from-literal=oauth2_proxy_client_secret=${OIDC_CLIENT_SECRET} \
+  --from-literal=oauth2_proxy_cookie_secret=${COOKIE_SECRET} \
   -n ${NAMESPACE} --dry-run=client -o yaml | \
   kubeseal --controller-namespace=sealed-secrets \
-  --format=yaml - > ../k8s/infra/auth/oauth2-proxy/oidc-secret.yaml
+  --format=yaml - > ../k8s/infra/auth/oauth2-proxy/oidc-credentials.yaml
 ```

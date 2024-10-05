@@ -28,7 +28,7 @@ spec:
             # - --whitelist-domain=.echo.emisia.net
             - --skip-provider-button=true
             - --upstream=file:///dev/null
-            - --session-cookie-minimal=true   
+            # - --session-cookie-minimal=true   
             - --pass-access-token=true
             - --pass-authorization-header=true
             - --pass-user-headers=true

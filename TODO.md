@@ -12,6 +12,7 @@
 - [x] Wiki.js
 - [x] VSCode with NFS provisioner
 - [ ] Full Coder Environment (coder.com)
+- [ ] OWASP
 
 # K8s (Proxmox VMs and DigitalOcean for true HA)
 - [x] Terraform
@@ -36,6 +37,7 @@
     - [x] ArgoCD
     - [x] Wikijs
     - [ ] Mattermost
+    - [ ] NextCloud
     - [x] OpenId Connect
     - [ ] Coder Full Environment (coder.com)
     - [x] oauth2-proxy
@@ -59,13 +61,6 @@
 - [x] OpenLDAP
 - [x] Minio Dev
 
-# K8s
-- [ ] Dashboard (Ingress, SSL, Pomerium with GitHub and LDAP)
-- [ ] Backup (Velero) 
-    - [ ] etcd
-    - [ ] Databases
-    - [ ] PVs
-
 # K8s Apps
 - [x] VS Code (web)
 - [x] Gollum
@@ -83,8 +78,12 @@
 
 # Ci/CD
 - [ ] GitHub actions / worker nodes
-- [ ] Trigger create VM on checkin (Crossplane)
 - [x] ArgoCD
+
+# Backup
+- [ ] Backup (Velero) 
+    - [ ] etcd
+    - [ ] PVs
 
 # HA K8s
 - [x] HA cluster with embedded etcd (Talos)

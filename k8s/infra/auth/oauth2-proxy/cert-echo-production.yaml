@@ -9,7 +9,7 @@ spec:
     kind: ClusterIssuer
     group: cert-manager.io
   dnsNames:
-    - echo.emisia.net
+    - "*.emisia.net"
   secretName: cert-echo-production
 
   privateKey:

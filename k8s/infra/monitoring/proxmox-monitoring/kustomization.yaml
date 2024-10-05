@@ -5,4 +5,7 @@ commonLabels:
   app.kubernetes.io/managed-by: argocd
 
 resources:
+  - pve-credentials.yaml
+  - deployment.yaml
+  - svc.yaml
   - scrape-config.yaml

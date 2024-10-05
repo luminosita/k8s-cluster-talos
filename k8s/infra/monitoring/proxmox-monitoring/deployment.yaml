@@ -1,0 +1,30 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: exporter-proxmox
+  namespace: monitoring
+  labels:
+    app: exporter-proxmox
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 0
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: exporter-proxmox
+  template:
+    metadata:
+      labels:
+        app: exporter-proxmox
+    spec:
+      containers:
+        - name: exporter-proxmox
+          image: prompve/prometheus-pve-exporter:latest
+          envFrom:
+            - secretRef: 
+                name: pve-credentials
+          env:            
+            - name: PVE_VERIFY_SSL
+              value: false

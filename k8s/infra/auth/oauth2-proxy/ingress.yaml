@@ -5,8 +5,8 @@ metadata:
   namespace: oauth2-proxy
   annotations:
     # ingress.kubernetes.io/oauth: oauth_proxy
-    ingress.kubernetes.io/auth-url: "https://echo.emisia.net/oauth2/auth"
-    ingress.kubernetes.io/auth-signin: "https://echo.emisia.net/oauth2/start"
+    # ingress.kubernetes.io/auth-url: "https://echo.emisia.net/oauth2/auth"
+    # ingress.kubernetes.io/auth-signin: "https://echo.emisia.net/oauth2/start"
 spec:
   ingressClassName: haproxy
   tls:

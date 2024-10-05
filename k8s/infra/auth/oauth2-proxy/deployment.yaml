@@ -38,6 +38,7 @@ spec:
             - --pass-user-headers=true
             - --pass-access-token=true
             - --pass-authorization-header=true
+            - --reverse-proxy=true
           ports:
             - containerPort: 4180
               protocol: TCP

@@ -6,7 +6,7 @@
 NAMESPACE=oauth2-proxy \
 OIDC_CLIENT_ID=<client_id>
 OIDC_CLIENT_SECRET=<client_secret>
-COOKIE_SECRET=<cookie_secret>
+COOKIE_SECRET=$(openssl rand -hex 16)
 ```
 ### Create Sealed Secret
 

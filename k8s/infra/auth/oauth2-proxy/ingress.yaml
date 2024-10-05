@@ -2,12 +2,12 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    ingress.kubernetes.io/ssl-redirect: true
-    ingress.kubernetes.io/service-upstream: 'true'
+    nginx.ingress.kubernetes.io/ssl-redirect: true
+    nginx.ingress.kubernetes.io/service-upstream: 'true'
   name: oauth2-proxy
   namespace: oauth2-proxy
 spec:
-  ingressClassName: haproxy
+  ingressClassName: nginx
   tls:
     - secretName: cert-auth2-production
       hosts:

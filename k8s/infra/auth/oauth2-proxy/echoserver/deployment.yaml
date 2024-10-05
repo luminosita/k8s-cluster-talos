@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echoserver
+  namespace: oauth2-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echoserver
+  template:
+    metadata:
+      labels:
+        app: echoserver
+      namespace: oauth2-proxy
+    spec:
+      containers:
+      - image: gcr.io/google_containers/echoserver:1.10
+        imagePullPolicy: Always
+        name: echoserver
+        ports:
+        - containerPort: 8080

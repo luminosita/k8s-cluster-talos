@@ -30,7 +30,7 @@ spec:
             - --oidc-issuer-url=https://auth.emisia.net/realms/emisia
             - --email-domain=* # Validate email domain for users, see option documentation
             - --code-challenge-method=S256 # PKCE        
-            - --cookie-secret=QKroldXvNCfHRjcqlKew6uJkd6gghmvz
+            - --cookie-secret=cfsftHakFx0jmWjmKKSD73GsWi9uxOeFd9psk8ns8dg=
             - --cookie-secure=true
             - --cookie-name=_oauth2_proxy
             - --cookie-expire=24h

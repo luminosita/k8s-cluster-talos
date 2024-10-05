@@ -25,7 +25,7 @@ spec:
             - --http-address=0.0.0.0:4180
             - --oidc-issuer-url=https://auth.emisia.net/realms/emisia
             - --skip-provider-button=true
-            - --upstream=https://echo.emisia.net
+            - --upstream=http://echo.emisia.net:8080/
             - --pass-access-token=true
             - --pass-authorization-header=true
             - --pass-user-headers=true

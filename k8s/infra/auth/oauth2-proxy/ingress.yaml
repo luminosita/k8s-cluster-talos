@@ -64,7 +64,7 @@ metadata:
   namespace: oauth2-proxy
   annotations:
     ingress.kubernetes.io/auth-url: "http://echo.lan/oauth2/auth"
-    ingress.kubernetes.io/auth-signin: "http://echo.emisia.net/oauth2/start?rd=https%3A%2F%2Fecho.lan%2Foauth2%2Fcallback"
+    ingress.kubernetes.io/auth-signin: "http://echo.lan/oauth2/start?rd=https%3A%2F%2Fecho.lan%2Foauth2%2Fcallback"
 spec:
   ingressClassName: haproxy
   rules:

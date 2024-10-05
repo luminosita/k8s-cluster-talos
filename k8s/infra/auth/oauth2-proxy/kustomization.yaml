@@ -6,6 +6,6 @@ resources:
   - oidc-credentials.yaml
   - deployment.yaml
   - svc.yaml
-  - cert-auth-production.yaml
+  - cert-auth2-production.yaml
   - ingress.yaml
   - echoserver/

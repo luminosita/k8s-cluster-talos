@@ -8,3 +8,4 @@ resources:
   - svc.yaml
   - cert-auth-production.yaml
   - ingress.yaml
+  - echoserver/

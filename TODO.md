@@ -38,7 +38,8 @@
     - [ ] Mattermost
     - [x] OpenId Connect
     - [ ] Coder Full Environment (coder.com)
-    - [ ] oauth2-proxy
+    - [x] oauth2-proxy
+        - [ ] Redis
  
 # Monitoring 
 - [ ] Prometheus/Grafana (https://medium.com/@abdullah.eid.2604)

@@ -1,15 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/proxy-body-size: "2000m"
-    nginx.ingress.kubernetes.io/proxy-buffer-size: "32k"
-    nginx.ingress.kubernetes.io/service-upstream: 'true'
+  # annotations:
+  #   nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  #   nginx.ingress.kubernetes.io/proxy-body-size: "2000m"
+  #   nginx.ingress.kubernetes.io/proxy-buffer-size: "32k"
+  #   nginx.ingress.kubernetes.io/service-upstream: 'true'
   name: oauth2-proxy
   namespace: oauth2-proxy
 spec:
-  ingressClassName: nginx
+  ingressClassName: haproxy
   tls:
     - secretName: cert-echo-production
       hosts:

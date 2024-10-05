@@ -31,6 +31,10 @@ spec:
             - --pass-authorization-header=true
             - --pass-user-headers=true
             - --pass-host-header=false
+            - --set-xauthrequest=true
+            - --set-authorization-header=true
+            - --cookie-samesite=lax
+            - --cookie-name=SESSION
           env:
             - name: OAUTH2_PROXY_CLIENT_ID            
               valueFrom:

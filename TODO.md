@@ -48,6 +48,8 @@
 - [ ] OpenObserve (https://datavirke.dk/posts/bare-metal-kubernetes-part-10-metrics-and-monitoring-with-openobserve/)
 - [ ] Telemetry
 - [ ] Aggregated Logs
+- [ ] Promtail
+- [ ] Loki
 - [ ] Audit
 - [ ] Sentry
     - [ ] Proxmox

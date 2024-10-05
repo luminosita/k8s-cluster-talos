@@ -11,4 +11,4 @@ spec:
         job: prometheus
       targets:
         - proxmox.lan:9221
-  metrics_path: /pve
+  metricsPath: /pve

@@ -5,12 +5,12 @@ metadata:
   namespace: oauth2-proxy
 spec:
   ingressClassName: haproxy
-  tls:
-    - secretName: cert-echo-production
-      hosts:
-        - echo.emisia.net
+  # tls:
+  #   - secretName: cert-echo-production
+  #     hosts:
+  #       - echo.emisia.net
   rules:
-  - host: echo.emisia.net
+  - host: "*.emisia.net"
     http:
       paths:
       - path: /oauth2

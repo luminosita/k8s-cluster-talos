@@ -20,6 +20,16 @@ spec:
             name: oauth2-proxy
             port:
               number: 4180
+  - host: "echo.lan"
+    http:
+      paths:
+      - path: /oauth2
+        pathType: Prefix
+        backend:
+          service:
+            name: oauth2-proxy
+            port:
+              number: 4180
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -28,7 +38,7 @@ metadata:
   namespace: oauth2-proxy
   annotations:
     ingress.kubernetes.io/auth-url: "https://echo.emisia.net/oauth2/auth"
-    ingress.kubernetes.io/auth-signin: "https://echo.emisia.net/oauth2/start"
+    ingress.kubernetes.io/auth-signin: "https://echo.emisia.net/oauth2/start?rd=https%3A%2F%2Fecho.emisia.net%2Foauth2%2Fcallback"
 spec:
   ingressClassName: haproxy
   tls:
@@ -46,3 +56,25 @@ spec:
             name: echoserver
             port:
               number: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: echoserver
+  namespace: oauth2-proxy
+  annotations:
+    ingress.kubernetes.io/auth-url: "https://echo.emisia.net/oauth2/auth"
+    ingress.kubernetes.io/auth-signin: "https://echo.emisia.net/oauth2/start?rd=https%3A%2F%2Fecho.lan%2Foauth2%2Fcallback"
+spec:
+  ingressClassName: haproxy
+  rules:
+  - host: "echo.lan"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: echoserver
+            port:
+              number: 8080              

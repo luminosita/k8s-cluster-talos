@@ -3,6 +3,9 @@ kind: Ingress
 metadata:
   name: oauth2-proxy
   namespace: oauth2-proxy
+  annotations:
+    ingress.kubernetes.io/auth-url: "https://echo.emisia.net/oauth2/auth"
+    ingress.kubernetes.io/auth-signin: "https://echo.emisia.net/oauth2/start"
 spec:
   ingressClassName: haproxy
   tls:
@@ -20,3 +23,10 @@ spec:
             name: oauth2-proxy
             port:
               number: 4180
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: echoserver
+            port:
+              number: 8080

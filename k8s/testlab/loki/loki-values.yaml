@@ -16,7 +16,13 @@ loki:
 singleBinary:
   replicas: 1
   persistence:
-      enabled: false
+    enableStatefulSetAutoDeletePVC: true
+    enabled: true
+    size: 10Gi
+    storageClass: proxmox-csi
+    selector: 
+      matchLabels:
+        pvName: pv-loki
 read:
   replicas: 0
 backend:

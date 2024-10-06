@@ -22,4 +22,4 @@ prometheus:
 #       type: loki
 #       url: http://loki-stack.logging:3100/
 #       access: proxy
-#       isDefault: true
+#       isDefault: false

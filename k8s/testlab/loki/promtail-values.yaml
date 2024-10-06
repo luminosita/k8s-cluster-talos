@@ -1,5 +1,5 @@
 config:
 # publish data to loki
   clients:
-    - url: http://loki.logging:3100/loki/api/v1/push
+    - url: http://loki-gateway.logging/loki/api/v1/push
       tenant_id: 1

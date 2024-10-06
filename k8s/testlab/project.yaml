@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: testlab-< branch >
+  name: testlab-loki
   namespace: argocd
 spec:
   sourceRepos:
@@ -9,7 +9,7 @@ spec:
   destinations:
     - namespace: 'argocd'
       server: '*'
-    - namespace: '< branch >'
+    - namespace: 'logging'
       server: '*'
   clusterResourceWhitelist:
     - group: '*'

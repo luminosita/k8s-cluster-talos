@@ -16,10 +16,10 @@ prometheus:
             matchLabels:
               app: prometheus
 
-grafana:
-  additionalDataSources: 
-    - name: Loki
-      type: loki
-      url: http://loki-stack.logging.svc.cluster.local:3100
-      access: proxy
-      isDefault: true
+# grafana:
+#   additionalDataSources: 
+#     - name: Loki
+#       type: loki
+#       url: http://loki-stack.logging:3100/
+#       access: proxy
+#       isDefault: true

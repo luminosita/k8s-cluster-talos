@@ -15,3 +15,11 @@ prometheus:
           selector:
             matchLabels:
               app: prometheus
+
+grafana:
+  additionalDataSources: 
+    - name: Loki
+      type: loki
+      url: http://loki-loki-distributed-gateway.monitoring.svc.cluster.local
+      access: proxy
+      isDefault: true

@@ -127,10 +127,6 @@ module "volumes" {
       node = "proxmox"
       size = "10G"
     }
-    pv-loki = {
-      node = "proxmox"
-      size = "10G"
-    }
     pv-keycloak = {
       node = "proxmox"
       size = "2G"

@@ -45,17 +45,30 @@
  
 # Monitoring 
 - [ ] Prometheus/Grafana (https://medium.com/@abdullah.eid.2604)
-- [ ] OpenObserve (https://datavirke.dk/posts/bare-metal-kubernetes-part-10-metrics-and-monitoring-with-openobserve/)
-- [ ] Telemetry
-- [ ] Aggregated Logs
-- [ ] Promtail
-- [ ] Loki
-- [ ] Audit
-- [ ] Sentry
-    - [ ] Proxmox
-    - [ ] K8s
+    - [x] Proxmox
+    - [x] K8s
     - [ ] Databases
     - [ ] etcd
+- [ ] Telemetry/Grafana Tempo
+- [ ] Alertmanager
+- [ ] Audit
+- [ ] Sentry
+
+# Logs
+- [ ] Aggregated Logs
+    - [ ] Proxmox
+    - [ ] K8s
+- [ ] Promtail
+- [ ] Loki (standard vs microservice mode)
+- [ ] bitnami/kubernetes-event-exporter
+- [ ] Log rotation
+- [ ] Apps
+    - [ ] haproxy-ingress
+    - [ ] oauth2-proxy
+    - [ ] ejabberd
+    - [ ] solar
+    - [ ] keycloak
+    - [ ] wikijs
 
 # Databases
 - [x] Postgre
@@ -74,6 +87,9 @@
 - [ ] Emisia SVN Repository on VM
 - [ ] Nextcloud (Glasskube operators)
 - [ ] Odoo (Glasskube operators)
+
+# API Gateway
+- [ ] Tyk
 
 # Private Artifact Repo
 - [ ] JFrog for docker images, VMs, phone images

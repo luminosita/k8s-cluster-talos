@@ -43,7 +43,10 @@
     - [x] oauth2-proxy
         - [ ] Redis
     - [ ] API Gateway
+        - [ ] Redis
     - [ ] OPA OIDC integration (https://www.openpolicyagent.org/docs/latest/oauth-oidc/)
+    - [ ] Key rotation
+    - [ ] Revoke token
 
 # Authorization
 - [ ] OPA
@@ -55,6 +58,9 @@
     - [ ] Databases
     - [ ] etcd
 - [ ] Telemetry/Grafana Tempo (enable tracing for Loki)
+    - [ ] Telemetry Collector
+    - [ ] Tyk
+    - [ ] Auto-injection (https://opentelemetry.io/docs/kubernetes/operator/automatic/, https://github.com/open-telemetry/opentelemetry-operator/)
 - [ ] Alertmanager
 - [ ] Audit
     - [ ] K8s Audit Logs (https://araji.medium.com/kubernetes-security-monitor-audit-logs-with-grafana-2ab0063906ce)
@@ -62,20 +68,13 @@
 - [ ] Sentry
 
 # Logs
-- [ ] Aggregated Logs
-    - [ ] Proxmox
-    - [ ] K8s
-- [ ] Promtail
-- [ ] Loki (standard vs microservice mode)
+- [x] Aggregated Logs
+    - [x] Proxmox
+    - [x] K8s
+- [x] Promtail
+- [x] Loki (standard vs microservice mode)
 - [ ] bitnami/kubernetes-event-exporter
 - [ ] Log rotation
-- [ ] Apps
-    - [ ] haproxy-ingress
-    - [ ] oauth2-proxy
-    - [ ] ejabberd
-    - [ ] solar
-    - [ ] keycloak
-    - [ ] wikijs
 
 # Databases
 - [x] Postgre
@@ -97,6 +96,7 @@
 
 # API Gateway
 - [ ] Tyk
+    - [ ]
 
 # Private Artifact Repo
 - [ ] JFrog for docker images, VMs, phone images

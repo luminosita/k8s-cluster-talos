@@ -49,7 +49,7 @@
     - [x] K8s
     - [ ] Databases
     - [ ] etcd
-- [ ] Telemetry/Grafana Tempo
+- [ ] Telemetry/Grafana Tempo (enable tracing for Loki)
 - [ ] Alertmanager
 - [ ] Audit
 - [ ] Sentry

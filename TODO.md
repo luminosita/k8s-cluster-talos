@@ -30,7 +30,7 @@
 - [x] Sealed secrets
 - [x] Self-signed CA Issuer for internal apps
 
-# Identity Provider
+# Identity Provider (Authentication)
 - [x] Keycloak
     - [ ] OpenLDAP
     - [x] Solar
@@ -42,6 +42,11 @@
     - [ ] Coder Full Environment (coder.com)
     - [x] oauth2-proxy
         - [ ] Redis
+    - [ ] API Gateway
+    - [ ] OPA OIDC integration (https://www.openpolicyagent.org/docs/latest/oauth-oidc/)
+
+# Authorization
+- [ ] OPA
  
 # Monitoring 
 - [ ] Prometheus/Grafana (https://medium.com/@abdullah.eid.2604)
@@ -52,6 +57,8 @@
 - [ ] Telemetry/Grafana Tempo (enable tracing for Loki)
 - [ ] Alertmanager
 - [ ] Audit
+    - [ ] K8s Audit Logs (https://araji.medium.com/kubernetes-security-monitor-audit-logs-with-grafana-2ab0063906ce)
+    - [ ] Tyk Audit Logs
 - [ ] Sentry
 
 # Logs

@@ -15,11 +15,10 @@ prometheus:
           selector:
             matchLabels:
               app: prometheus
-
-# grafana:
-#   additionalDataSources: 
-#     - name: Loki
-#       type: loki
-#       url: http://loki-stack.logging:3100/
-#       access: proxy
-#       isDefault: false
+grafana:
+  additionalDataSources: 
+    - name: Loki
+      type: loki
+      url: http://loki-gateway.logging/
+      access: proxy
+      isDefault: false

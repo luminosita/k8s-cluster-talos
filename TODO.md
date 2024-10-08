@@ -104,8 +104,21 @@
 
 # Ci/CD
 - [ ] GitHub actions / worker nodes
+- [ ] Github modules/submodules
 - [ ] GitLab CI/CD
 - [x] ArgoCD
+
+# Microservice
+- [ ] Build 
+- [ ] Error handling
+- [ ] Logs, traces, audit logs
+- [ ] API
+- [ ] Authentication
+- [ ] Authorization
+- [ ] Docker image
+- [ ] Private registry
+- [ ] Public CI/CD
+- [ ] Private CI/CD 
 
 # Backup
 - [ ] Backup (Velero) 

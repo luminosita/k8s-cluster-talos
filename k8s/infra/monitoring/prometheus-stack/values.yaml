@@ -22,3 +22,8 @@ grafana:
       url: http://loki-gateway.logging/
       access: proxy
       isDefault: false
+    - name: Tempo
+      type: tempo
+      url: http://tempo.tracing:3100/
+      access: proxy
+      isDefault: false

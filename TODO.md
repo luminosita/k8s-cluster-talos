@@ -58,7 +58,8 @@
     - [ ] Databases
     - [ ] etcd
 - [ ] Telemetry/Grafana Tempo (enable tracing for Loki)
-    - [ ] Telemetry Collector
+    - [x] Telemetry Collector
+    - [ ] Connect with logs
     - [ ] Tyk
     - [ ] Auto-injection (https://opentelemetry.io/docs/kubernetes/operator/automatic/, https://github.com/open-telemetry/opentelemetry-operator/)
 - [ ] Alertmanager

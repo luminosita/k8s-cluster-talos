@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: tracing
+  namespace: argocd
+  labels:
+    me.kundun: tracing
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/luminosita/k8s-cluster-talos
+        revision: HEAD
+        directories:
+          - path: k8s/infra/tracing/*
+  template:
+    metadata:
+      name: '{{ path.basename }}'
+      labels:
+        me.kundun: tracing
+    spec:
+      project: tracing
+      source:
+        plugin:
+          name: kustomize-build-with-helm
+        repoURL: https://github.com/luminosita/k8s-cluster-talos
+        targetRevision: HEAD
+        path: '{{ path }}'
+      destination:
+        name: in-cluster
+        namespace: argocd
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - ApplyOutOfSyncOnly=true
+          - ServerSideApply=true

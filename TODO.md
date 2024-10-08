@@ -104,6 +104,7 @@
 
 # Ci/CD
 - [ ] GitHub actions / worker nodes
+- [ ] GitLab CI/CD
 - [x] ArgoCD
 
 # Backup

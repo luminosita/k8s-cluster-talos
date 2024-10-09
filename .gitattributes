@@ -1,0 +1,3 @@
+k8s/testlab/application-set.yaml merge=ours
+k8s/testlab/kustomization.yaml merge=ours
+k8s/testlab/project.yaml merge=ours

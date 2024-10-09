@@ -103,8 +103,8 @@
 - [ ] JFrog for docker images, VMs, phone images
 
 # Ci/CD
-- [ ] GitHub actions / worker nodes
-- [ ] Github modules/submodules
+- [x] GitHub actions / worker nodes
+- [ ] GitHub modules/submodules
 - [ ] GitLab CI/CD
 - [x] ArgoCD
 

@@ -15,12 +15,12 @@ spec:
       server: '*'
     - namespace: 'node-feature-discovery'
       server: '*'
-    - namespace: 'intel-device-plugins'
-      server: '*'
     - namespace: 'kube-system'
       server: '*'
     - namespace: 'sealed-secrets'
       server: '*'
-  clusterResourceWhitelist:
+    - namespace: 'gh-actions'
+      server: '*'
+clusterResourceWhitelist:
     - group: '*'
       kind: '*'

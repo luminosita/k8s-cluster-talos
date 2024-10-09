@@ -1,0 +1,16 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: HorizontalRunnerAutoscaler
+metadata:
+  name: runner-ubuntu-autoscaler-go-httpbin
+  namespace: gh-actions
+spec:
+  maxReplicas: 10
+  minReplicas: 1
+  scaleTargetRef:
+    kind: RunnerDeployment
+    name: runner-ubuntu-go-httpbin
+  scaleUpTriggers:
+  - duration: 30m
+    githubEvent:
+      workflowJob: {}
+  

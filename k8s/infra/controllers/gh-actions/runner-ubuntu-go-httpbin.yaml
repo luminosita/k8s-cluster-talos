@@ -1,0 +1,18 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  annotations:
+    karpenter.sh/do-not-evict: "true"
+  name: runner-ubuntu-go-httpbin
+  namespace: gh-actions
+spec:
+  template:
+    spec:
+      labels:
+        - luminosita-ubuntu
+      image: summerwind/actions-runner:ubuntu-22.04
+      repository: luminosita/go-httpbin
+      # resources:
+      #   requests:
+      #     cpu: 1500m
+      #     memory: 2000Mi

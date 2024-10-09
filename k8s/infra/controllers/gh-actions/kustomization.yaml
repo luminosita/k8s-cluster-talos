@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ns.yaml
+  - controller-manager-credentials.yaml
+  - github-webhook-token.yaml
+  - github-webhook-certificate-production.yaml
+  - runner-ubuntu-go-httpbin.yaml
+  - runner-ubuntu-hra-go-httpbin.yaml
+  - runner-ubuntu-echo.yaml
+  - runner-ubuntu-hra-echo.yaml
+
+helmCharts:
+  - name: actions-runner-controller
+    repo: https://actions-runner-controller.github.io/actions-runner-controller
+    version: 0.23.7
+    releaseName: actions-runner-controller
+    namespace: gh-actions
+    includeCRDs: true
+    valuesFile: values.yaml
+
+

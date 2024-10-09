@@ -125,6 +125,9 @@
     - [ ] etcd
     - [ ] PVs
 
+# Startup
+- Operately
+
 # HA K8s
 - [x] HA cluster with embedded etcd (Talos)
 - [ ] Kube VIP front loadbalancer

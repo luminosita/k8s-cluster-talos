@@ -1,0 +1,15 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: github-webhook-token
+  namespace: gh-actions
+spec:
+  encryptedData:
+    github_webhook_secret_token: AgB2kQ5EZEHBaaoyKGgoIZE+hNlUEKbHXt+iNQORGJqRRld8xrp84Rgnatbeq869+Q6OhvGtCIvWYOEfor/xuhhqDGI3ZFGKCHyB5TsTM+YxYTyY/mPGhdjuCsxQ9dOaBtHTrktPUcJ2HLLyTxQevSsgeZt9drmRGGYU80BIj9h1Q92GA513/blg0C97kOAapeqOW2SBAN/H9gH6CLbaueailCyMxXkfQd6yFydr5WI13ofwbLneYsQySQtTZlLmeummxCjFDr74YiIWcs+7PzRqh4E77sHWGnFD9+ecRvTYT1qCNwUGXbkkZPB0ytY7PlTv8pVUc6g05nMED0/ul9QIkGGTxwsygIgHvJfQAtnsb7crLnvUiPTrh1iXNnrVFw9RSu9yWzYGTT2zk2p0QWycZtRUnW+05LdNthYq86qGD0gL6QCv4B90YSI2A06/S+dP5bzyWgoASjNSVNqcpkeNlCtz4KBbFliaRCXvmZPZXZkz1RmM8dNrHZ7ONKmShP6X3XaGlO/gCx+h3kWxFb1rbTRYgtIjGRPCuQGTh0LkXFqVUonPPMvDPazCin52PScvi5I9v3uzqmlHhnjLspq/BH6uJP/mkp9eZuK5HLPwo6tPnek23U/yl2nLiaPkZ0xiZALLM9M/us2W1gnpqGN/XBkNpCFCZFFxkE5Ycick+c0aUWy3HZW/wix9vIEEPc87SD9oviS9zJb6HXsQ2fQtdJ1HRjWqa7Q1NJ+35pclUw==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: github-webhook-token
+      namespace: gh-actions

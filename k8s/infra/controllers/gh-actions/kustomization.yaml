@@ -8,8 +8,6 @@ resources:
   - github-webhook-certificate-production.yaml
   - runner-ubuntu-go-httpbin.yaml
   - runner-ubuntu-hra-go-httpbin.yaml
-  - runner-ubuntu-echo.yaml
-  - runner-ubuntu-hra-echo.yaml
 
 helmCharts:
   - name: actions-runner-controller

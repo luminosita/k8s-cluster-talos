@@ -6,7 +6,7 @@ resources:
 
 helmCharts:
   - name: redis-operator
-    repo: https://spotahome.github.io/redis-operator
-    version: 3.3.0
+    repo: https://ot-container-kit.github.io/helm-charts/
+    version: 0.18.3
     releaseName: redis-operator
     namespace: redis-operator

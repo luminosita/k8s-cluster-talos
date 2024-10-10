@@ -5,8 +5,6 @@ metadata:
   name: redis-cli
   namespace: tyk
 spec:
-  # redisConfig:
-  #   additionalRedisConfig: redis-external-config
   podSecurityContext:
     runAsUser: 1000
     fsGroup: 1000

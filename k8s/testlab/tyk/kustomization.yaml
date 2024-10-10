@@ -3,10 +3,8 @@ kind: Kustomization
 
 resources:
   - ns.yaml
-  # - tyk-api-credentials.yaml
+  - tyk-api-credentials.yaml
   - redis-credentials.yaml
-  - tyk-credentials.yaml
-  - postgres-connection-info.yaml
   - redis.yaml
   - redis-test.yaml
   - https-route.yaml

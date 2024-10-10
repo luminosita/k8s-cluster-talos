@@ -4,11 +4,7 @@
 
 ```bash
 NAMESPACE=tyk
-API_SECRET=changeit
-ADMIN_KEY=changeit
-TYK_LICENSE=changeit
-ADMIN_EMAIL=<email>
-ADMIN_PASSWORD=<password>
+API_SECRET=$(openssl rand -hex 16)
 REDIS_SECRET=$(openssl rand -hex 16)
 ```
 
@@ -17,8 +13,6 @@ REDIS_SECRET=$(openssl rand -hex 16)
 ```bash
 $ kubectl create secret generic tyk-api-credentials \
     --from-literal=APISecret=${API_SECRET} \
-    --from-literal=AdminSecret=${ADMIN_KEY} \
-    --from-literal=DashLicense=${TYK_LICENSE} \
     -n ${NAMESPACE} --dry-run=client -o yaml | \
     kubeseal --controller-namespace=sealed-secrets \
     --format=yaml - > ../k8s/infra/controllers/api-gateway/tyk-api-credentials.yaml

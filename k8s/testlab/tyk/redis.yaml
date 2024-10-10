@@ -3,6 +3,7 @@ apiVersion: redis.redis.opstreelabs.in/v1beta2
 kind: Redis
 metadata:
   name: redis-standalone
+  namespace: tyk
 spec:
   # redisConfig:
   #   additionalRedisConfig: redis-external-config

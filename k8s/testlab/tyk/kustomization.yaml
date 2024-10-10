@@ -8,6 +8,7 @@ resources:
   - tyk-credentials.yaml
   - postgres-connection-info.yaml
   - redis.yaml
+  - redis-cli.yaml
   - https-route.yaml
 
 helmCharts:

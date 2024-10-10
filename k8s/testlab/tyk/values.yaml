@@ -2,7 +2,8 @@ global:
   secrets:
     useSecretName: tyk-api-credentials
   redis:
-    addrs: "{redis-standalone.$NAMESPACE.svc:6379}"
+    addrs: 
+      - redis-standalone.tyk.svc:6379
     passSecret:
       name: redis-credentials
       keyName: password

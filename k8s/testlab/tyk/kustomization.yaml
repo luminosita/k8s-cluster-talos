@@ -9,10 +9,10 @@ resources:
   - postgres-connection-info.yaml
   - redis.yaml
 
-# helmCharts:
-#   - name: tyk
-#     repo: https://helm.tyk.io/public/helm/charts/
-#     version: 0.23.7
-#     releaseName: tyk-oss
-#     namespace: tyk
-#     valuesFile: values.yaml
+helmCharts:
+  - name: tyk
+    repo: https://helm.tyk.io/public/helm/charts/
+    version: 0.23.7
+    releaseName: tyk-oss
+    namespace: tyk
+    valuesFile: values.yaml

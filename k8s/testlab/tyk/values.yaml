@@ -4,10 +4,10 @@ global:
   # secrets:
   #   useSecretName: tyk-api-credentials
   redis:
-    addrs: "{tyk-redis-master.$NAMESPACE.svc:6379}"
+    addrs: redis-standalone.tyk.svc:6379
     passSecret:
-      name: tyk-redis
-      keyName: redis-password
+      name: redis-credentials
+      keyName: password
   postgres:
     connectionStringSecret:
       name: postgres-connection-info

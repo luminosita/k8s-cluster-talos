@@ -9,6 +9,7 @@ ADMIN_KEY=changeit
 TYK_LICENSE=changeit
 ADMIN_EMAIL=<email>
 ADMIN_PASSWORD=<password>
+REDIS_SECRET=$(openssl rand -hex 16)
 ```
 
 ### Create Sealed Secrets
@@ -32,6 +33,15 @@ $ kubectl create secret generic tyk-credentials \
     -n ${NAMESPACE} --dry-run=client -o yaml | \
     kubeseal --controller-namespace=sealed-secrets \
     --format=yaml - > ../k8s/infra/controllers/api-gateway/tyk-credentials.yaml
+```
+
+```bash
+$ echo ${REDIS_SECRET}
+$ kubectl create secret generic redis-credentials \
+    --from-literal=password=${REDIS_SECRET} \
+    -n ${NAMESPACE} --dry-run=client -o yaml | \
+    kubeseal --controller-namespace=sealed-secrets \
+    --format=yaml - > ../k8s/infra/controllers/api-gateway/redis-credentials.yaml
 ```
 
 ### Create Database Connection Info

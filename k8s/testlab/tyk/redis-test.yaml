@@ -18,9 +18,9 @@ spec:
       limits:
         cpu: 101m
         memory: 128Mi
-    env:
-      - name: PASS
-        valueFrom:
-          secretKeyRef:
-            name: redis-credentials
-            key: password
+  env:
+    - name: PASS
+      valueFrom:
+        secretKeyRef:
+          name: redis-credentials
+          key: password

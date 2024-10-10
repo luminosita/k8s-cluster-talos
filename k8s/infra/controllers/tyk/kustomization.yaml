@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ns.yaml
+  - tyk-api-credentials.yaml
+  - redis-credentials.yaml
+  - redis.yaml
+  - https-route.yaml
+
+helmCharts:
+  - name: tyk-oss
+    repo: https://helm.tyk.io/public/helm/charts/
+    version: 2.0.0
+    releaseName: tyk-oss
+    namespace: tyk
+    valuesFile: values.yaml

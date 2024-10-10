@@ -1,0 +1,19 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: api-https
+  namespace: tyk
+spec:
+  parentRefs:
+    - name: internal-production
+      namespace: gateway
+  hostnames:
+    - "api.emisia.net"
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: gateway-svc-tyk-oss-tyk-gateway
+          port: 8080

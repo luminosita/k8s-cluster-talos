@@ -21,6 +21,8 @@ spec:
       server: '*'
     - namespace: 'gh-actions'
       server: '*'
+    - namespace: 'tyk'
+      server: '*'
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

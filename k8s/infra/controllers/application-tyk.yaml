@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tyk
+  labels:
+    me.kundun: controllers
+spec:
+  project: controllers
+  source:
+    plugin:
+      name: kustomize-build-with-helm
+    repoURL: https://github.com/luminosita/k8s-cluster-talos
+    targetRevision: HEAD
+    path: k8s/infra/controllers/tyk
+  destination:
+    name: in-cluster
+    namespace: tyk
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true

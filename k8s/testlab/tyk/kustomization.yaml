@@ -12,7 +12,7 @@ resources:
 helmCharts:
   - name: tyk
     repo: https://helm.tyk.io/public/helm/charts/
-    version: 0.23.7
+    version: 2.0.0
     releaseName: tyk-oss
     namespace: tyk
     valuesFile: values.yaml

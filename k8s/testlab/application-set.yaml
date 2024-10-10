@@ -12,6 +12,8 @@ spec:
         revision: tyk
         directories:
           - path: k8s/testlab/*
+          - path: k8s/testlab/tyk
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}-test'

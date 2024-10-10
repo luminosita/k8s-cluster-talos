@@ -1,0 +1,13 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: postgres-connection-info
+  namespace: tyk
+spec:
+  encryptedData:
+    postgresUrl: AgAEaV9UFUWfFqSEKB5HIX+Oro8sUs4SSsUNIQq7HOEbrTQ6Dt8ROsveBCSkY9ZOyCqjsRdGeLze0zPGYBcemsBQ92rHvc9RUNXC8Olqz8EPHHS7fqExUermVUc6EpX9cBsx4R2lDpnjD9+TlfVxgnzN6ECxlhuuZGUpiYNkC3KVN9kL13CUdZFJHKH1C4TuctRBT9QHKJZyEr/Rlcr1VwBLzFL4Ut6Qfa9GD/IteoGFaqhVGvn6PmMbZPERySHEUQKDpTurF+okyfHeK9DzoYLE63BLzJKKgHqcQdlbT2lPlKFXdLtdB7vHvZY2+Zie8dAX9ycUyCqQj5TvNDsJ+Nd/JifKtgmykKdSR07Ui041mtEVgxFGQGnPFZEM6h2HmMnipD7FTEDJrMjjs3w18JeRlLTr4Q7WN2l/kS0Y5f6YP9uWxFSYJog2wWj04CBd4kD6hZSP9Z12I/67fzEafc118U/1lkNmc3MC7bpuhKPvn5v9bIFCRCiWrgfZOgaCJUvvRDahTPp4Q6hAj4hs+QjZ6W4lbv5xakTMTApjgWXv86Rf0uvA+wsClg7j2+F/Np4GCalqWCVydiIpX2np+UsOeocjxQiNC+DIqko8ClrcK9TsMJvWYYed9P8bgpC5hVfkDRZvUD6YeGA/hJfbssHB/0MkRlVCJy0/ioUDjrEY9F3g4pjXz4lWk0TQ2u/8vCUko1/nUAZAn/umhx+JD0dG9VtkFJS5knIR9GUxR+BwRCfXrroVwwUs3qxsVzSWU/wN7MqOrz6EkD5HCLd0zu2AFC8dFEmpCPz/GRexRy07I7WTj5wFONzt0ZZ59U0hI4xYjbWiq5iwCDPCS2I3jQ+1uwkDxIeNYO54gAOPO0T8t98s04qBniRhvntYKoWmmvAs0km5f30=
+  template:
+    metadata:
+      name: postgres-connection-info
+      namespace: tyk

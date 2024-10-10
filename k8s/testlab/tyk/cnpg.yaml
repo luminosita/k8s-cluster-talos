@@ -1,0 +1,25 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: single-tyk
+  namespace: tyk
+spec:
+  instances: 1
+  affinity:
+    nodeSelector:
+      topology.kubernetes.io/zone: proxmox
+  managed:
+    services:
+      disabledDefaultServices: ["ro", "r"]
+  storage:
+    size: 1G
+    pvcTemplate:
+      storageClassName: proxmox-csi
+      accessModes:
+        - ReadWriteOnce
+  bootstrap:
+    initdb:
+      database: tyk_analytics
+      owner: tyk
+      secret:
+        name: single-tyk-app

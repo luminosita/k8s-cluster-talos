@@ -6,7 +6,6 @@ resources:
   - tyk-api-credentials.yaml
   - redis-credentials.yaml
   - redis.yaml
-  - redis-test.yaml
   - https-route.yaml
 
 helmCharts:

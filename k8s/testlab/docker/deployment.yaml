@@ -10,16 +10,16 @@ spec:
     matchLabels:
       app: docker
   template:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
     metadata:
       namespace: docker
       labels:
         app: docker
     spec:
+      securityContext:
+        runAsNonRoot: false
+        runAsUser: 1
+        runAsGroup: 1
+        fsGroup: 1000
       containers:
         - name: docker
           image: docker:latest

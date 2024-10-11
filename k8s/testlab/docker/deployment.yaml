@@ -22,5 +22,5 @@ spec:
         fsGroup: 1000
       containers:
         - name: docker
-          image: docker:latest
+          image: docker:dind
           imagePullPolicy: Always

@@ -8,16 +8,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ubuntu
+      app: docker
   template:
     metadata:
       namespace: docker
       labels:
-        app: ubuntu
+        app: docker
     spec:
       containers:
-        - name: ubuntu
-          image: ubuntu:latest
-          command: ["sleep"]
-          args: ["infinity"]
+        - name: docker
+          image: docker:dind
           imagePullPolicy: Always

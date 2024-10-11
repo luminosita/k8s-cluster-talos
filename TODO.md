@@ -41,7 +41,6 @@
     - [x] OpenId Connect
     - [ ] Coder Full Environment (coder.com)
     - [x] oauth2-proxy
-        - [ ] Redis
     - [ ] API Gateway
         - [ ] Redis
     - [ ] OPA OIDC integration (https://www.openpolicyagent.org/docs/latest/oauth-oidc/)
@@ -98,6 +97,10 @@
 # API Gateway
 - [ ] Tyk
     - [ ] API Audit
+    - [ ] Custom Operator
+    - [ ] Goplugins
+    - [ ] Authentication
+    - [ ] Authorization
 
 # Private Artifact Repo
 - [ ] JFrog for docker images, VMs, phone images

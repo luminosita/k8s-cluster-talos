@@ -3,7 +3,7 @@ kind: RunnerDeployment
 metadata:
   annotations:
     karpenter.sh/do-not-evict: "true"
-  name: runner-ubuntu-go-httpbin
+  name: runner-ubuntu-tyk-plugin
   namespace: gh-actions
 spec:
   template:
@@ -11,7 +11,7 @@ spec:
       labels:
         - luminosita-ubuntu
       image: summerwind/actions-runner:ubuntu-22.04
-      repository: luminosita/go-httpbin
+      repository: luminosita/tyk-plugin
       # resources:
       #   requests:
       #     cpu: 1500m

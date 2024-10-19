@@ -28,4 +28,4 @@ backend:
 write:
   replicas: 0
 chunksCache:
-  allocatedMemory: 4096
+  allocatedMemory: 2048

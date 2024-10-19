@@ -32,7 +32,7 @@ module "talos" {
       mac_address   = "BC:24:11:2E:C8:00"
       vm_id         = 800
       cpu           = 8
-      ram_dedicated = 20480
+      ram_dedicated = 4096
 #      igpu          = true
     }
     "ctrl-01" = {
@@ -42,7 +42,7 @@ module "talos" {
       mac_address   = "BC:24:11:2E:C8:01"
       vm_id         = 801
       cpu           = 4
-      ram_dedicated = 20480
+      ram_dedicated = 4096
 #      igpu          = true
     }
     "ctrl-02" = {
@@ -61,7 +61,7 @@ module "talos" {
       mac_address   = "BC:24:11:2E:A8:00"
       vm_id         = 810
       cpu           = 8
-      ram_dedicated = 4096
+      ram_dedicated = 8192
     }
   }
 

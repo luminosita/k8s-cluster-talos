@@ -6,9 +6,9 @@ resources:
   - pvc.yaml
 
 helmCharts:
-  - name: nexus-iq
+  - name: nexus-iq-server
     repo: https://sonatype.github.io/helm3-charts/
     version: "183.0.0"
-    releaseName: nexus-iq-server
+    releaseName: nexus-iq
     namespace: nexus
     valuesFile: values.yaml

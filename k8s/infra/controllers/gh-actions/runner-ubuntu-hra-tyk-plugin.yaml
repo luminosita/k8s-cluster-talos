@@ -10,7 +10,7 @@ spec:
     kind: RunnerDeployment
     name: runner-ubuntu-tyk-plugin
   scaleUpTriggers:
-  - duration: 30m
-    githubEvent:
-      workflowJob: {}
+    - duration: 30m
+      githubEvent:
+        workflowJob: {}
   

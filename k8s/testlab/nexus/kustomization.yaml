@@ -14,21 +14,21 @@ helmCharts:
     valuesFile: values.yaml
 
 patches:
-  - |-
-    $patch: delete
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: nexus-iq-nexus-iq-server
-      namespace: nexus
-    spec:
-      template:
-        spec:
-          containers:
-            - name: nexus-iq-server
-              volumeMounts:
-                - mountPath: /var/log/nexus-iq-server
-                  name: nxiq-pv-log
-          volumes:
-            - mountPath: /var/log/nexus-iq-server
-              name: nxiq-pv-log
+  - patch: |-
+      $patch: delete
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: nexus-iq-nexus-iq-server
+        namespace: nexus
+      spec:
+        template:
+          spec:
+            containers:
+              - name: nexus-iq-server
+                volumeMounts:
+                  - mountPath: /var/log/nexus-iq-server
+                    name: nxiq-pv-log
+            volumes:
+              - mountPath: /var/log/nexus-iq-server
+                name: nxiq-pv-log

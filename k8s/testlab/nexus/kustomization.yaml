@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ns.yaml
+  - pvc.yaml
+
+helmCharts:
+  - name: nexus-iq
+    repo: https://sonatype.github.io/helm3-charts/
+    version: "183.0.0"
+    releaseName: nexus-iq-server
+    namespace: nexus
+    valuesFile: values.yaml

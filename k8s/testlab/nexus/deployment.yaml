@@ -4,7 +4,7 @@ metadata:
   name: sonatype-registry
   namespace: nexus
   labels:
-      app: sonatype-registry
+    app: sonatype-registry
 spec:
   replicas: 1
   selector:
@@ -12,8 +12,8 @@ spec:
       app: sonatype-registry
   template:
     metadata:
-    labels:
-      app: sonatype-registry
+      labels:
+        app: sonatype-registry
     spec:
       containers:
         - image: sonatype/nexus3

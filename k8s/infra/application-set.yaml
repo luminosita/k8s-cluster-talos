@@ -12,6 +12,12 @@ spec:
         revision: HEAD
         directories:
           - path: k8s/infra/*
+          - path: k8s/infra/monitoring
+            exclude: true
+          - path: k8s/infra/logging
+            exclude: true
+          - path: k8s/infra/tracing
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}'

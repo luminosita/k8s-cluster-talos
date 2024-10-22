@@ -104,13 +104,16 @@
     - [ ] Authorization
 
 # Private Artifact Repo
-- [ ] JFrog for docker images, VMs, phone images
+- [ ] Nexus Repository
+- [ ] Nexus SBOM
+- [ ] Nexus IQ Server
 
 # Ci/CD
 - [x] GitHub actions / worker nodes
 - [ ] GitHub modules/submodules
 - [ ] GitLab CI/CD
 - [x] ArgoCD
+- [ ] Upload to Nexus
 
 # Microservice
 - [ ] Build 

@@ -6,6 +6,7 @@ resources:
   - pvc.yaml
   - deployment.yaml
   - svc.yaml
+  - http-route.yaml
 
 # helmCharts:
 #   - name: nexus-iq-server

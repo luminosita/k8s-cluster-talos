@@ -27,4 +27,4 @@ spec:
       volumes:
         - name: registry-vol
           persistentVolumeClaim:
-          claimName: pvc-nexus
+            claimName: pvc-nexus

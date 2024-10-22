@@ -16,6 +16,8 @@ spec:
             exclude: true
           - path: k8s/infra/network/haproxy
             exclude: true
+          - path: k8s/infra/network/nginx-ingress
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}'

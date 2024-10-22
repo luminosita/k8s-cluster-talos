@@ -26,6 +26,12 @@ spec:
       containers:
         - image: sonatype/nexus3
           name: nexus
+      env:
+        - name: NEXUS_SECURITY_INITIAL_PASSWORD
+          valueFrom: 
+            secretKeyRef:
+              key: password
+              name: sonatype-credentials
           ports:
             - containerPort: 8081
           volumeMounts:

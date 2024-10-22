@@ -13,10 +13,7 @@ spec:
     - matches:
         - path:
             type: PathPrefix
-            value: /admin
-        - path:
-            type: PathPrefix
-            value: /realms
+            value: /
       backendRefs:
         - name: keycloak
           port: 80

@@ -71,6 +71,7 @@
 - [x] Aggregated Logs
     - [x] Proxmox
     - [x] K8s
+    - [ ] Talos
 - [x] Promtail
 - [x] Loki (standard vs microservice mode)
 - [ ] bitnami/kubernetes-event-exporter

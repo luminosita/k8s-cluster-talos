@@ -23,7 +23,6 @@ spec:
           volumeMounts:
             - name: registry-vol
               mountPath: /nexus-data
-              subPath: sonatype
       volumes:
         - name: registry-vol
           persistentVolumeClaim:

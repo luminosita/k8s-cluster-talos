@@ -15,6 +15,14 @@ spec:
       labels:
         app: sonatype-registry
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 200
+        runAsGroup: 200
+        fsGroup: 200
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile:
+          type: RuntimeDefault      
       containers:
         - image: sonatype/nexus3
           name: nexus

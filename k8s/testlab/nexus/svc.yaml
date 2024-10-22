@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+name: sonatype-service
+spec:
+ports:
+- name: sonatype-registry
+    port: 8081
+    protocol: TCP
+    targetPort: 8081
+selector:
+    app: sonatype-registry

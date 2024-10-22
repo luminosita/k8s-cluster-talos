@@ -32,7 +32,7 @@ module "talos" {
       mac_address   = "BC:24:11:2E:C8:00"
       vm_id         = 800
       cpu           = 8
-      ram_dedicated = 4096
+      ram_dedicated = 8192
 #      igpu          = true
     }
     "ctrl-01" = {
@@ -41,8 +41,8 @@ module "talos" {
       ip            = "192.168.50.101"
       mac_address   = "BC:24:11:2E:C8:01"
       vm_id         = 801
-      cpu           = 4
-      ram_dedicated = 4096
+      cpu           = 8
+      ram_dedicated = 8192
 #      igpu          = true
     }
     "ctrl-02" = {
@@ -51,8 +51,8 @@ module "talos" {
       ip            = "192.168.50.102"
       mac_address   = "BC:24:11:2E:C8:02"
       vm_id         = 802
-      cpu           = 4
-      ram_dedicated = 4096
+      cpu           = 8
+      ram_dedicated = 8192
     }
     "work-00" = {
       host_node     = "proxmox"

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nexus
+  name: sonatype-registry
   namespace: nexus
   labels:
-      app: nexus
+      app: sonatype-registry
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nexus
+      app: sonatype-registry
   template:
     metadata:
     labels:
-      app: nexus
+      app: sonatype-registry
     spec:
       containers:
         - image: sonatype/nexus3
@@ -27,4 +27,4 @@ spec:
       volumes:
         - name: registry-vol
           persistentVolumeClaim:
-          claimName: nexus-pvc
+          claimName: pvc-nexus

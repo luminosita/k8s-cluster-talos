@@ -12,6 +12,8 @@ spec:
         revision: HEAD
         directories:
           - path: k8s/apps/internal/*
+          - path: k8s/apps/internal/ejabberd
+            exclude: true
   template:
     metadata:
       name: '{{ path.basename }}'

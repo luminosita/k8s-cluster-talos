@@ -1,0 +1,18 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  annotations:
+    karpenter.sh/do-not-evict: "true"
+  name: runner-ubuntu-custom-go-plugin
+  namespace: gh-actions
+spec:
+  template:
+    spec:
+      labels:
+        - luminosita-ubuntu
+      image: summerwind/actions-runner:latest
+      repository: luminosita/custom-go-plugin
+      # resources:
+      #   requests:
+      #     cpu: 1500m
+      #     memory: 2000Mi

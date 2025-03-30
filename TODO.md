@@ -38,6 +38,7 @@
     - [x] Wikijs
     - [ ] Mattermost
     - [ ] NextCloud
+    - [ ] OpenProject
     - [x] OpenId Connect
     - [ ] Coder Full Environment (coder.com)
     - [x] oauth2-proxy
@@ -46,6 +47,7 @@
     - [ ] OPA OIDC integration (https://www.openpolicyagent.org/docs/latest/oauth-oidc/)
     - [ ] Key rotation
     - [ ] Revoke token
+- [ ] Supabase
 
 # Authorization
 - [ ] OPA
@@ -82,6 +84,7 @@
 - [ ] MySql (MariaDB)
 - [x] OpenLDAP
 - [x] Minio Dev
+- [ ] Supabase
 
 # K8s Apps
 - [x] VS Code (web)
@@ -94,9 +97,10 @@
 - [ ] Emisia SVN Repository on VM
 - [ ] Nextcloud (Glasskube operators)
 - [ ] Odoo (Glasskube operators)
+- [ ] OpenProject
 
 # API Gateway
-- [ ] Tyk
+- [ ] Tyk/KrakenD
     - [ ] API Audit
     - [ ] Custom Operator
     - [ ] Goplugins

@@ -13,25 +13,11 @@ output
 
 **/.DS_Store
 
-*.tfvars
-*.tfvars.json
-
 *.lock.hcl
 
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
+tmp/
 
-*.qcow2
-*.raw
+*/config/certificate
 
 *.cert
 *.key
-
-tmp/
-tf/users.json
-tf/groups.json
-tf/bootstrap.ldif
-tf/sealed-secrets.cert
-tf/sealed-secrets.key

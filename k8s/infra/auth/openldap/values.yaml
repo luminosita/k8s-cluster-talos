@@ -444,7 +444,7 @@ volumePermissions:
   image:
     registry: docker.io
     repository: bitnami/bitnami-shell
-    tag: 10-debian-10
+    tag: 10-debian-10-r446
     pullPolicy: IfNotPresent
 
   ## Command to execute during the volumePermission startup

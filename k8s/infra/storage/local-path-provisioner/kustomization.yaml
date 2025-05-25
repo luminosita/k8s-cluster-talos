@@ -6,7 +6,7 @@ kind: Kustomization
 
 
 resources:
-  - https://github.com/rancher/local-path-provisioner/deploy?ref=v0.0.29
+  - https://github.com/rancher/local-path-provisioner/deploy?ref=v0.0.31
 patches:
   - patch: |-
       kind: ConfigMap
